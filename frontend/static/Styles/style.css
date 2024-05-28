@@ -16,6 +16,71 @@
 
 /* --------------------------------------- ESTILOS LUCAS ---------------------------------------*/
 
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.footer-links, .footer-extra {
+    flex: 1;
+}
+
+.footer-title {
+    flex: 2;
+    text-align: center;
+}
+
+.footer-title i {
+    display: block;
+    margin: 0 auto 10px;
+    font-size: 50px;
+}
+
+.footer-links ul, .footer-extra ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li, .footer-extra ul li{
+    margin: 10px 0;
+}
+
+.footer-links ul li a, .footer-social-media a, .footer-extra ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links ul li a:hover, .footer-social-media a:hover, .footer-extra ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-social-media {
+    margin: 20px 0;
+}
+
+.footer-social-media a {
+    margin: 0 10px;
+}
+
+.footer-social-media img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-copyright {
+    background-color: #222;
+    padding: 10px 0;
+    margin-top: 20px;
+}
 
 /* --------------------------------------- ESTILOS DANIEL ---------------------------------------*/
 
