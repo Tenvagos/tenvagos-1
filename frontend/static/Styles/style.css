@@ -8,7 +8,6 @@
 
 
 
-
 /* --------------------------------------- ESTILOS HAROLD ---------------------------------------*/
 
 
@@ -20,3 +19,283 @@
 
 /* --------------------------------------- ESTILOS DANIEL ---------------------------------------*/
 
+#daniel .section {
+    width: 100%;
+    min-height: 80vh;
+    background-color: #ffffff;
+}
+
+#daniel .container{
+    width: 80%;
+    display: block;
+    margin: auto;
+    padding-top:100px;
+}
+
+#daniel .content-section{
+    float: right;
+    width: 55%;
+}
+
+#daniel .image-section{
+    float: left;
+    width: 33%;
+}
+
+#daniel .image-section img{
+    width: 100%;
+    height: auto;
+}
+
+#daniel .content-section .title{
+    text-transform: uppercase;
+    font-size: 28px;
+}
+
+
+
+
+#daniel .content-section .content h3{
+    margin-top: 20px;
+    color: #1100ff;
+    font-size: 21px;
+}
+
+#daniel .content-section .content p{
+    color: #000000;
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+#daniel .content-section .content .button{
+    margin-top: 30px;
+}
+
+#daniel .content-section .content .button a{
+    background-color: #1100ff;
+    padding: 12px 40px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+    letter-spacing: 1.5px;
+}
+
+#daniel .content-section .content .button a:hover{
+    background-color: blue;
+    color: #ffffff;
+}
+
+#daniel .content-section .social{
+    margin: 40px -5px;
+}
+
+#daniel .content-section .social i{
+    color: blue;
+    font-size: 22px;
+    padding: 0px 10px;
+}
+
+#daniel .content-section .social i:hover{
+    color:#464646;
+}
+
+@media screen and (max-width: 768px){
+    #daniel .container{
+        width: 80%;
+        display: block;
+        margin: auto;
+        padding-top: 50px;
+    }
+    #daniel .content-section{
+        float: none;
+        width: 100%;
+        display: block;
+        margin: auto;
+    }
+    #daniel .image-section{
+        float: none;
+        width: 100%;
+    }
+    #daniel .image-section img{
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: auto;
+    }
+    #daniel .content-section .title{
+        text-align: center;
+        font-size: 19px;
+    }
+    #daniel .content-section .content .button{
+        text-align: center;
+    }
+    #daniel .content-section .content .button a{
+        padding: 9px 30px;
+    }
+    #daniel .content-section .social{
+        text-align: center;
+    }
+}
+
+
+
+
+
+/* --------------------------------------- testimonios - Daniel ---------------------------------------*/
+
+
+
+
+
+
+
+
+#daniel html{
+    font-weight: 200;
+}
+
+#daniel h1, h2, h3, h4 ,h5 ,h6, p{
+    margin: 0;
+    padding: 0;
+}
+.daniel{
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+
+.testimonials{
+    padding-top: 40px;
+    padding-bottom: 2.2em; 
+    text-align: center;
+    color: #666;
+}
+.testimonials h1{
+    color: #222;
+    font-size: 2.0em;
+}
+.testimonials .test-body{padding: 1em;}
+.testimonials .item{ 
+    text-align: center;
+    padding: 1em 0;
+}
+.testimonials img{
+    width: 4.8em;
+    height: 4.8em;
+    border-radius: 50%;
+}
+.testimonials .name{color: blue;}
+.testimonials .desig{
+    font-size: 0.7em;
+    padding: 0.5em 0;
+    color: #777;
+}
+.testimonials .share{
+    margin: 0 auto;
+    width: 5em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+.testimonials i{
+    color: #bfbfbf;
+    padding: 0.5em 0;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.testimonials i:hover{color: blue;}
+.testimonials p{
+    justify-content: center;
+    max-width: 27em;
+    margin: 0 auto;
+    font-size: 0.8em;
+}
+
+
+@media (min-width: 38.4rem){
+    .testimonials{
+        font-size: 1.2em;
+    }
+    .testimonials .test-body{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    }
+    .testimonials p{
+        text-align: left;
+        padding: 1em;
+    }
+}
+
+/* --------------------------------------- partners - Daniel ---------------------------------------*/
+
+.partner-slide{
+    margin-top: 100px ;
+    margin-bottom: 100px ;
+  }
+  
+  .partner-slide h1{
+    font-size: 40px;
+    font-weight: 900;
+    text-align: center;
+  }
+  
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .logos {
+    overflow: hidden;
+    padding: 60px 0;
+    background: var(--lightest);
+    white-space: nowrap;
+    position: relative;
+  }
+  
+  .logos:before,
+  .logos:after {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+  }
+  
+  .logos:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--lightest));
+  }
+  
+  .logos:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--lightest));
+  }
+  
+  .logos:hover .logos-slide {
+    animation-play-state: paused;
+  }
+  
+  .logos-slide {
+    display: inline-block;
+    animation: 35s slide infinite linear;
+  }
+  
+  .logos-slide img {
+    height: 120px;
+    margin: 0 40px;
+  }
