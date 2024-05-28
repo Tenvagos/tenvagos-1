@@ -16,6 +16,42 @@
 
 /* --------------------------------------- ESTILOS LUCAS ---------------------------------------*/
 
+/* --------------------------------------- Servicios - Lucas ---------------------------------------*/
+
+.servicios-section {
+    background-color: #f7f7f7;
+    padding: 60px 0;
+}
+
+.servicios-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.servicio-item {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.servicio-img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 5px solid #fff; 
+}
+
+.servicio-item h3 {
+    font-size: 18px;
+    margin-top: 15px;
+    color: #333;
+}
+
+/* --------------------------------------- Footer - Lucas ---------------------------------------*/
+
 footer {
     background-color: #333;
     color: white;
