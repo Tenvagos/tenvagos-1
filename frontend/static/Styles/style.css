@@ -36,18 +36,16 @@
 }
 
 .servicio-img {
-    width: 200px;
-    height: 200px;
+    width: 40px;
+    height: 40px;
     margin-bottom: 20px;
-    object-fit: cover;
-    border-radius: 20px;
     border: 5px solid #fff; 
 }
 
 .servicio-item h3 {
     font-size: 18px;
     margin-top: 15px;
-    color: #333;
+    color: #3b607b;
 }
 
 /* --------------------------------------- Footer - Lucas ---------------------------------------*/
@@ -96,7 +94,7 @@ footer {
 }
 
 .footer-links ul li a:hover, .footer-social-media a:hover, .footer-extra ul li a:hover {
-    text-decoration: underline;
+    color: #0866ff;
 }
 
 .footer-social-media {
