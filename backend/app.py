@@ -8,21 +8,21 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-usuario = os.getenv('DB_USER')
-contrasenia = os.getenv('DB_PASSWORD')
+user = os.getenv('DB_USER')
+password = os.getenv('DB_PASSWORD')
 host = os.getenv('DB_HOST')
 db =  os.getenv('DB_NAME')
 
 
 app = Flask(__name__)
-engine = create_engine(f'mysql+mysqlconnector://{usuario}:{contrasenia}@{host}/{db}')
+engine = create_engine(f'mysql+mysqlconnector://{user}@{host}/{db}')
 
 
-@app.route('/habitaciones', methods = ['GET'])
+@app.route('/rooms', methods = ['GET'])
 def users():
     conn = engine.connect()
     
-    query = "SELECT * FROM habitaciones;"
+    query = "SELECT * FROM rooms;"
     try:
         result = conn.execute(text(query))
         conn.close()
@@ -34,20 +34,20 @@ def users():
     for row in result:
         entity = {}
         entity['id'] = row.id
-        entity['nombre'] = row.nombre
-        entity['cantidad'] = row.cantidad
-        entity['precio'] = row.precio
-        entity['estrellas'] = row.estrellas
+        entity['name'] = row.name
+        entity['capacity'] = row.capacity
+        entity['price'] = row.price
+        entity['stars'] = row.stars
         data.append(entity)
 
     return jsonify(data), 200
 
 
-@app.route('/cear_habitacion', methods = ['POST'])
+@app.route('/create_room', methods = ['POST'])
 def create_user():
     conn = engine.connect()
     new_user = request.get_json()
-    query = f"""INSERT INTO habitaciones (id, nombre, cantidad, precio, estrellas) VALUES {new_user["id"], new_user["nombre"] ,new_user["cantidad"],new_user["precio"],new_user["estrellas"]};"""
+    query = f"""INSERT INTO rooms (id, name, capacity, price, stars) VALUES {new_user["id"], new_user["name"] ,new_user["capacity"],new_user["price"],new_user["stars"]};"""
     try:
         conn.execute(text(query))
         conn.commit()
@@ -59,14 +59,14 @@ def create_user():
 
 
 
-@app.route('/habitacion/<id>', methods = ['PATCH'])
+@app.route('/room/<id>', methods = ['PATCH'])
 def update_user(id):
     conn = engine.connect()
     mod_user = request.get_json()
-    query = f"""UPDATE habitaciones SET nombre = '{mod_user['nombre']}'
+    query = f"""UPDATE rooms SET name = '{mod_user['name']}'
                 WHERE id = {id};
             """
-    query_validation = f"SELECT * FROM habitaciones WHERE id = {id};"
+    query_validation = f"SELECT * FROM rooms WHERE id = {id};"
     try:
         val_result = conn.execute(text(query_validation))
         if val_result.rowcount!=0:
@@ -80,11 +80,11 @@ def update_user(id):
         return jsonify({'message': str(err.__cause__)})
     return jsonify({'message': 'se ha modificado correctamente la habitacion '}), 200
 
-@app.route('/habitaciones/<id>', methods = ['GET'])
+@app.route('/rooms/<id>', methods = ['GET'])
 def get_user(id):
     conn = engine.connect()
     query = f"""SELECT *
-            FROM habitaciones
+            FROM rooms
             WHERE id = {id};
             """
     try:
@@ -97,21 +97,21 @@ def get_user(id):
         data = {}
         row = result.first()
         data['id'] = row[0]
-        data['nombre'] = row[1]
-        data['cantidad'] = row[2]
-        data['precio'] = row[3]
-        data['estrellas'] = row[4]
+        data['name'] = row[1]
+        data['capacity'] = row[2]
+        data['price'] = row[3]
+        data['stars'] = row[4]
         return jsonify(data), 200
     return jsonify({"message": "La habitacion no existe"}), 404
 
 
-@app.route('/habitaciones/<id>', methods = ['DELETE'])
+@app.route('/rooms/<id>', methods = ['DELETE'])
 def delete_user(id):
     conn = engine.connect()
-    query = f"""DELETE FROM habitaciones
+    query = f"""DELETE FROM rooms
             WHERE id = {id};
             """
-    validation_query = f"SELECT * FROM habitaciones WHERE id = {id}"
+    validation_query = f"SELECT * FROM rooms WHERE id = {id}"
     try:
         val_result = conn.execute(text(validation_query))
         if val_result.rowcount != 0 :
@@ -124,6 +124,7 @@ def delete_user(id):
     except SQLAlchemyError as err:
         jsonify(str(err.__cause__))
     return jsonify({'message': 'Se ha eliminado correctamente la habitacion'}), 202
+
 
 
 if __name__ == "__main__":
