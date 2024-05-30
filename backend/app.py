@@ -128,7 +128,7 @@ def delete_user(id):
 ### CRUD reserves
 
 @app.route('/reserves',methods =['GET'])
-def users():
+def reserves():
     conn = engine.connect()
 
     query = "SELECT * FROM reserves;"        
@@ -148,6 +148,7 @@ def users():
         entity['entry_date']=row.entry_date
         entity['departure_date'] = row.departure_date
         entity['created_at'] = row.created_at
+        entity['modified_at'] = row.modified_at
         data.append(entity)
 
     return jsonify(data), 200
@@ -171,7 +172,7 @@ def create_reserve():
 def update_reserve(id_reserve):
     conn = engine.connect()
     mod_user = request.get_json()
-    query = f"""UPDATE reserves SET entry_date = '{mod_user['entry_date']}', departure_date = '{mod_user['departure_date']}', WHERE id_reserve = {id_reserve};
+    query = f"""UPDATE reserves SET entry_date = '{mod_user['entry_date']}', departure_date = '{mod_user['departure_date']}' WHERE id_reserve = {id_reserve};
             """
     query_validation = f"SELECT * FROM rooms WHERE id_reserve = {id_reserve};"
     try:
@@ -203,11 +204,13 @@ def get_reserve(id_reserve):
     if result.rowcount !=0:
         data = {}
         row = result.first()
-        data['id'] = row[0]
-        data['name'] = row[1]
-        data['capacity'] = row[2]
-        data['price'] = row[3]
-        data['stars'] = row[4]
+        data['id_reserve'] = row[0]
+        data['email'] = row[1]
+        data['id_room'] = row[2]
+        data['entry_date'] = row[3]
+        data['departure_date'] = row[4]
+        data['created_at'] = row[5]
+        data['modified_at'] = row[6]
         return jsonify(data), 200
     return jsonify({"message": "La reserva no existe"}), 404
 
