@@ -125,13 +125,13 @@ def delete_user(id):
         jsonify(str(err.__cause__))
     return jsonify({'message': 'Se ha eliminado correctamente la habitacion'}), 202
 
-### CRUD RESERVAS
+### CRUD reserves
 
-@app.route('/reservas',methods =['GET'])
+@app.route('/reserves',methods =['GET'])
 def users():
     conn = engine.connect()
 
-    query = "SELECT * FROM reservas;"        
+    query = "SELECT * FROM reserves;"        
     try:
         result = conn.execute(text(query))
         conn.close()
@@ -142,21 +142,21 @@ def users():
     data = []
     for row in result:
         entity = {}
-        entity['id_reserva'] = row.email
-        entity['id_habitacion'] = row.id_habitacion
-        entity['id_usuario'] = row.id_usuario
-        entity['fecha_entrada']=row.fecha_entrada
-        entity['fecha_salida'] = row.fecha_salida
+        entity['id_reserve'] = row.id_reserve
+        entity['id_room'] = row.id_room
+        entity['email'] = row.email
+        entity['entry_date']=row.entry_date
+        entity['departure_date'] = row.departure_date
         entity['created_at'] = row.created_at
         data.append(entity)
 
     return jsonify(data), 200
 
-@app.route('/crear_reserva', methods = ['POST'])
-def crear_reserva():
+@app.route('/create_reserve', methods = ['POST'])
+def create_reserve():
     conn = engine.connect()
-    nueva_reserva = request.get_json()
-    query = f"""INSERT INTO reservas (email,id_habitacion,fecha_entrada, fecha_salida) VALUES ('{nueva_reserva["email"]}', '{nueva_reserva["id_habitacion"]}', '{nueva_reserva["fecha_entrada"]}', '{nueva_reserva["fecha_salida"]}'); """
+    new_reserve = request.get_json()
+    query = f"""INSERT INTO reserves (email,id_room,entry_date, departure_date) VALUES ('{new_reserve["email"]}', '{new_reserve["id_room"]}', '{new_reserve["entry_date"]}', '{new_reserve["departure_date"]}'); """
     
     try:
         result = conn.execute(text(query))
@@ -167,13 +167,13 @@ def crear_reserva():
     
     return jsonify({'message': 'se ha creado la reserva correctamente' }), 201
 
-@app.route('/reservas/<id_reserva>', methods = ['PATCH'])
-def update_reserva(id_reserva):
+@app.route('/reserves/<id_reserve>', methods = ['PATCH'])
+def update_reserve(id_reserve):
     conn = engine.connect()
     mod_user = request.get_json()
-    query = f"""UPDATE reservas SET fecha_entrada = '{mod_user['fecha_entrada']}', fecha_salida = '{mod_user['fecha_salida']}', WHERE id_reserva = {id_reserva};
+    query = f"""UPDATE reserves SET entry_date = '{mod_user['entry_date']}', departure_date = '{mod_user['departure_date']}', WHERE id_reserve = {id_reserve};
             """
-    query_validation = f"SELECT * FROM habitaciones WHERE id_reserva = {id_reserva};"
+    query_validation = f"SELECT * FROM rooms WHERE id_reserve = {id_reserve};"
     try:
         val_result = conn.execute(text(query_validation))
         if val_result.rowcount!=0:
@@ -187,12 +187,12 @@ def update_reserva(id_reserva):
         return jsonify({'message': str(err.__cause__)})
     return jsonify({'message': 'Se ha modificado la reserva correctamente'}), 200
 
-@app.route('/reservas/<id_reservas>', methods = ['GET'])
-def get_reserva(id_reservas):
+@app.route('/reserves/<id_reserve>', methods = ['GET'])
+def get_reserve(id_reserve):
     conn = engine.connect()
     query = f"""SELECT *
-            FROM reservas
-            WHERE id_reservas = {id_reservas};
+            FROM reserves
+            WHERE id_reserves = {id_reserve};
             """
     try:
         result = conn.execute(text(query))
@@ -204,21 +204,21 @@ def get_reserva(id_reservas):
         data = {}
         row = result.first()
         data['id'] = row[0]
-        data['nombre'] = row[1]
-        data['cantidad'] = row[2]
-        data['precio'] = row[3]
-        data['estrellas'] = row[4]
+        data['name'] = row[1]
+        data['capacity'] = row[2]
+        data['price'] = row[3]
+        data['stars'] = row[4]
         return jsonify(data), 200
     return jsonify({"message": "La reserva no existe"}), 404
 
 
-@app.route('/reservas/<id_reservas>', methods = ['DELETE'])
-def delete_reserva(id_reserva):
+@app.route('/reserves/<id_reserve>', methods = ['DELETE'])
+def delete_reserve(id_reserve):
     conn = engine.connect()
-    query = f"""DELETE FROM reservas
-            WHERE id_reserva = {id_reserva};
+    query = f"""DELETE FROM reserves
+            WHERE id_reserve = {id_reserve};
             """
-    validation_query = f"SELECT * FROM reserva WHERE id_reserva = {id_reserva}"
+    validation_query = f"SELECT * FROM reserve WHERE id_reserve = {id_reserve}"
     try:
         val_result = conn.execute(text(validation_query))
         if val_result.rowcount != 0 :
