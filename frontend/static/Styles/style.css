@@ -1,14 +1,313 @@
 /* --------------------------------------- ESTILOS GENERALES ---------------------------------------*/
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-
-
-
-
-
+body {
+  font-family: "Nunito", sans-serif;
+}
 
 
 /* --------------------------------------- ESTILOS HAROLD ---------------------------------------*/
+
+#harold img {
+  max-width: 100%;
+}
+
+header {
+  background: linear-gradient(to right, #b4b8b4, #464745);
+  padding: 0.5rem 0;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  text-align: center;
+}
+
+#harold .container {
+  width: 95%;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+#harold .col {
+  width: 100%;
+}
+
+#harold .nav {
+  width: 100%;
+  visibility: hidden;
+  height: 0;
+  position: absolute;
+  font-size: 1rem;
+}
+#harold .nav .nav__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#harold .nav .nav__list .nav__item {
+  margin-top: 0.75rem;
+}
+#harold .nav .nav__list .nav__item .nav__link {
+  color: black;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+#harold .nav-toggle {
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 3rem;
+  height: 3rem;
+  padding: 0em;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.55);
+  transition: opacity 250ms ease;
+  position: absolute;
+  left: 0;
+}
+
+#harold .nav-toggle:focus,
+#harold .nav-toggle:hover {
+  opacity: 0.75;
+}
+
+#harold .hamburger {
+  width: 50%;
+  position: relative;
+}
+
+#harold .hamburger,
+#harold .hamburger::before,
+#harold .hamburger::after {
+  display: block;
+  margin: 0 auto;
+  height: 3px;
+  background: white;
+}
+
+#harold .hamburger::before,
+#harold .hamburger::after {
+  content: "";
+  width: 100%;
+}
+
+#harold .hamburger::before {
+  transform: translateY(-6px);
+}
+
+#harold .hamburger::after {
+  transform: translateY(3px);
+}
+
+#harold .nav--visible {
+  visibility: visible;
+  height: auto;
+  position: relative;
+}
+
+#harold .nav__list--primary {
+  margin-bottom: 2rem;
+}
+
+#harold .nav__link:hover,
+#harold .nav__link:focus {
+  opacity: 0.65;
+}
+
+#harold .logo {
+  margin-right: 1rem;
+}
+
+#harold .nav__link--button {
+  display: none;
+  position: relative;
+  background: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.93rem 3.3rem 0.93rem 1.2rem;
+  font-weight: 700;
+  border: 0.1rem solid white;
+  border-radius: 50rem;
+  cursor: pointer;
+  z-index: 1;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+
+#harold .nav__link--button1 {
+  text-decoration: none;
+  color: rgb(43, 43, 43);
+  font-size: 1.3em;
+}
+
+#harold .nav__link--button span {
+  position: absolute;
+  background-color: #0866FF;
+  width: 2.5rem;
+  height: 2.5rem;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+#harold .nav__link--button span i {
+  color: white;
+  font-size: 1rem;
+  line-height: 2.5rem;
+}
+
+#harold .nav__link--button:hover {
+  color: white;
+}
+#harold .nav__link--button:hover span {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+#harold .nav__link--button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 100%;
+  background: #0866FF;
+  z-index: -1;
+  border-radius: 0 0 50% 50%;
+  transition: all 0.5s;
+}
+
+#harold .nav__link--button:hover:before {
+  height: 190%;
+}
+
+/*INTRO SECTION*/
+#harold .intro-section {
+  background: #f1f1f1;
+  padding: 2rem 0 2rem 0;
+  height: 100%;
+  width: 100%;
+}
+
+#harold .display-2 {
+  margin-bottom: 1rem;
+  text-transform: none;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+#harold .display-2--name {
+  font-family: "Dancing Script", cursive;
+  display: block;
+  text-align: center;
+  font-size: 2.2rem;
+  margin-top: 1.2rem;
+  text-transform: none;
+  color:#296D9E;
+}
+
+#harold .display-2--intro {
+  display: inline-block;
+  font-weight: 700;
+  text-align: center;
+  color:black;
+  font-family: "Raleway";
+}
+
+#harold .display-2--description {
+  display: block;
+  text-align: center;
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 1.2rem;
+  text-transform: none;
+  color:#004CC8;
+}
+
+/*MEDIA QUERIES*/
+@media (min-width: 768px) {
+  #harold .container {
+    width: 80%;
+  }
+  #harold .nav-toggle {
+    display: none;
+  }
+  #harold .nav {
+    visibility: visible;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: auto;
+    position: relative;
+  }
+  #harold .nav__list {
+    display: flex;
+    margin: 0;
+  }
+  #harold .nav__item {
+    margin: 0 0 0 1.5rem;
+  }
+  #harold .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #harold .img-box {
+    margin-top: 0;
+    text-align: right;
+  }
+  #harold .display-2 {
+    font-size: 3.4rem;
+  }
+  #harold .display-2--name {
+    font-family: "Dancing Script", cursive;
+    font-size: 2.4rem;
+    display: inline-block;
+    color:#296D9E;
+  }
+  #harold .display-2--intro {
+    text-align: left;
+    font-family: "Raleway";
+  }
+  #harold .display-2--description {
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: bold;
+    display: inline-block;
+    text-align: left;
+    color:#004CC8;
+  }
+}
+@media (min-width: 1024px) {
+  #harold .display-2 {
+    font-size: 4.5rem;
+  }
+  #harold .display-2--name {
+    font-family: "Dancing Script", cursive;
+    font-size: 2.9rem;
+    display: inline-block;
+    color:#296D9E;
+  }
+  #harold .display-2--description {
+    font-size: 1.4rem;
+    font-style: italic;
+    font-weight: bold;
+    display: inline-block;
+    text-align: left;
+    color:#004CC8;
+  }
+  #harold.nav__link--button {
+    display: block;
+  }
+}
+    
 
 
 /* --------------------------------------- ESTILOS GASTON ---------------------------------------*/
