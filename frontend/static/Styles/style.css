@@ -13,7 +13,7 @@ body {
 
 /* --------------------------------------- ESTILOS HAROLD ---------------------------------------*/
 
-#harold img {
+#harold img-harold {
   max-width: 100%;
 }
 
@@ -27,38 +27,38 @@ header {
   text-align: center;
 }
 
-#harold .container {
+#harold .container-harold {
   width: 95%;
   max-width: 1320px;
   margin: 0 auto;
 }
 
-#harold .col {
+#harold .col-harold {
   width: 100%;
 }
 
-#harold .nav {
+#harold .nav-harold {
   width: 100%;
   visibility: hidden;
   height: 0;
   position: absolute;
   font-size: 1rem;
 }
-#harold .nav .nav__list {
+#harold .nav-harold .nav__list-harold {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-#harold .nav .nav__list .nav__item {
+#harold .nav-harold .nav__list-harold .nav__item-harold {
   margin-top: 0.75rem;
 }
-#harold .nav .nav__list .nav__item .nav__link {
+#harold .nav-harold .nav__list-harold .nav__item-harold .nav__link-harold {
   color: black;
   text-transform: uppercase;
   text-decoration: none;
 }
 
-#harold .nav-toggle {
+#harold .nav-toggle-harold {
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.1);
   width: 3rem;
@@ -72,51 +72,51 @@ header {
   left: 0;
 }
 
-#harold .nav-toggle:focus,
-#harold .nav-toggle:hover {
+#harold .nav-toggle-harold:focus,
+#harold .nav-toggle-harold:hover {
   opacity: 0.75;
 }
 
-#harold .hamburger {
+#harold .hamburger-harold {
   width: 50%;
   position: relative;
 }
 
-#harold .hamburger,
-#harold .hamburger::before,
-#harold .hamburger::after {
+#harold .hamburger-harold,
+#harold .hamburger-harold::before,
+#harold .hamburger-harold::after {
   display: block;
   margin: 0 auto;
   height: 3px;
   background: white;
 }
 
-#harold .hamburger::before,
-#harold .hamburger::after {
+#harold .hamburger-harold::before,
+#harold .hamburger-harold::after {
   content: "";
   width: 100%;
 }
 
-#harold .hamburger::before {
+#harold .hamburger-harold::before {
   transform: translateY(-6px);
 }
 
-#harold .hamburger::after {
+#harold .hamburger-harold::after {
   transform: translateY(3px);
 }
 
-#harold .nav--visible {
+#harold .nav--visible-harold {
   visibility: visible;
   height: auto;
   position: relative;
 }
 
-#harold .nav__list--primary {
+#harold .nav__list--primary-harold {
   margin-bottom: 2rem;
 }
 
-#harold .nav__link:hover,
-#harold .nav__link:focus {
+#harold .nav__link-harold:hover,
+#harold .nav__link-harold:focus {
   opacity: 0.65;
 }
 
@@ -124,7 +124,7 @@ header {
   margin-right: 1rem;
 }
 
-#harold .nav__link--button {
+#harold .nav__link--button-harold {
   display: none;
   position: relative;
   background: #ffffff;
@@ -140,13 +140,13 @@ header {
   transition: all 0.5s;
 }
 
-#harold .nav__link--button1 {
+#harold .nav__link--button1-harold {
   text-decoration: none;
   color: rgb(43, 43, 43);
   font-size: 1.3em;
 }
 
-#harold .nav__link--button span {
+#harold .nav__link--button-harold span {
   position: absolute;
   background-color: #0866FF;
   width: 2.5rem;
@@ -156,20 +156,20 @@ header {
   transform: translateY(-50%);
   border-radius: 50%;
 }
-#harold .nav__link--button span i {
+#harold .nav__link--button-harold span i {
   color: white;
   font-size: 1rem;
   line-height: 2.5rem;
 }
 
-#harold .nav__link--button:hover {
+#harold .nav__link--button-harold:hover {
   color: white;
 }
-#harold .nav__link--button:hover span {
+#harold .nav__link--button-harold:hover span {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-#harold .nav__link--button:before {
+#harold .nav__link--button-harold:before {
   content: "";
   position: absolute;
   top: 0;
@@ -182,7 +182,7 @@ header {
   transition: all 0.5s;
 }
 
-#harold .nav__link--button:hover:before {
+#harold .nav__link--button-harold:hover:before {
   height: 190%;
 }
 
@@ -233,13 +233,13 @@ header {
 
 /*MEDIA QUERIES*/
 @media (min-width: 768px) {
-  #harold .container {
+  #harold .container-harold {
     width: 80%;
   }
-  #harold .nav-toggle {
+  #harold .nav-toggle-harold {
     display: none;
   }
-  #harold .nav {
+  #harold .nav-harold {
     visibility: visible;
     display: flex;
     align-items: center;
@@ -247,19 +247,19 @@ header {
     height: auto;
     position: relative;
   }
-  #harold .nav__list {
+  #harold .nav__list-harold {
     display: flex;
     margin: 0;
   }
-  #harold .nav__item {
+  #harold .nav__item-harold {
     margin: 0 0 0 1.5rem;
   }
-  #harold .row {
+  #harold .row-harold {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  #harold .img-box {
+  #harold .img-box-harold {
     margin-top: 0;
     text-align: right;
   }
@@ -303,7 +303,7 @@ header {
     text-align: left;
     color:#004CC8;
   }
-  #harold.nav__link--button {
+  #harold.nav__link--button-harold {
     display: block;
   }
 }
