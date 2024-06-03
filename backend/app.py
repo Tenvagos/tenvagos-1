@@ -63,14 +63,26 @@ def create_room():
 def update_room(id):
     conn = engine.connect()
     mod_user = request.get_json()
-    query = f"""UPDATE rooms SET name = '{mod_user['name']}'
-                WHERE id_room = {id};
-            """
+
+    if not mod_user:
+        return ValueError("Ingrese los datos a actualizar")
+
+    set_pairs = []
+
+    for key, value in mod_user.items():
+        set_pairs.append(f"{key} = '{value}'")
+
+    set_clause = ", ".join(set_pairs)
+
+    query = f"UPDATE rooms SET {set_clause} WHERE id_room = {id}"
+
+
     query_validation = f"SELECT * FROM rooms WHERE id_room = {id};"
     try:
         val_result = conn.execute(text(query_validation))
         if val_result.rowcount!=0:
             result = conn.execute(text(query))
+
             conn.commit()
             conn.close()
         else:
@@ -102,7 +114,7 @@ def get_room(id):
         data['price'] = row[3]
         data['stars'] = row[4]
         return jsonify(data), 200
-    return jsonify({"message": "La habitacion no existe"}), 404
+    return jsonify({"message": f"La habitacion con id {id} no existe"}), 404
 
 
 @app.route('/rooms/<id>', methods = ['DELETE'])
@@ -120,7 +132,7 @@ def delete_room(id):
             conn.close()
         else:
             conn.close()
-            return jsonify({"message": "la habitacion no existe"}), 404
+            return jsonify({"message": f"la habitacion con el id {id} no existe"}), 404
     except SQLAlchemyError as err:
         jsonify(str(err.__cause__))
     return jsonify({'message': 'Se ha eliminado correctamente la habitacion'}), 202
@@ -143,6 +155,7 @@ def users():
     data = []
     for row in result:
         entity = {}
+        entity['id_user'] = row.id_user
         entity['email'] = row.email
         entity['password'] = row.password
         entity['name'] = row.name
@@ -173,9 +186,19 @@ def create_user():
 def update_user(id):
     conn = engine.connect()
     mod_user = request.get_json()
-    query = f"""UPDATE rooms SET name = '{mod_user['name']}'
-                WHERE id_user = {id};
-            """
+
+    if not mod_user:
+        return ValueError("Ingrese los datos a actualizar")
+
+    set_pairs = []
+
+    for key, value in mod_user.items():
+        set_pairs.append(f"{key} = '{value}'")
+
+    set_clause = ", ".join(set_pairs)
+
+    query = f"UPDATE users SET {set_clause} WHERE id_user = {id}"
+
     query_validation = f"SELECT * FROM users WHERE id_user = {id};"
     try:
         val_result = conn.execute(text(query_validation))
@@ -206,11 +229,12 @@ def get_user(id):
     if result.rowcount !=0:
         data = {}
         row = result.first()
-        data['email'] = row[0]
-        data['password'] = row[1]
-        data['name'] = row[2]
-        data['admin'] = row[3]
-        data['created_at'] = row[4]
+        data['id_user'] = row[0]
+        data['name'] = row[1]
+        data['password'] = row[2]
+        data['email'] = row[3]
+        data['admin'] = row[4]
+        data['created_at'] = row[5]
         return jsonify(data), 200
     return jsonify({"message": "El usuario no existe"}), 404
 
@@ -218,10 +242,10 @@ def get_user(id):
 @app.route('/users/<id>', methods = ['DELETE'])
 def delete_user(id):
     conn = engine.connect()
-    query = f"""DELETE FROM rooms
+    query = f"""DELETE FROM users
             WHERE id_user = {id};
             """
-    validation_query = f"SELECT * FROM users WHERE email = {id}"
+    validation_query = f"SELECT * FROM users WHERE id_user = {id}"
     try:
         val_result = conn.execute(text(validation_query))
         if val_result.rowcount != 0 :
@@ -254,9 +278,9 @@ def reserves():
         entity = {}
         entity['id_reserve'] = row.id_reserve
         entity['id_room'] = row.id_room
-        entity['email'] = row.email
-        entity['entry_date']=row.entry_date
-        entity['departure_date'] = row.departure_date
+        entity['id_user'] = row.id_user
+        entity['start_date']=row.start_date
+        entity['end_date'] = row.end_date
         entity['created_at'] = row.created_at
         entity['modified_at'] = row.modified_at
         data.append(entity)
@@ -267,7 +291,7 @@ def reserves():
 def create_reserve():
     conn = engine.connect()
     new_reserve = request.get_json()
-    query = f"""INSERT INTO reserves (email,id_room,entry_date, departure_date) VALUES ('{new_reserve["email"]}', '{new_reserve["id_room"]}', '{new_reserve["entry_date"]}', '{new_reserve["departure_date"]}'); """
+    query = f"""INSERT INTO reserves (id_user,id_room,start_date, end_date) VALUES ('{new_reserve["id_user"]}', '{new_reserve["id_room"]}', '{new_reserve["start_date"]}', '{new_reserve["end_date"]}'); """
     
     try:
         result = conn.execute(text(query))
@@ -282,9 +306,20 @@ def create_reserve():
 def update_reserve(id_reserve):
     conn = engine.connect()
     mod_user = request.get_json()
-    query = f"""UPDATE reserves SET entry_date = '{mod_user['entry_date']}', departure_date = '{mod_user['departure_date']}' WHERE id_reserve = {id_reserve};
-            """
-    query_validation = f"SELECT * FROM rooms WHERE id_reserve = {id_reserve};"
+
+    if not mod_user:
+        return ValueError("Ingrese los datos a actualizar")
+
+    set_pairs = []
+
+    for key, value in mod_user.items():
+        set_pairs.append(f"{key} = '{value}'")
+
+    set_clause = ", ".join(set_pairs)
+
+    query = f"UPDATE reserves SET {set_clause} WHERE id_reserve = {id_reserve}"
+
+    query_validation = f"SELECT * FROM reserves WHERE id_reserve = {id_reserve};"
     try:
         val_result = conn.execute(text(query_validation))
         if val_result.rowcount!=0:
@@ -303,7 +338,7 @@ def get_reserve(id_reserve):
     conn = engine.connect()
     query = f"""SELECT *
             FROM reserves
-            WHERE id_reserves = {id_reserve};
+            WHERE id_reserve = {id_reserve};
             """
     try:
         result = conn.execute(text(query))
@@ -315,10 +350,10 @@ def get_reserve(id_reserve):
         data = {}
         row = result.first()
         data['id_reserve'] = row[0]
-        data['email'] = row[1]
+        data['id_user'] = row[1]
         data['id_room'] = row[2]
-        data['entry_date'] = row[3]
-        data['departure_date'] = row[4]
+        data['start_date'] = row[3]
+        data['end_date'] = row[4]
         data['created_at'] = row[5]
         data['modified_at'] = row[6]
         return jsonify(data), 200
@@ -331,7 +366,7 @@ def delete_reserve(id_reserve):
     query = f"""DELETE FROM reserves
             WHERE id_reserve = {id_reserve};
             """
-    validation_query = f"SELECT * FROM reserve WHERE id_reserve = {id_reserve}"
+    validation_query = f"SELECT * FROM reserves WHERE id_reserve = {id_reserve}"
     try:
         val_result = conn.execute(text(validation_query))
         if val_result.rowcount != 0 :
