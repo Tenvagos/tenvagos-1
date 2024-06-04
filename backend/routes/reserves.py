@@ -5,7 +5,7 @@ from sqlalchemy.exc import SQLAlchemyError
 def create_reserves_router(engine):
 
     reservesRouter = Blueprint('reserves', __name__)
-    
+
     @reservesRouter.route('/reserves',methods =['GET'])
     def reserves():
         conn = engine.connect()
@@ -95,8 +95,8 @@ def create_reserves_router(engine):
             data = {}
             row = result.first()
             data['id_reserve'] = row[0]
-            data['id_user'] = row[1]
-            data['id_room'] = row[2]
+            data['id_room'] = row[1]
+            data['id_user'] = row[2]
             data['start_date'] = row[3]
             data['end_date'] = row[4]
             data['created_at'] = row[5]
