@@ -27,6 +27,7 @@ def create_rooms_router(engine):
             entity['capacity'] = row.capacity
             entity['price'] = row.price
             entity['stars'] = row.stars
+            entity['description'] = row.description
             data.append(entity)
 
         return jsonify(data), 200
@@ -36,7 +37,7 @@ def create_rooms_router(engine):
     def create_room():
         conn = engine.connect()
         new_user = request.get_json()
-        query = f"""INSERT INTO rooms (name, capacity, price, stars) VALUES { new_user["name"] ,new_user["capacity"],new_user["price"],new_user["stars"]};"""
+        query = f"""INSERT INTO rooms (name, capacity, price, stars, description ) VALUES { new_user["name"] ,new_user["capacity"],new_user["price"],new_user["stars"], new_user["description"]};"""
         try:
             conn.execute(text(query))
             conn.commit()
@@ -102,6 +103,7 @@ def create_rooms_router(engine):
             data['capacity'] = row[2]
             data['price'] = row[3]
             data['stars'] = row[4]
+            data['description'] = row[5]
             return jsonify(data), 200
         return jsonify({"message": f"La habitacion con id {id} no existe"}), 404
 

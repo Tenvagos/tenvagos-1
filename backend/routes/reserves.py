@@ -36,39 +36,37 @@ def create_reserves_router(engine):
     def create_reserve():
         conn = engine.connect()
         new_reserve = request.get_json()
+   
+        id_room=new_reserve["id_room"]
+        id_user=new_reserve["id_user"] 
+        start_date=new_reserve["start_date"]
+        end_date=new_reserve["end_date"]
         
-        query_check_availability = """
+        query_check_availability = f"""
         SELECT COUNT(*) FROM reserves 
-        WHERE id_room = :id_room AND (
-            (start_date <= :start_date AND end_date >= :start_date) OR 
-            (start_date <= :end_date AND end_date >= :end_date) OR 
-            (start_date >= :start_date AND end_date <= :end_date)
+        WHERE id_room = {id_room} AND (
+            (start_date <= '{start_date}' AND end_date >= '{start_date}') OR 
+            (start_date <= '{end_date}' AND end_date >= '{end_date}') OR 
+            (start_date >= '{start_date}' AND end_date <= '{end_date}')
         )
         """
-        
+
         try:
             availability_result = conn.execute(
-                text(query_check_availability), 
-                id_room=new_reserve["id_room"], 
-                start_date=new_reserve["start_date"], 
-                end_date=new_reserve["end_date"]
+                text(query_check_availability)
             ).fetchone()
             
             if availability_result[0] != 0:
                 conn.close()
                 return jsonify({'message': 'La habitación no está disponible en las fechas seleccionadas'}), 400
             
-            query_insert_reserve = """
+            query_insert_reserve = f"""
             INSERT INTO reserves (id_user, id_room, start_date, end_date) 
-            VALUES (:id_user, :id_room, :start_date, :end_date)
+            VALUES ({id_user}, {id_room}, '{start_date}', '{end_date}')
             """
             
             result = conn.execute(
-                text(query_insert_reserve),
-                id_user=new_reserve["id_user"],
-                id_room=new_reserve["id_room"],
-                start_date=new_reserve["start_date"],
-                end_date=new_reserve["end_date"]
+                text(query_insert_reserve)
             )
             conn.commit()
             conn.close()
