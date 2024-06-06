@@ -5,9 +5,8 @@ CREATE TABLE rooms (
     price DECIMAL(20,2) NOT NULL,
     stars INT NOT NULL,
     description TEXT DEFAULT NULL,
-    url_imagen VARCHAR(256),
+    url_imagen VARCHAR(256) DEFAULT NULL,
     PRIMARY KEY (id_room)
-
 );
 
 CREATE TABLE users (
@@ -34,21 +33,24 @@ CREATE TABLE reserves (
 );
 
 CREATE TABLE promotions (
-    id_promotion INT AUTO_INCREMENT,
-    title VARCHAR(50) NOT NULL,
-    description TEXT DEFAULT NULL,
+    id_promotion INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    start_date DATE,
     discount INT NOT NULL,
-    PRIMARY KEY (id_promotion)
+    end_date DATE
 );
 
---Crear tabla meses para relacionar con promociones
+CREATE TABLE months (
+    id_month INT AUTO_INCREMENT PRIMARY KEY,
+    month_name VARCHAR(20) NOT NULL,
+    id_promotion INT,
+    FOREIGN KEY (id_promotion) REFERENCES promotions(id_promotion)
+);
+
 
 INSERT INTO rooms (name, description, stars, capacity, price) VALUES 
-( 'Habitación Básica','La Habitación Básica está diseñada para quienes buscan una estancia práctica y funcional. Con una superficie de 15 a 20 metros cuadrados, esta habitación es perfecta para estadías cortas o viajes de negocios. Encontrarás una cama individual o matrimonial que ofrece el confort esencial, junto con un escritorio pequeño y una silla, ideales para trabajar o estudiar.
-
-Entre los servicios y comodidades disponibles, destaca el Wi-Fi gratuito, que te mantendrá conectado en todo momento. También tendrás acceso a una televisión por cable para tu entretenimiento y aire acondicionado para asegurar una temperatura agradable durante toda tu estancia. El baño privado cuenta con una ducha y está equipado con artículos de aseo básicos como jabón y champú, además de toallas y un secador de pelo para tu conveniencia.
-
-La decoración de la Habitación Básica es sencilla y funcional, con colores neutros que promueven la relajación y el descanso. Como extras, recibirás una botella de agua gratuita y podrás disfrutar de un servicio de limpieza diario que mantendrá tu habitación impecable. Un pequeño armario o perchas están a tu disposición para organizar tu ropa de manera práctica.', 1, 2, 1500),
+( 'Habitación Básica','La Habitación Básica está diseñada para quienes buscan una estancia práctica y funcional. Con una superficie de 15 a 20 metros cuadrados, esta habitación es perfecta para estadías cortas o viajes de negocios. Encontrarás una cama individual o matrimonial que ofrece el confort esencial, junto con un escritorio pequeño y una silla, ideales para trabajar o estudiar. Entre los servicios y comodidades disponibles, destaca el Wi-Fi gratuito, que te mantendrá conectado en todo momento. También tendrás acceso a una televisión por cable para tu entretenimiento y aire acondicionado para asegurar una temperatura agradable durante toda tu estancia. El baño privado cuenta con una ducha y está equipado con artículos de aseo básicos como jabón y champú, además de toallas y un secador de pelo para tu conveniencia. La decoración de la Habitación Básica es sencilla y funcional, con colores neutros que promueven la relajación y el descanso. Como extras, recibirás una botella de agua gratuita y podrás disfrutar de un servicio de limpieza diario que mantendrá tu habitación impecable. Un pequeño armario o perchas están a tu disposición para organizar tu ropa de manera práctica.', 1, 2, 1500),
 ( 'Confort Estándar', 'La Habitación Confort Estándar ofrece una experiencia más amplia y cómoda, con una superficie de 20 a 25 metros cuadrados. Puedes elegir entre una cama matrimonial o dos camas individuales, adaptándose a tus necesidades. Además, cuenta con una zona de estar con silla o sillón, proporcionando un espacio adicional para relajarte. \n Esta habitación está equipada con Wi-Fi gratuito de alta velocidad, ideal tanto para el trabajo como para el entretenimiento sin interrupciones. La televisión de pantalla plana ofrece una excelente calidad de imagen para disfrutar de tus programas favoritos. El aire acondicionado y la calefacción garantizan una estancia confortable en cualquier época del año. \n El baño privado puede incluir una ducha o una bañera, y está provisto de artículos de aseo de mejor calidad, toallas de mayor grosor y un secador de pelo. La decoración es moderna y confortable, con colores cálidos y detalles decorativos que crean un ambiente acogedor. \n Entre los extras, encontrarás un mini bar con una selección de bebidas y snacks, así como un servicio de limpieza diario y servicio a la habitación. También dispones de una caja fuerte para guardar tus objetos de valor con total seguridad.',2, 3, 2000),
 ( 'Habitación Superior', 2, 3, 3500),
 ( 'Premium','La Habitación Superior se distingue por su amplitud y elegancia, con una superficie de 25 a 30 metros cuadrados. Ofrece una cama king size o dos camas queen, junto con una zona de estar con mesa y sillas, proporcionando un espacio adicional para trabajar o relajarte. \n El Wi-Fi gratuito de alta velocidad y la televisión de pantalla plana de mayor tamaño aseguran una conexión y entretenimiento de alta calidad. La habitación cuenta con aire acondicionado, calefacción y un purificador de aire para mantener un ambiente saludable y confortable. \n El baño privado incluye una bañera y está equipado con artículos de aseo de lujo, así como albornoces y zapatillas para una experiencia más refinada. La decoración es elegante y moderna, con colores sofisticados y obras de arte que añaden un toque de distinción. \n Además, dispones de una máquina de café/té para preparar tus bebidas favoritas en cualquier momento. El servicio de limpieza y el servicio a la habitación están disponibles las 24 horas para tu comodidad. También puedes solicitar un periódico diario para mantenerte informado.', 3, 4, 5000),
@@ -63,4 +65,39 @@ INSERT INTO users (name, password, email, admin) VALUES
 ('Diana Prince', 'password4', 'diana@example.com', 1),
 ('Evan Davis', 'password5', 'evan@example.com', 0);
 
+-- Inserción de Promociones en la tabla `promotions`
+INSERT INTO promotions (title, description, start_date, end_date) 
+VALUES 
+('Winter Wonderland', 'Enjoy our winter wonderland promotion with special discounts on all rooms!', '2024-06-21', '2025-09-20', 40),
+('Spring Fling', 'Celebrate spring with our exclusive offers on select rooms!', '2024-09-21', '2024-12-20', 20),
+('Summer Escape', 'Escape the heat with our summer discounts and special packages!', '2024-12-21', '2025-03-20', 10),
+('Autumn Adventure', 'Experience the beauty of autumn with our seasonal deals!', '2025-03-21', '2025-06-21', 30);
 
+-- Meses para la promoción 'Winter Wonderland'
+INSERT INTO months (month_name, id_promotion) VALUES ('Julio', 1);
+INSERT INTO months (month_name, id_promotion) VALUES ('Agosto', 1);
+INSERT INTO months (month_name, id_promotion) VALUES ('Septiembre', 1);
+
+-- Meses para la promoción 'Spring Fling'
+INSERT INTO months (month_name, id_promotion) VALUES ('Octubre', 2);
+INSERT INTO months (month_name, id_promotion) VALUES ('Noviembre', 2);
+INSERT INTO months (month_name, id_promotion) VALUES ('Diciembre', 2);
+
+-- Meses para la promoción 'Summer Escape'
+INSERT INTO months (month_name, id_promotion) VALUES ('Enero', 3);
+INSERT INTO months (month_name, id_promotion) VALUES ('Febrero', 3);
+INSERT INTO months (month_name, id_promotion) VALUES ('Marzo', 3);
+
+-- Meses para la promoción 'Autumn Adventure'
+INSERT INTO months (month_name, id_promotion) VALUES ('Abril', 4);
+INSERT INTO months (month_name, id_promotion) VALUES ('Mayo', 4);
+INSERT INTO months (month_name, id_promotion) VALUES ('Junio', 4);
+
+--Instruccion para traer la relacion entre promotions y months
+-- SELECT p.title, p.description, p.start_date, p.end_date, m.month_name
+-- FROM promotions p
+-- JOIN months m ON p.id_promotion = m.id_promotion
+-- ORDER BY p.id_promotion, m.id_month;
+
+
+--AGREGAR PROCENTAJE DE DESCUENTO EN LAS PROMOCIONES

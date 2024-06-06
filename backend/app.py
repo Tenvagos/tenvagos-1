@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 from routes.rooms import create_rooms_router
 from routes.reserves import create_reserves_router
 from routes.users import create_users_router
+from routes.months import create_months_router
+from routes.promotions import create_promotions_router
 
 load_dotenv()
 
@@ -20,6 +22,8 @@ engine = create_engine(f'mysql+mysqlconnector://{user}:{password}@{host}/{db}')
 app.register_blueprint(create_rooms_router(engine))
 app.register_blueprint(create_reserves_router(engine))
 app.register_blueprint(create_users_router(engine))
+app.register_blueprint(create_months_router(engine))
+app.register_blueprint(create_promotions_router(engine))
 
 if __name__ == "__main__":
     app.run("127.0.0.1", port="5000", debug=True)
