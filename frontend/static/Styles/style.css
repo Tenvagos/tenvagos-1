@@ -439,8 +439,6 @@ body {
 }
 
 .lista_beneficios {
-  display: flex;
-  flex-direction: column;
   padding: 30px 50px;  
   color: #000000;
 }
@@ -452,12 +450,12 @@ body {
 .login .login_form {
   background-color: rgb(161, 161, 161);
   padding: 40px;
-  max-width: 600px;
-  max-height: 800px;
+  height: 500px;
+  
 }
 
 .login-row {
-  padding-top: 50px;
+  padding-top: 60px;
 }
 
 .log_box {
@@ -471,21 +469,6 @@ body {
   box-shadow: 0px 0px 6px rgba(56, 52, 52, 0.2);
 }
 
-.login .btn_login {
-  font-size: 15px;
-  color: royalblue;
-  background-color: #fff;
-  text-transform: uppercase;
-  min-width: 120px;
-  max-width: 120px;
-  height: 40px;
-  border-radius: 5px;
-}
-
-.login .btn_login:hover {
-  background-color: royalblue;
-  color: #fff;
-}
 
 .login_logo {
   width: 20%;
@@ -496,44 +479,23 @@ body {
 
 /* Seccion contactos */
 
-.contacto-row {
-    padding: 30px;
-    text-align: center;
-}
 
-.formulario .contactanos {
-    border: 1px;
-    margin-bottom: 25px;
-    outline: none;
+.contactanos {
+    
     width: 100%;
     height: 60px;
     font-size: 15px;
-    box-shadow: 0px 0px 6px rgba(56, 52, 52, 0.2);
+    
 }
 
-.formulario .mensaje_contacto {
-    border: 1px;
-    margin-bottom: 25px;
-    outline: none;
+.mensaje_contacto {
+    
     width: 100%;
     height: 160px;
     font-size: 15px;
-    box-shadow: 0px 0px 6px rgba(56, 52, 52, 0.2);
+    
 }
 
-.formulario .boton_contacto {
-    font-size: 15px;    
-    background-color: #fff;
-    text-transform: uppercase;
-    width: 25%;
-    height: 40px;
-    border-radius: 5px;
-}
-
-.formulario .boton_contacto:hover {
-    color: #fff;
-    background-color: royalblue;    
-}
 /* --------------------------------------- ESTILOS LUCAS ---------------------------------------*/
 
 /* --------------------------------------- Servicios - Lucas ---------------------------------------*/

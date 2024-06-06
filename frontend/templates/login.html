@@ -70,42 +70,42 @@
         <div class="container">
             <div class="row">
 
-                
-
                 <div class="col-md-6 texto_beneficios">
                     <img class="login_logo" src="../static/img/LOGO.png" alt="Hotel Tenvagos" />
                 
-                    <h8>Inicie sesión para acceder a los siguientes beneficios</h8>
+                    <p>Inicie sesión para acceder a los siguientes beneficios</p>
 
                     <ul class="lista_beneficios">
                         <li>
-                            <h8>Verificar disponibilidad de las habitaciones</h8>
+                            <p>Verificar disponibilidad de las habitaciones</p>
                         </li>
                         <li>
-                            <h8>Filtrar habitaciones por estrellas</h8>
+                            <p>Filtrar habitaciones por estrellas</p>
                         </li>
                         <li>
-                            <h8>Ver al detalle cada habitación</h8>
+                            <p>Ver al detalle cada habitación</p>
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-6 login_form">
                     <h3 class="text-center">Inicie sesión</h3>
+                    <div class="heading-line"></div>
+                    
                     <form action="", method="POST">
                         <div class="row login-row">
-                            <div class="col-md-12">
-                                <label for="user">Correo Electrónico</label>
-                                <input class="log_box" type="text" name="user", id="fuser">
+                            <div class="mb-3">
+                                <label class="form-label" for="user">Correo Electrónico</label>
+                                <input class="log_box" type="text" name="user", id="fuser" required>
                             </div>
-                            <div class="col-md-12">
-                                <label for="user">Contraseña</label>
-                                <input class="log_box" type="text" name="contraseña", id="fcontraseña">
+                            <div class="mb-3">
+                                <label class="form-label" for="user">Contraseña</label>
+                                <input class="log_box" type="text" name="contraseña", id="fcontraseña" required>
                             </div>
                             <div class="text-center">
-                                <input class="btn_login" type="submit" value="Iniciar Sesión">
+                                <input class="btn btn-primary boton_form" type="submit" value="Iniciar Sesión">
                             </div>
                             <div>
-                                <h8>¿Olvido su contraseña?</h8>
+                                <p>¿Olvido su contraseña?</p>
                             </div>
                         </div>
                     </form>

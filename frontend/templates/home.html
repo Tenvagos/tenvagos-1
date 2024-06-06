@@ -282,38 +282,41 @@
     <!--contacto-->
     <section id="contacto">
         <div class="container">
-            <div class="row contacto-row">
-                <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12 pb-5 text-center">
                     <h2>Contáctanos</h2>
                 </div>
             </div>
-            <div class="row contacto-row">
+            <div class="row">
                 <div class="col-md-6">
-                    <form action="", method="POST", class="formulario">
+                    <form action="https://formsubmit.co/tenvagos@gmail.com", method="POST">
                         <div class="row">
-                            <div class="col-md-12">
-                                <input class="contactanos" type="text" placeholder="NOMBRE" name="nombre" id="fnombre">
+                            <div class="mb-3">
+                                <input class="form-control contactanos" type="text" placeholder="NOMBRE" name="nombre" id="fnombre" required>
                             </div>
-                            <div class="col-md-12">
-                                <input class="contactanos" type="text" placeholder="APELLIDO" name="apellido" id="fapellido">
+                            <div class="mb-3">
+                                <input class="form-control contactanos" type="text" placeholder="APELLIDO" name="apellido" id="fapellido" required>
                             </div>
-                            <div class="col-md-12">
-                                <input class="contactanos" type="text" placeholder="TELÉFONO" name="telefono" id="ftelefono">
+                            <div class="mb-3">
+                                <input class="form-control contactanos" type="text" placeholder="EMAIL" name="email" id="femail" required>
                             </div>
-                            <div class="col-md-12">
-                                <textarea class="mensaje_contacto" type="text" placeholder="MENSAJE" name="mensaje" id="fmensaje"></textarea>
+                            <div class="mb-3">
+                                <textarea class="form-control mensaje_contacto" type="text" placeholder="MENSAJE" name="mensaje" id="fmensaje"></textarea>
                             </div>
-                            <div class="col-md-12">
-                                <input class="boton_contacto" type="submit" value="ENVIAR">
+                            <div class="mb-3">
+                                <div class="g-recaptcha" data-sitekey="6LeoBfIpAAAAAKyA0wVgoqStCeS9iYzWAbslWawv"></div>
+                            </div>
+                            <div class="mb-3 text-center">
+                                <input class="btn btn-primary boton_form" type="submit" value="ENVIAR">
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 my-auto">
                     <div class="map-responsive">
                         <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1641.9695984256969!2d-58.363558999999995!3d-34.605699!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a335ef4809ceef%3A0x3945c8c351477a54!2sHotel%20Hilton%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1717047608465!5m2!1ses-419!2sar" 
-                        width="800" height="600" style="border:0; width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        height="500" style="border:0; width: 100%; display: flex;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
                 </div>
@@ -406,6 +409,8 @@
 
 <!-- SCRIPT-->
     <script src="script/myscripts.js"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     
 </body>
 </html>
