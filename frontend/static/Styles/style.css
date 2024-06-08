@@ -410,6 +410,45 @@ nav {
 
 /* --------------------------------------- Servicios - Lucas ---------------------------------------*/
 
+#servicios h2 {
+  color: #0866ff;
+  text-align: center;
+}
+
+.image-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.image-container .image-block {
+  margin-top: 30px;
+  position: relative;
+  width: 98%;
+}
+
+.image-container .image-block img {
+  width: 100%;
+  display: block;
+}
+
+.image-container .overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.7);
+  color: black;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+
+.image-container .overlay p {
+  margin: 25px;
+}
+
 .servicios-section {
     background-color: #ffffff;
     padding: 60px 0;
