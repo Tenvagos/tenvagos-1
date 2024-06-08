@@ -1,6 +1,6 @@
 
 .about-section {
-  background: url(/static/img/1.jpg) no-repeat left;
+  background: url(../img/gimnasio.jpg) no-repeat left;
   background-size: 55%;
   background-color: white;
   overflow: hidden;
@@ -22,7 +22,7 @@
 }
 
 .about-section-right {
-  background: url(/static/img/1.jpg) no-repeat right;
+  background: url(../img/1.jpg) no-repeat right;
   background-size: 55%;
   background-color: white;
   overflow: hidden;
@@ -154,7 +154,7 @@
 }
 
 .half-sect__second {
-  background-image: url(/static/img/1.jpg);
+  background-image: url(../img/1.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -182,7 +182,7 @@
 }
 
 .sect--best {
-  background-image: url(/static/img/1.jpg);
+  background-image: url(../img/1.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
