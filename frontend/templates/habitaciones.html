@@ -30,52 +30,43 @@
     <title>Habitaciones</title>
 </head>
 <body>
-    <div id="home"></div> 
-    <div class="harold" id="harold">
-      <!--HEADER-->
-      <header>
-        <!--NAV BAR-->
-        <div class="container-harold">
-          <div class="row-harold">
-            <button class="nav-toggle-harold" aria-label="abrir navegacion">
-              <span class="hamburger-harold"></span>
-            </button>
-                <a href="home.html" class="logo">
-                  <img src="../static/img/LOGO.png" alt="Hotel Tenvagos" />
-                </a>
-                <nav class="nav-harold">
-                  <ul class="nav__list-harold nav__list--primary-harold">
-                    <li class="nav__item-harold">
-                      <a class="nav__link-harold" href="#">Home</a>
-                    </li>
-                    <li class="nav__item-harold">
-                      <a class="nav__link-harold" href="#nosotros">Nosotros</a>
-                    </li>
-                    <li class="nav__item-harold">
-                      <a class="nav__link-harold" href="habitaciones.html">Habitaciones</a>
-                    </li>
-                    <li class="nav__item-harold">
-                      <a class="nav__link-harold" href="#servicios">Servicios</a>
-                    </li>
-                    <li class="nav__item-harold">
-                      <a class="nav__link-harold" href="#contacto">Contacto</a>
-                    </li>
-                  </ul>
-                  <ul class="nav__list-harold">
-                    <li class="nav__item-harold">
-                      <button class="nav__link--button-harold" id="harold">
-                         <a class="nav__link--button1-harold" href="login.html">
-                            INICIAR SESION
-                            <span><i class="fab fa-user"></i></span>
-                         </a>
-                      </button>
-                    </li>
-                  </ul>
-                </nav>
+        <!--NAVBAR-->
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 fixed-top">
+          <div class="container">
+              <a href="home.html" class="navbar-brand"><img src="/frontend/static/img/LOGO.png" alt="LOGO-TENVAGOS"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+              <span class="navbar-toggler-icon"></span>
+              </button>
+      
+              <div class="collapse navbar-collapse" id="navmenu">
+              <ul class="navbar-nav ms-auto align-items-lg-center text-center">
+                  <li class="nav-item">
+                  <a href="home.html" class="nav-link text-center">HOME</a>
+                  </li>
+                  <li class="nav-item">
+                  <a href="#nosotros" class="nav-link text-center">NOSOTROS</a>
+                  </li>
+                  <li class="nav-item">
+                  <a href="habitaciones.html" class="nav-link text-center">HABITACIONES</a>
+                  </li>
+                  <li class="nav-item">
+                  <a href="#servicios" class="nav-link text-center">SERVICIOS</a>
+                  </li>
+                  <li class="nav-item">
+                  <a href="#contacto" class="nav-link text-center">CONTACTO</a>
+                  </li>
+                  <li class="nav-item mt-3 mt-lg-0" id="btn-login">
+                  <button class="btn btn-primary btn-lg w-100 w-lg-auto btn-iniciar-sesion" data-bs-toggle="modal" data-bs-target="#login">
+                      INICIAR SESIÓN
+                      <span class="icon-circle"><i class="bi bi-house"></i></span>
+                  </button>
+                  </li>
+              </ul>
+              </div>
           </div>
-        </div>
-      </header>
-      <!-- MAIN  -->
+          </nav>    
+  </div> 
+  <!-- MAIN  -->
       <main>
         <section class="intro-section" id="harold">
           <div class="container">

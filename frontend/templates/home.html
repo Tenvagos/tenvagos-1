@@ -5,21 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="../static/Styles/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!--CSS BOOTSTRAP-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
      <!--ICONOS BOOTSTRAP-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!--FAVICON-->
     <link rel="shortcut icon" href="../static/img/LOGO-ICON.png" type="image/x-icon" />
-    <!--FONTAWESOME-->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-    />
     <!--GOOGLE FONTS-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,76 +21,70 @@
     <title>TENVAGOS</title>
 </head>
 <body>
-    <div id="home"></div> 
-    <div class="harold" id="harold">
-      <!--HEADER-->
-      <header>
-        <!--NAV BAR-->
-        <div class="container-harold">
-          <div class="row-harold">
-            <button class="nav-toggle-harold" aria-label="abrir navegacion">
-              <span class="hamburger-harold"></span>
+    <div id="home">
+        <!--NAVBAR-->
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 fixed-top">
+          <div class="container">
+            <a href="home.html" class="navbar-brand"><img src="../static/img/LOGO.png" alt="LOGO-TENVAGOS"></a>
+
+            <button 
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navmenu"
+            >
+              <span class="navbar-toggler-icon"></span>
             </button>
-                <a href="home.html" class="logo">
-                  <img src="../static/img/LOGO.png" alt="Hotel Tenvagos" />
-                </a>
-                <nav class="nav-harold">
-                  <ul class="nav__list-harold nav__list--primary-harold">
-                    <li class="nav__item-harold">
-                      <a class="nav__link-harold" href="#">Home</a>
-                    </li>
-                    <li class="nav__item-harold">
-                      <a class="nav__link-harold" href="#nosotros">Nosotros</a>
-                    </li>
-                    <li class="nav__item-harold">
-                      <a class="nav__link-harold" href="habitaciones.html">Habitaciones</a>
-                    </li>
-                    <li class="nav__item-harold">
-                      <a class="nav__link-harold" href="#servicios">Servicios</a>
-                    </li>
-                    <li class="nav__item-harold">
-                      <a class="nav__link-harold" href="#contacto">Contacto</a>
-                    </li>
-                  </ul>
-                  <ul class="nav__list-harold">
-                    <li class="nav__item-harold">
-                      <button class="nav__link--button-harold" id="harold">
-                         <a class="nav__link--button1-harold" href="login.html">
-                            INICIAR SESION
-                            <span><i class="fab fa-user"></i></span>
-                         </a>
-                      </button>
-                    </li>
-                  </ul>
-                </nav>
+    
+            <div class="collapse navbar-collapse" id="navmenu">
+              <ul class="navbar-nav ms-auto align-items-lg-center text-center">
+                <li class="nav-item">
+                  <a href="#home" class="nav-link text-center">HOME</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#nosotros" class="nav-link text-center">NOSOTROS</a>
+                </li>
+                <li class="nav-item">
+                  <a href="habitaciones.html" class="nav-link text-center">HABITACIONES</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#servicios" class="nav-link text-center">SERVICIOS</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#contacto" class="nav-link text-center">CONTACTO</a>
+                </li>
+                <li class="nav-item mt-3 mt-lg-0" id="btn-login">
+                  <button class="btn btn-primary btn-lg w-100 w-lg-auto btn-iniciar-sesion"
+                  data-bs-toggle="modal"
+                  data-bs-target="#login"
+                  >
+                    INICIAR SESIÓN
+                    <span class="icon-circle"><i class="bi bi-house"></i></span>
+                  </button>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </header>
-      <!-- MAIN  -->
-      <main>
-        <!-- INTRO SECTION  -->
-        <section class="intro-section" id="harold">
-          <div class="container-harold">
-            <div class="row-harold">
-              <div class="col-harold">
-                <h1 class="display-2">
-                  <span class="display-2--name animate__animated animate__bounce">Hotel Tenvagos</span>
-                  <span class="display-2--intro animate__animated animate__bounce">Un hotel que se adapta a tus necesidades</span>
-                  <span class="display-2--description animate__animated animate__bounce">¡Reserva directamente en nuestra web y obtén beneficios especiales!</span>
-                </h1>
-              </div>
-              <div class="col-harold">
-                <div class="img-box-harold">
-                  <img src="../static/img/Intro-Image.png" alt="Intro-Image" class="intro-image animate__animated animate__fadeInRight"/>
-                </div>
-              </div>
+        </nav>
+
+        <!--SECCION INTRO-->
+        <section class="bg-light text-dark p-5 text-center text-sm-start" id="intro-section">
+          <div class="container">
+            <div class="d-sm-flex align-items-center justify-content-between">
+              <h1 class="display-2 animate__animated animate__bounce"> 
+                <span class="display-2--name">Hotel Tenvagos</span>
+                <span class="display-2--intro">Un hotel que se adapta a tus necesidades</span>
+                <span class="display-2--description">
+                ¡Reversa directamente en nuestra web y obtén beneficios especiales!
+                </span>
+              </h1>            
+              <img class="img-fluid w-50 d-none d-sm-block animate__animated animate__fadeInRight" id="img-full" src="../static/img/Intro-Image.png" alt="Imagen-Banner"/>
             </div>
           </div>
         </section>
-      </main>
-    </div>        
-    <!--Sobre Nosotros-->
+    </div>
 
+    <!--Sobre Nosotros-->
 
     <div id="nosotros"></div>
     <div class="daniel" id="daniel">
@@ -134,7 +119,7 @@
                 </div>
             </div>
         </div>
-        
+       
 <!--Testimonios-->
         <div class="testimonials" id="daniel">
             <h1 id="daniel">Testimonios</h1>
@@ -199,7 +184,7 @@
             </div>
               
         </div>
-
+    
 <!--parallax-->
 <div class="parallax-top">
     <div class="contenido-parallax">
@@ -361,9 +346,6 @@
           </div>
     </section>
 
-
-</div>
-
     <!--Footer-->
     <div class="lucas-footer">
         <footer>
@@ -402,15 +384,16 @@
             </div>
             
             <div class="footer-copyright">
-                <p>&copy; 2024 TENVAGOS &copy; . Todos los derechos reservados.</p>
+                <p>&copy; 2024 <a href="https://github.com/Tenvagos/tenvagos-1">TENVAGOS</a> &copy; . Todos los derechos reservados.</p>
             </div>
         </footer>
-
+    </div>
 
 <!-- SCRIPT-->
-    <script src="script/myscripts.js"></script>
-
+    <script src="../script/myscripts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     
 </body>
 </html>

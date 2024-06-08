@@ -1,208 +1,64 @@
 /* --------------------------------------- ESTILOS GENERALES ---------------------------------------*/
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* --------------------------------------- ESTILOS HAROLD ---------------------------------------*/
 body {
+  padding-top: 4.5rem;
   font-family: "Nunito", sans-serif;
 }
 
-
-/* --------------------------------------- ESTILOS HAROLD ---------------------------------------*/
-
-#harold img-harold {
-  max-width: 100%;
-}
-
-#harold header {
+/*HEADER*/
+nav {
   background: linear-gradient(to right, #b4b8b4, #464745);
   padding: 0.5rem 0;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  text-align: center;
 }
 
-#harold .container-harold {
-  width: 95%;
-  max-width: 1320px;
-  margin: 0 auto;
+.navbar-nav .nav-link {
+  color: #1a1a1b !important; /* Color oscuro */
+}
+.navbar-nav .nav-link:hover {
+  color: #000000 !important; /* Color más oscuro al pasar el cursor */
 }
 
-#harold .col-harold {
-  width: 100%;
+.btn-iniciar-sesion {
+  border-radius: 50px; /* Hace que el botón sea más redondeado */
+  border: 2px solid #0c4a8d; /* Color del borde */
+  background-color: rgb(240, 240, 240); /* Fondo blanco */
+  color: #0c4a8d; /* Color del texto */
+  transition: background-color 0.3s, color 0.3s; /* Transición suave */
 }
 
-#harold .nav-harold {
-  width: 100%;
-  visibility: hidden;
-  height: 0;
-  position: absolute;
-  font-size: 1rem;
-}
-#harold .nav-harold .nav__list-harold {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-#harold .nav-harold .nav__list-harold .nav__item-harold {
-  margin-top: 0.75rem;
-}
-#harold .nav-harold .nav__list-harold .nav__item-harold .nav__link-harold {
-  color: black;
-  text-transform: uppercase;
-  text-decoration: none;
+.btn-iniciar-sesion:hover {
+  background-color: #0c4a8d; /* Color de fondo al pasar el mouse */
+  color: white; /* Color del texto al pasar el mouse */
 }
 
-#harold .nav-toggle-harold {
-  cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  width: 3rem;
-  height: 3rem;
-  padding: 0em;
-  border-radius: 0.25rem;
-  background-color: transparent;
-  color: rgba(255, 255, 255, 0.55);
-  transition: opacity 250ms ease;
-  position: absolute;
-  left: 0;
-}
-
-#harold .nav-toggle-harold:focus,
-#harold .nav-toggle-harold:hover {
-  opacity: 0.75;
-}
-
-#harold .hamburger-harold {
-  width: 50%;
-  position: relative;
-}
-
-#harold .hamburger-harold,
-#harold .hamburger-harold::before,
-#harold .hamburger-harold::after {
-  display: block;
-  margin: 0 auto;
-  height: 3px;
-  background: white;
-}
-
-#harold .hamburger-harold::before,
-#harold .hamburger-harold::after {
-  content: "";
-  width: 100%;
-}
-
-#harold .hamburger-harold::before {
-  transform: translateY(-6px);
-}
-
-#harold .hamburger-harold::after {
-  transform: translateY(3px);
-}
-
-#harold .nav--visible-harold {
-  visibility: visible;
-  height: auto;
-  position: relative;
-}
-
-#harold .nav__list--primary-harold {
-  margin-bottom: 2rem;
-}
-
-#harold .nav__link-harold:hover,
-#harold .nav__link-harold:focus {
-  opacity: 0.65;
-}
-
-#harold .logo {
-  margin-right: 1rem;
-}
-
-#harold .nav__link--button-harold {
-  display: none;
-  position: relative;
-  background: #ffffff;
-  text-decoration: none;
-  text-transform: uppercase;
-  padding: 0.93rem 3.3rem 0.93rem 1.2rem;
-  font-weight: 700;
-  border: 0.1rem solid white;
-  border-radius: 50rem;
-  cursor: pointer;
-  z-index: 1;
-  overflow: hidden;
-  transition: all 0.5s;
-}
-
-#harold .nav__link--button1-harold {
-  text-decoration: none;
-  color: rgb(43, 43, 43);
-  font-size: 1.3em;
-}
-
-#harold .nav__link--button-harold span {
-  position: absolute;
-  background-color: #0866FF;
-  width: 2.5rem;
-  height: 2.5rem;
-  top: 50%;
-  right: 5px;
-  transform: translateY(-50%);
+.btn-iniciar-sesion .icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-}
-#harold .nav__link--button-harold span i {
-  color: white;
-  font-size: 1rem;
-  line-height: 2.5rem;
+  background-color: #0c4a8d; /* Fondo azul */
+  color: white; /* Color del icono */
+  margin-right: 8px; /* Espacio entre el icono y el texto */
 }
 
-#harold .nav__link--button-harold:hover {
-  color: white;
-}
-#harold .nav__link--button-harold:hover span {
-  background-color: rgba(0, 0, 0, 0.6);
+/*INTRO SECTION*/
+
+#intro-section {
+  background: linear-gradient(to right, #ffffff, #b4b8b4);
 }
 
-#harold .nav__link--button-harold:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 0;
-  width: 100%;
-  background: #0866FF;
-  z-index: -1;
-  border-radius: 0 0 50% 50%;
-  transition: all 0.5s;
-}
-
-#harold .nav__link--button-harold:hover:before {
-  height: 190%;
-}
-
-/*-------------------------------------INTRO SECTION----------------------------------------*/
-#harold .intro-section {
-  background: #f1f1f1;
-  padding: 2rem 0 2rem 0;
-  height: 100%;
-  width: 100%;
-}
-
-#harold .display-2 {
+.display-2 {
   margin-bottom: 1rem;
   text-transform: none;
-  color: white;
   font-size: 2.5rem;
   font-weight: 300;
 }
 
-#harold .display-2--name {
+.display-2--name {
   font-family: "Dancing Script", cursive;
   display: block;
   text-align: center;
@@ -212,7 +68,7 @@ body {
   color:#296D9E;
 }
 
-#harold .display-2--intro {
+.display-2--intro {
   display: inline-block;
   font-weight: 700;
   text-align: center;
@@ -220,16 +76,70 @@ body {
   font-family: "Raleway";
 }
 
-#harold .display-2--description {
+.display-2--description {
   display: block;
   text-align: center;
   font-size: 1.5rem;
   font-style: italic;
   font-weight: bold;
+  max-width: 450px;
   margin-top: 1.2rem;
   text-transform: none;
   color:#004CC8;
 }
+
+#img-full {
+  max-width: 100%; /* Se ajusta al contenedor */
+  height: auto; /* Mantiene la proporción */
+}
+
+/*MEDIA QUERIES*/
+@media (min-width: 768px) {
+  #btn-login {
+    margin-left: 25px;
+  }
+    .display-2 {
+    font-size: 3.4rem;
+  }
+  .display-2--name {
+    font-family: "Dancing Script", cursive;
+    font-size: 2.4rem;
+    display: inline-block;
+    color:#296D9E;
+  }
+  .display-2--intro {
+    text-align: left;
+    font-family: "Raleway";
+  }
+  .display-2--description {
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: bold;
+    display: inline-block;
+    text-align: left;
+    color:#004CC8;
+  }
+}
+@media (min-width: 1024px) {
+  .display-2 {
+    font-size: 4.5rem;
+  }
+  .display-2--name {
+    font-family: "Dancing Script", cursive;
+    font-size: 2.9rem;
+    display: inline-block;
+    color:#296D9E;
+  }
+  .display-2--description {
+    font-size: 1.4rem;
+    font-style: italic;
+    font-weight: bold;
+    display: inline-block;
+    text-align: left;
+    color:#004CC8;
+  }
+}
+
 /*------------------------------------------------------------------------------------*/
 
 /* Estilos para el banner de habitaciones*/
