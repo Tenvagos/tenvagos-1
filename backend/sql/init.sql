@@ -48,6 +48,15 @@ CREATE TABLE months (
     FOREIGN KEY (id_promotion) REFERENCES promotions(id_promotion)
 );
 
+CREATE TABLE user_reserves (
+    id INT AUTO_INCREMENT,
+    id_user INT NOT NULL,
+    id_reserve INT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (id_user) REFERENCES users(id_user),
+    FOREIGN KEY (id_reserve) REFERENCES reserves(id_reserve)
+);
+
 INSERT INTO rooms (name, description, stars, capacity, price) VALUES 
 ( 'Habitación Básica','La Habitación Básica está diseñada para quienes buscan una estancia práctica y funcional. Con una superficie de 15 a 20 metros cuadrados, esta habitación es perfecta para estadías cortas o viajes de negocios. Encontrarás una cama individual o matrimonial que ofrece el confort esencial, junto con un escritorio pequeño y una silla, ideales para trabajar o estudiar. Entre los servicios y comodidades disponibles, destaca el Wi-Fi gratuito, que te mantendrá conectado en todo momento. También tendrás acceso a una televisión por cable para tu entretenimiento y aire acondicionado para asegurar una temperatura agradable durante toda tu estancia. El baño privado cuenta con una ducha y está equipado con artículos de aseo básicos como jabón y champú, además de toallas y un secador de pelo para tu conveniencia. La decoración de la Habitación Básica es sencilla y funcional, con colores neutros que promueven la relajación y el descanso. Como extras, recibirás una botella de agua gratuita y podrás disfrutar de un servicio de limpieza diario que mantendrá tu habitación impecable. Un pequeño armario o perchas están a tu disposición para organizar tu ropa de manera práctica.', 1, 2, 1500),
 ( 'Confort Estándar', 'La Habitación Confort Estándar ofrece una experiencia más amplia y cómoda, con una superficie de 20 a 25 metros cuadrados. Puedes elegir entre una cama matrimonial o dos camas individuales, adaptándose a tus necesidades. Además, cuenta con una zona de estar con silla o sillón, proporcionando un espacio adicional para relajarte. \n Esta habitación está equipada con Wi-Fi gratuito de alta velocidad, ideal tanto para el trabajo como para el entretenimiento sin interrupciones. La televisión de pantalla plana ofrece una excelente calidad de imagen para disfrutar de tus programas favoritos. El aire acondicionado y la calefacción garantizan una estancia confortable en cualquier época del año. \n El baño privado puede incluir una ducha o una bañera, y está provisto de artículos de aseo de mejor calidad, toallas de mayor grosor y un secador de pelo. La decoración es moderna y confortable, con colores cálidos y detalles decorativos que crean un ambiente acogedor. \n Entre los extras, encontrarás un mini bar con una selección de bebidas y snacks, así como un servicio de limpieza diario y servicio a la habitación. También dispones de una caja fuerte para guardar tus objetos de valor con total seguridad.',2, 3, 2000),
@@ -92,7 +101,15 @@ INSERT INTO months (month_name, id_promotion) VALUES ('Abril', 4);
 INSERT INTO months (month_name, id_promotion) VALUES ('Mayo', 4);
 INSERT INTO months (month_name, id_promotion) VALUES ('Junio', 4);
 
---Instruccion para traer la relacion entre promotions y months
+-- Reservas de ejemplo
+INSERT INTO reserves (id_room, id_user, start_date, end_date) VALUES
+(1, 1, '2022-01-01', '2022-01-02');
+
+-- My-reservas de ejemplo
+INSERT INTO user_reserves (id_user, id_reserve) VALUES
+(1, 1);
+
+-- Instruccion para traer la relacion entre promotions y months
 -- SELECT p.title, p.description, p.start_date, p.end_date, m.month_name
 -- FROM promotions p
 -- JOIN months m ON p.id_promotion = m.id_promotion
