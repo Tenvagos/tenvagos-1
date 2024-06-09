@@ -560,6 +560,8 @@ footer {
 }
 
 /* --------------------------------------- ESTILOS DANIEL ---------------------------------------*/
+
+
 /*--------------------------------- Daniel Parallax ---------------------------------------------*/
 .parallax-button {
   display: inline-block;
@@ -621,7 +623,7 @@ footer {
   max-width: 800px; /* Establece un ancho máximo para el texto para que sea legible en pantallas grandes */
 }
 
-/*-------------------------------------------------------------------------------------------------*/
+/*------------------------------------------Daniel Sobre nosotros-------------------------------------------------------*/
 
 
 #daniel .section {
@@ -708,6 +710,7 @@ footer {
         display: block;
         margin: auto;
         padding-top: 50px;
+        padding-bottom: 100px;
     }
     #daniel .content-section{
         float: none;
@@ -716,6 +719,7 @@ footer {
         margin: auto;
     }
     #daniel .image-section{
+        padding-bottom: 100px;
         float: none;
         width: 100%;
     }
@@ -740,18 +744,7 @@ footer {
     }
 }
 
-
-
-
-
 /* --------------------------------------- testimonios - Daniel ---------------------------------------*/
-
-
-
-
-
-
-
 
 #daniel html{
     font-weight: 200;
@@ -823,6 +816,7 @@ footer {
 @media (min-width: 38.4rem){
     .testimonials{
         font-size: 1.2em;
+        
     }
     .testimonials .test-body{
         display: -webkit-box;
@@ -837,10 +831,18 @@ footer {
         padding: 1em;
     }
 }
-
-
-
-
+@media (min-width: 770px){
+  .testimonials{
+    
+    padding-top: 35%;
+}
+}
+@media (min-width: 1174px){
+  .testimonials{
+    
+    padding-top: 0%;
+}
+}
 
 
 
@@ -1106,7 +1108,7 @@ footer {
   }
 
 
-
+/* --------------------------------------- Ofertas - Daniel ---------------------------------------*/
 
   .banner {
 
@@ -1173,6 +1175,8 @@ footer {
   }
 }
 
+/* --------------------------------------- Iframe - Daniel ---------------------------------------*/
+
 .video{
   display: flex;
   flex-direction: column;
@@ -1191,4 +1195,3 @@ iframe{
   margin-bottom: 20px;
   
 }
-  
