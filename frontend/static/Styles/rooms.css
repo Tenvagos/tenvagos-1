@@ -213,3 +213,81 @@ padding: 160px 0;
   margin-bottom: 40px;
 }
 
+.D{
+  background:url("http://i.giphy.com/8SylEdgXn0BIQ.gif") repeat;
+ background-position:10px;
+  -webkit-background-clip: text;
+   color: transparent;
+ font-size:400px;
+   font-family:Helvetica;
+ font-weight:bold;
+ margin:0 auto;background-position-x: 52%;
+ background-position-y: 48px;
+}
+
+.moveBox {
+ margin:0 auto;
+ width:300px;
+}
+
+
+
+.banner {
+
+  width: 100%;
+  height: 10vh; /* Un cuarto de la altura de la pantalla */
+  background-image: url(../img/offers.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  
+}
+
+.slider {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+font-family: "Nunito", sans-serif !important; 
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5em;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  
+}
+
+@media (max-width: 768px) {
+  .slide {
+      font-size: 1.2em;
+  }
+}
+
+
+.D{
+background:url("https://i.pinimg.com/originals/66/45/6e/66456e7114c2e4d8dd02017f55fc2452.gif") repeat;
+background-position:200px;
+-webkit-background-clip: text;
+color: transparent;
+font-size:35px;
+font-family:Helvetica;
+font-weight:bold;
+margin:0 auto;
+background-position-x: 52%;
+background-position-y: 48px;
+}
+
+.moveBox {
+margin:0 auto;
+width:500px;
+}
+
