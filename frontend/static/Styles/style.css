@@ -449,6 +449,12 @@ nav {
   margin: 25px;
 }
 
+@media screen and (max-width: 800px) {
+  .image-container .overlay p{
+    display: none;
+  }
+}
+
 .servicios-section {
     background-color: #ffffff;
     padding: 60px 0;
@@ -545,6 +551,12 @@ footer {
     background-color: #222;
     padding: 10px 0;
     margin-top: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .footer-extra{
+    display: none;
+  }
 }
 
 /* --------------------------------------- ESTILOS DANIEL ---------------------------------------*/
