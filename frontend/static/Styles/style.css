@@ -1166,4 +1166,29 @@ footer {
  margin:0 auto;
  width:500px;
 }
+
+@media (max-width: 768px) {
+  .D {
+      font-size: 20px;
+  }
+}
+
+.video{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+iframe{
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.3);
+}
+
+.video h2{
+  margin-bottom: 20px;
+  
+}
   
