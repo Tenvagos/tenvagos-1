@@ -1,6 +1,6 @@
 /* --------------------------------------- ESTILOS GENERALES ---------------------------------------*/
 
-/* --------------------------------------- ESTILOS HAROLD ---------------------------------------*/
+/* ------------------------------------------ ESTILOS HAROLD ---------------------------------------*/
 body {
   padding-top: 4.5rem;
   font-family: "Nunito", sans-serif;
@@ -14,35 +14,56 @@ nav {
 }
 
 .navbar-nav .nav-link {
-  color: #1a1a1b !important; /* Color oscuro */
+  color: #1a1a1b;  /* Color oscuro */
 }
 .navbar-nav .nav-link:hover {
-  color: #000000 !important; /* Color más oscuro al pasar el cursor */
+  color: #000000; /* Color más oscuro al pasar el cursor */
 }
 
 .btn-iniciar-sesion {
-  border-radius: 50px; /* Hace que el botón sea más redondeado */
-  border: 2px solid #0c4a8d; /* Color del borde */
-  background-color: rgb(240, 240, 240); /* Fondo blanco */
-  color: #0c4a8d; /* Color del texto */
-  transition: background-color 0.3s, color 0.3s; /* Transición suave */
+  height: 50px;
+  width: 250px;
+  position: relative;
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  overflow: hidden;
+  border-radius: 30px;
+  color: #333;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-txt {
+  font-family: Nunito;
+  z-index: 1;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: #ffffff;
+}
+
+.type1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 0.5s ease-in-out;
+  background-color: #0c4dc7;
+  border-radius: 30px;
+  visibility: hidden;
+  height: 10px;
+  width: 10px;
+  z-index: -1;
 }
 
 .btn-iniciar-sesion:hover {
-  background-color: #0c4a8d; /* Color de fondo al pasar el mouse */
-  color: white; /* Color del texto al pasar el mouse */
+  box-shadow: 1px 1px 200px #ffffff;
+  color: #fff;
+  border: none;
 }
 
-.btn-iniciar-sesion .icon-circle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: #0c4a8d; /* Fondo azul */
-  color: white; /* Color del icono */
-  margin-right: 8px; /* Espacio entre el icono y el texto */
+.type1:hover::after {
+  visibility: visible;
+  transform: scale(100) translateX(2px);
 }
 
 /*INTRO SECTION*/
@@ -257,111 +278,34 @@ nav {
   padding: 0 15px;
 }
 
-
-/*MEDIA QUERIES*/
-@media (min-width: 768px) {
-  #harold .container-harold {
-    width: 80%;
-  }
-  #harold .nav-toggle-harold {
-    display: none;
-  }
-  #harold .nav-harold {
-    visibility: visible;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    height: auto;
-    position: relative;
-  }
-  #harold .nav__list-harold {
-    display: flex;
-    margin: 0;
-  }
-  #harold .nav__item-harold {
-    margin: 0 0 0 1.5rem;
-  }
-  #harold .row-harold {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  #harold .img-box-harold {
-    margin-top: 0;
-    text-align: right;
-  }
-  #harold .display-2 {
-    font-size: 3.4rem;
-  }
-  #harold .display-2--name {
-    font-family: "Dancing Script", cursive;
-    font-size: 2.4rem;
-    display: inline-block;
-    color:#296D9E;
-  }
-  #harold .display-2--intro {
-    text-align: left;
-    font-family: "Raleway";
-  }
-  #harold .display-2--description {
-    font-size: 1rem;
-    font-style: italic;
-    font-weight: bold;
-    display: inline-block;
-    text-align: left;
-    color:#004CC8;
-  }
-}
-@media (min-width: 1024px) {
-  #harold .display-2 {
-    font-size: 4.5rem;
-  }
-  #harold .display-2--name {
-    font-family: "Dancing Script", cursive;
-    font-size: 2.9rem;
-    display: inline-block;
-    color:#296D9E;
-  }
-  #harold .display-2--description {
-    font-size: 1.4rem;
-    font-style: italic;
-    font-weight: bold;
-    display: inline-block;
-    text-align: left;
-    color:#004CC8;
-  }
-  #harold.nav__link--button-harold {
-    display: block;
-  }
-}
-    
-
-
 /* --------------------------------------- ESTILOS GASTON ---------------------------------------*/
 
 /* Seccion login */
 
-.texto_beneficios {
-  color: royalblue;
-  display: flex;
-  flex-direction: column;  
-  padding: 20px;
-}
-
-.lista_beneficios {
-  padding: 30px 50px;  
-  color: #000000;
-}
-
 .login {
-  padding: 30px;
+  padding: 40px;
+  margin: 1.5rem 0rem;
   }
+
+.text-login{
+  font-style: italic;
+  font-weight: 400;
+  color:#000000;
+}
+
+.display-3--description {
+  display: block;
+  text-align: center;
+  font-size: 1.5rem;
+  max-width: 450px;
+  margin-top: 1.2rem;
+  text-transform: none;
+}
 
 .login .login_form {
   background-color: rgb(161, 161, 161);
   padding: 40px;
   height: 500px;
-  
 }
 
 .login-row {
@@ -379,12 +323,24 @@ nav {
   box-shadow: 0px 0px 6px rgba(56, 52, 52, 0.2);
 }
 
+.text-login-form{
+  font-family: Nunito;
+}
 
-.login_logo {
-  width: 20%;
-  height: auto;
-  padding-bottom: 30px;
-  
+/*MEDIA QUERIES*/
+@media (min-width: 768px) {
+  .display-3--description {
+    font-size: 1rem;
+    display: inline-block;
+    text-align: left;
+  }
+}
+@media (min-width: 1024px) {
+  .display-3--description {
+    font-size: 1.4rem;
+    display: inline-block;
+    text-align: left;
+  }
 }
 
 /* Seccion contactos */
@@ -1151,17 +1107,16 @@ footer {
 }
 
 
-.D{
+.D {
   background:url("https://i.pinimg.com/originals/66/45/6e/66456e7114c2e4d8dd02017f55fc2452.gif") repeat;
   background-position:200px;
   -webkit-background-clip: text;
   color: transparent;
   font-size:35px;
-  font-family:Helvetica;
+  font-family: Helvetica, sans-serif;
   font-weight:bold;
   margin:0 auto;
-  background-position-x: 52%;
-  background-position-y: 48px;
+  background-position: 52% 48px;
 }
 
 .moveBox {
