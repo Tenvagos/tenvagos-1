@@ -127,4 +127,50 @@ def create_rooms_router(engine):
         except SQLAlchemyError as err:
             jsonify(str(err.__cause__))
         return jsonify({'message': 'Se ha eliminado correctamente la habitacion'}), 202
+    
+    
+    @roomsRouter.route('/rooms/stars/<stars>', methods = ['GET'])
+    def room_available(stars):
+        conn = engine.connect()
+        
+        start_date= request.args.get('start_date',type=str)
+        end_date= request.args.get('end_date',type=str)
+        stars_param= request.args.get('stars',default=0,type=int)
+        
+        if stars_param is not 0:
+            stars = stars_param
+        
+        query = f"""SELECT * FROM rooms WHERE stars = {stars} AND id_room NOT IN (
+            SELECT id_room FROM reserves
+            WHERE (
+            (start_date <= '{start_date}' AND end_date >= '{start_date}') OR 
+            (start_date <= '{end_date}' AND end_date >= '{end_date}') OR 
+            (start_date >= '{start_date}' AND end_date <= '{end_date}')
+            ) 
+        ) """
+        try:
+            result = conn.execute(text(query))
+            conn.close()
+        except SQLAlchemyError as err:
+            return jsonify(str(err.__cause__))
+        
+        data = []
+        for row in result:
+            entity = {}
+            entity['id_room'] = row.id_room
+            entity['name'] = row.name
+            entity['capacity'] = row.capacity
+            entity['price'] = row.price
+            entity['stars'] = row.stars
+            entity['description'] = row.description
+            data.append(entity)
+
+        return jsonify(data), 200
+                    
     return roomsRouter
+
+
+
+        
+        
+        
