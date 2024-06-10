@@ -351,6 +351,37 @@ nav {
     text-align: left;
   }
 }
+/* Boton usuario */
+.perfil {
+  &:focus-within #dropdown{
+    display: flex;
+  }
+}
+
+#dropdown {
+  position: absolute;
+  width: fit-content;
+  display: none;
+  flex-direction: column;
+  text-align: left;
+  top: 60px;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 5px 0;
+  transform: translateX(-12%) translateY(10%);
+
+  .perfil-links {
+    display: block;
+    color: #000000;
+    text-decoration: none;
+    padding: 10px 30px 10px 20px;
+
+    &:hover {
+      background-color: #c2bbbb;
+    }
+  }
+
+}
 
 /* Seccion contactos */
 
@@ -369,6 +400,88 @@ nav {
     height: 160px;
     font-size: 15px;
     
+}
+
+/* Mis Reservas */
+
+.booking {
+  padding: 30px;
+}
+
+.user-card {
+
+  background: #747e85;
+  border-radius: 12px;
+}
+
+.user-header {
+  background: linear-gradient(135deg,#296D9E ,#004cc8);
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.user-header img{
+  width: 4.8em;
+  height: 4.8em;
+  border-radius: 50%;
+}
+
+.user-card  .username {
+  padding-left: 20px;
+  font-size: 1.53em;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+}
+
+.user-details {
+  display: flex;
+  align-items: center;
+}
+.user-details i{
+  margin-right: 10px;
+}
+.user-details ul {
+    list-style: none;    
+    li {
+      margin-right: 20px;
+      display: inline;
+    }
+  }
+.user-booking {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  border-radius: 10px;
+}
+
+.booking-image {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.booking-content {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.room-title {
+  margin: 10px 10px 20px;
+}
+
+.room-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 20px 0 0 20px;
+  background-color: #747e85;
 }
 
 /* --------------------------------------- ESTILOS LUCAS ---------------------------------------*/
