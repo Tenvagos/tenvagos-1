@@ -18,4 +18,21 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlide(currentIndex);
 });
 
+// filtro de reservas
+document.getElementById('reservationForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const checkin = document.getElementById('checkin').value;
+    const checkout = document.getElementById('checkout').value;
+    const roomType = document.getElementById('roomType').value;
+
+    if (new Date(checkin) >= new Date(checkout)) {
+        alert('La fecha de salida debe ser posterior a la fecha de entrada.');
+        return;
+    }
+
+    alert(`Reserva realizada para la habitación ${roomType} del ${checkin} al ${checkout}.`);
+});
+
+
 

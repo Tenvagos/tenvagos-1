@@ -64,6 +64,36 @@
           </div>
       </div>
     </nav>
+
+    <main class="container my-5">
+        <div class="form-container p-4 bg-light rounded shadow">
+            <form id="reservationForm" class="row g-3">
+                <div class="col-md-4">
+                    <label for="checkin" class="form-label">Fecha de Entrada:</label>
+                    <input type="date" id="checkin" name="checkin" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="checkout" class="form-label">Fecha de Salida:</label>
+                    <input type="date" id="checkout" name="checkout" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="roomType" class="form-label">Tipo de Habitación:</label>
+                    <select id="roomType" name="roomType" class="form-select" required>
+                        <option value="single"> Habitación Básica</option>
+                        <option value="double">Confort Estándar</option>
+                        <option value="suite">Superior</option>
+                        <option value="deluxe">Suite Ejecutiva</option>
+                        <option value="family">Suite Presidencial</option>
+                        <option value="presidential">Residencia Real</option>
+                    </select>
+                </div>
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-primary">Reservar</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
     <div class="lucas-footer">
         <footer>
             <div class="footer-container">

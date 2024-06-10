@@ -114,6 +114,15 @@ nav {
   height: auto; /* Mantiene la proporción */
 }
 
+
+/* FILTRO DE RESERVAS */
+
+.form-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
 /*MEDIA QUERIES*/
 @media (min-width: 768px) {
   #btn-login {
