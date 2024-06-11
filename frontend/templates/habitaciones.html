@@ -30,151 +30,140 @@
     <title>Habitaciones</title>
 </head>
 <body>
-        <!--NAVBAR-->
-        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 fixed-top">
-          <div class="container">
-              <a href="home.html" class="navbar-brand"><img src="/frontend/static/img/LOGO.png" alt="LOGO-TENVAGOS"></a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-              <span class="navbar-toggler-icon"></span>
-              </button>
+  <!--NAVBAR-->
+  <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 fixed-top">
+    <div class="container">
+      <a href="home.html" class="navbar-brand"><img src="/frontend/static/img/LOGO.png" alt="LOGO-TENVAGOS"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       
-              <div class="collapse navbar-collapse" id="navmenu">
-              <ul class="navbar-nav ms-auto align-items-lg-center text-center">
-                  <li class="nav-item">
-                  <a href="home.html" class="nav-link text-center">HOME</a>
-                  </li>
-                  <li class="nav-item">
-                  <a href="home.html" class="nav-link text-center">NOSOTROS</a>
-                  </li>
-                  <li class="nav-item">
-                  <a href="habitaciones.html" class="nav-link text-center">HABITACIONES</a>
-                  </li>
-                  <li class="nav-item">
-                  <a href="home.html" class="nav-link text-center">SERVICIOS</a>
-                  </li>
-                  <li class="nav-item">
-                  <a href="home.html" class="nav-link text-center">CONTACTO</a>
-                  </li>
-                  <li class="nav-item mt-3 mt-lg-0" id="btn-login">
-                    <button class="btn btn-lg w-100 w-lg-auto btn-iniciar-sesion type1">
-                      <span class="btn-txt">INICIAR SESIÓN</span>
-                    </button>
-                  </li>
-              </ul>
-              </div>
-          </div>
-          </nav>    
-  </div> 
-  <!-- MAIN  -->
-      <main>
-        <section class="intro-section" id="harold">
-          <div class="container">
-            <div class="row text-center">
-                <div class="banner-section">
-                    <div class="banner-content">
-                      <h1 class="display-3 fw-bold text-capitalize">Nuestras Habitaciones</h1>
-                      <div class="heading-line"></div>
-                      <p class="lead">¡Donde el lujo se encuentra con la comodidad!</p>
-                    </div>
-                </div>    
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center text-center">
+          <li class="nav-item">
+            <a href="home.html" class="nav-link text-center">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a href="home.html" class="nav-link text-center">NOSOTROS</a>
+          </li>
+          <li class="nav-item">
+            <a href="habitaciones.html" class="nav-link text-center">HABITACIONES</a>
+          </li>
+          <li class="nav-item">
+            <a href="home.html" class="nav-link text-center">SERVICIOS</a>
+          </li>
+          <li class="nav-item">
+            <a href="home.html" class="nav-link text-center">CONTACTO</a>
+          </li>
+          <li class="nav-item mt-3 mt-lg-0" id="btn-login">
+            <button class="btn btn-lg w-100 w-lg-auto btn-iniciar-sesion type1">
+              <a href="login.html" class="nav-link">
+                <span class="btn-txt">INICIAR SESIÓN</span>
+              </a> 
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>     
+  <!--BANNER SECTION-->
+  <section id="intro-section">
+    <div class="banner-section">
+      <div class="container">
+        <div class="row text-center">  
+          <h1 class="display-habs-title fw-bold text-capitalize">Nuestras Habitaciones</h1>
+          <div class="heading-line"></div>
+          <p class="display-habs-subtitle">¡Donde el lujo se encuentra con la comodidad!</p>
+        </div>
+      </div>    
+    </div>
+            
+    <div class="card-container">          
+      <div class="cn-card">    
+        <div class="content-card">
+          <a class="card" href="1s.html">
+            <div class="front" style="background-image: url(../static/img/1.jpg)">          
+              <p> Habitación Básica</p>
             </div>
-            <div class="card-container">
+            <div class="back">
+              <div>
+                <p>Funcional y económica, perfecta para viajeros con presupuesto ajustado. Cama cómoda y baño privado. Ideal para estancias cortas.</p>
+                  <p></p>
+                  <button class="button"><i class="bi bi-star-fill"></i></button>
+              </div>
+            </div>
+          </a>
+          <a class="card" href="2s.html">
+            <div class="front" style="background-image: url(../static/img/1.jpg)">
+              <p>Confort Estándar</p>
+            </div>
+            <div class="back">
+              <div>
+                <p>Espacio acogedor con comodidades esenciales. Cama confortable, baño privado y Wi-Fi gratuito. Excelente relación calidad-precio.</p>
+                <p></p>
+                <button class="button"><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"></i></button>
+              </div>
+            </div>
+          </a>
+          <a class="card" href="3s.html">
+            <div class="front" style="background-image: url(../static/img/1.jpg)">
+              <p>Habitación Superior</p>
+            </div>
+            <div class="back">
+              <div>
+                <p>Diseño moderno con todas las comodidades necesarias. Espaciosa, cama grande, TV de pantalla plana y escritorio. Ideal para estancias prolongadas.</p>
+                <p></p>
+                <button class="button"><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i></button>
+              </div>
+            </div>
+          </a>          
+        </div>
+      </div>
+    </div>
 
-                
-              <div class="cn-card">
-              
-          
-              <div class="content-card">
-                  <a class="card" href="1s.html">
-                  <div class="front" style="background-image: url(../static/img/1.jpg)">
-                      
-                      <p> Habitación Básica</p>
-                  </div>
-                  <div class="back">
-                      <div>
-                      <p>Funcional y económica, perfecta para viajeros con presupuesto ajustado. Cama cómoda y baño privado. Ideal para estancias cortas.</p>
-                      <p></p>
-                      <button class="button"><i class="bi bi-star-fill"></i></button>
-                      </div>
-                  </div></a>
-                  <a class="card" href="2s.html">
-                  <div class="front" style="background-image: url(../static/img/1.jpg)">
-                      <p>Confort Estándar</p>
-                  </div>
-                  <div class="back">
-                      <div>
-                      <p>Espacio acogedor con comodidades esenciales. Cama confortable, baño privado y Wi-Fi gratuito. Excelente relación calidad-precio.</p>
-                      <p></p>
-                      <button class="button"><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"></i></button>
-                      </div>
-                  </div></a>
-                  <a class="card" href="3s.html">
-                  <div class="front" style="background-image: url(../static/img/1.jpg)">
-                      <p>Habitación Superior</p>
-                  </div>
-                  <div class="back">
-                      <div>
-                      <p>Diseño moderno con todas las comodidades necesarias. Espaciosa, cama grande, TV de pantalla plana y escritorio. Ideal para estancias prolongadas.</p>
-                      <p></p>
-                      <button class="button"><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i></button>
-                      </div>
-                  </div></a>
-                  
-                  
-                  
-                  </div>
-                  </div>
-                  </div>
-            <div class="card-container">
-
-      
-              <div class="cn-card">
-                
-          
-                <div class="content-card">
-                  <a class="card" href="4s.html">
-                    <div class="front" style="background-image: url(../static/img/1.jpg)">
-                      <p>Suite Ejecutiva</p>
-                    </div>
-                    <div class="back">
-                      <div>
-                        <p>Elegancia y confort combinados. Sala de estar separada, cama king-size y baño de lujo. Perfecta para viajeros de negocios.</p>
-                        <p></p>
-                        <button class="button"><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i></button>
-                      </div>
-                    </div></a>
-                    <a class="card" href="5s.html">
-                    <div class="front" style="background-image: url(../static/img/1.jpg)">
-                      <p>Suite Presidencial</p>
-                    </div>
-                    <div class="back">
-                      <div>
-                        <p>Lujo absoluto con vistas panorámicas. Amplia sala de estar, dormitorio principal, jacuzzi y servicios exclusivos. Experiencia inigualable.</p>
-                        <p></p>
-                        <button class="button"><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i></button>
-                      </div>
-                    </div></a>
-                    <a class="card" href="6s.html">
-                    <div class="front" style="background-image: url(../static/img/1.jpg)">
-                      <p>Residencia Real</p>
-                    </div>
-                    <div class="back">
-                      <div>
-                        <p>Opulencia suprema. Diseño exquisito, servicio de mayordomo, piscina privada y terrazas con vistas espectaculares. Experiencia única y exclusiva.</p>
-                        <p></p>
-                        <button class="button"><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i></button>
-                      </div> 
-                    </div></a>
-                    
-                    
-                    
-                    </div>
-                    </div>
-                    </div>
-          </div>
-        </section>      
-      </main>
-    </div>     
+    <div class="card-container">
+      <div class="cn-card">
+        <div class="content-card">
+          <a class="card" href="4s.html">
+            <div class="front" style="background-image: url(../static/img/1.jpg)">
+              <p>Suite Ejecutiva</p>
+            </div>
+            <div class="back">
+              <div>
+                <p>Elegancia y confort combinados. Sala de estar separada, cama king-size y baño de lujo. Perfecta para viajeros de negocios.</p>
+                <p></p>
+                <button class="button"><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i></button>
+              </div>
+            </div>
+          </a>
+          <a class="card" href="5s.html">
+            <div class="front" style="background-image: url(../static/img/1.jpg)">
+              <p>Suite Presidencial</p>
+            </div>
+            <div class="back">
+              <div>
+                <p>Lujo absoluto con vistas panorámicas. Amplia sala de estar, dormitorio principal, jacuzzi y servicios exclusivos. Experiencia inigualable.</p>
+                <p></p>
+                <button class="button"><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i></button>
+              </div>
+            </div>
+          </a>
+          <a class="card" href="6s.html">
+            <div class="front" style="background-image: url(../static/img/1.jpg)">
+              <p>Residencia Real</p>
+            </div>
+            <div class="back">
+              <div>
+                <p>Opulencia suprema. Diseño exquisito, servicio de mayordomo, piscina privada y terrazas con vistas espectaculares. Experiencia única y exclusiva.</p>
+                <p></p>
+                <button class="button"><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i></button>
+              </div> 
+            </div>
+          </a>                    
+        </div>
+      </div>
+    </div>
+  </section>           
     
     
                 <!--Footer-->
