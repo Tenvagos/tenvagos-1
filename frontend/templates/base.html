@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    {% block header %}
+        <div id="header">
+            <!--NAVBAR-->
+            <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 fixed-top">
+              <div class="container">
+                <a href="home.html" class="navbar-brand"><img src="../static/img/LOGO.png" alt="LOGO-TENVAGOS"></a>
+    
+                <button 
+                  class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navmenu"
+                >
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <div class="collapse navbar-collapse" id="navmenu">
+                  <ul class="navbar-nav ms-auto align-items-lg-center text-center">
+                    <li class="nav-item">
+                      <a href="#home" class="nav-link text-center">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#nosotros" class="nav-link text-center">NOSOTROS</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="habitaciones.html" class="nav-link text-center">HABITACIONES</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#servicios" class="nav-link text-center">SERVICIOS</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#contacto" class="nav-link text-center">CONTACTO</a>
+                    </li>
+                    <!--Boton de usuario-->
+                    <li class="nav-item perfil">
+                        <a href="#" class="nav-link">Usuario</a>
+                            <div id="dropdown">
+                                <a href="reservas.html" class="perfil-links"><i class="bi bi-calendar-check"></i> Mis reservas</a>
+                                <a href="#" class="perfil-links"><i class="bi bi-box-arrow-right"></i> Cerrar sesión</a>
+                            </div>
+                    
+                    </li>
+                    <!---->
+                    <li class="nav-item mt-3 mt-lg-0" id="btn-login">
+                      <button class="btn btn-lg w-100 w-lg-auto btn-iniciar-sesion type1">
+                        <a href="login.html" class="nav-link">
+                          <span class="btn-txt">INICIAR SESIÓN</span>
+                        </a>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+        </div>
+    {% endblock %}
+ 
+
+    <div id="content">
+        {% block content %}
+        <!-- Contenido de cada plantilla-->
+        {% endblock %}
+    </div>
+
+    {% block footer %}
+        <div id="footer">
+        <!-- Contenido del pie de página por defecto -->
+            <div class="lucas-footer">
+                <footer>
+                    <div class="footer-container">
+                        <div class="footer-links">
+                            <h3>Enlaces Rápidos</h3>
+                            <ul>
+                                <li><a href="home.html">Inicio</a></li>
+                                <li><a href="home.html#nosotros">Sobre Nosotros</a></li>
+                                <li><a href="home.html#servicios">Servicios</a></li>
+                                <li><a href="home.html#contacto">Contacto</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-title">
+                            <img src="../static/img/LOGO.png" alt="TENVAGOS">
+                        </div>
+                        
+                        <div class="footer-extra">
+                            <h3>Patrocinadores</h3>
+                            <ul>
+                                <li><a href="https://www.macdonals.com">Macdonals</a></li>
+                                <li><a href="https://www.cocacola.com">Coca Cola</a></li>
+                                <li><a href="https://www.amazon.com">Amazon</a></li>
+                                <li><a href="https://google.com">Google</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-social-media">
+                        <a href="https://www.facebook.com"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.twitter.com"><i class="bi bi-twitter-x"></i></a>
+                        <a href="https://www.instagram.com"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.linkedin.com"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://www.whatsapp.com"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                    
+                    <div class="footer-copyright">
+                        <p>&copy; 2024 <a href="https://github.com/Tenvagos/tenvagos-1">TENVAGOS</a> &copy; . Todos los derechos reservados.</p>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    {% endblock %}
+    
+    
+</body>
+</html>
