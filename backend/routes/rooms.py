@@ -28,6 +28,7 @@ def create_rooms_router(engine):
             entity['price'] = row.price
             entity['stars'] = row.stars
             entity['description'] = row.description
+            entity['url_imagen'] = row.url_imagen
             data.append(entity)
 
         return jsonify(data), 200
@@ -137,7 +138,7 @@ def create_rooms_router(engine):
         end_date= request.args.get('end_date',type=str)
         stars_param= request.args.get('stars',default=0,type=int)
         
-        if stars_param is not 0:
+        if stars_param != 0:
             stars = stars_param
         
         query = f"""SELECT * FROM rooms WHERE stars = {stars} AND id_room NOT IN (
@@ -163,6 +164,7 @@ def create_rooms_router(engine):
             entity['price'] = row.price
             entity['stars'] = row.stars
             entity['description'] = row.description
+            entity['url_imagen'] = row.url_imagen
             data.append(entity)
 
         return jsonify(data), 200

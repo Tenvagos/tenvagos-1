@@ -27,6 +27,7 @@ CREATE TABLE reserves (
     end_date DATE NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    amount DECIMAL(20,2) NOT NULL,
     PRIMARY KEY (id_reserve),
     FOREIGN KEY (id_room) REFERENCES rooms(id_room),
     FOREIGN KEY (id_user) REFERENCES users(id_user)

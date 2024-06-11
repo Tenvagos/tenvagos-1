@@ -28,6 +28,7 @@ def create_reserves_router(engine):
             entity['end_date'] = row.end_date
             entity['created_at'] = row.created_at
             entity['modified_at'] = row.modified_at
+            entity['amount'] = row.amount
             data.append(entity)
 
         return jsonify(data), 200
@@ -41,6 +42,7 @@ def create_reserves_router(engine):
         id_user=new_reserve["id_user"] 
         start_date=new_reserve["start_date"]
         end_date=new_reserve["end_date"]
+        amount=new_reserve["amount"]
         
         query_check_availability = f"""
         SELECT COUNT(*) FROM reserves 
@@ -61,8 +63,8 @@ def create_reserves_router(engine):
                 return jsonify({'message': 'La habitación no está disponible en las fechas seleccionadas'}), 400
             
             query_insert_reserve = f"""
-            INSERT INTO reserves (id_user, id_room, start_date, end_date) 
-            VALUES ({id_user}, {id_room}, '{start_date}', '{end_date}')
+            INSERT INTO reserves (id_user, id_room, start_date, end_date, amount) 
+            VALUES ({id_user}, {id_room}, '{start_date}', '{end_date}', '{amount}')
             """
             
             result = conn.execute(
@@ -131,6 +133,7 @@ def create_reserves_router(engine):
             data['end_date'] = row[4]
             data['created_at'] = row[5]
             data['modified_at'] = row[6]
+            data['amount'] = row[7]
             return jsonify(data), 200
         return jsonify({"message": "La reserva no existe"}), 404
 
