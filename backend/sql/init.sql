@@ -18,7 +18,6 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id_user)
 );
-
 CREATE TABLE reserves (
     id_reserve INT AUTO_INCREMENT,
     id_room INT NOT NULL,
@@ -27,7 +26,7 @@ CREATE TABLE reserves (
     end_date DATE NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    amount DECIMAL(20,2) NOT NULL,
+    amount DECIMAL(20,2) DEFAULT 0.00 NOT NULL,
     PRIMARY KEY (id_reserve),
     FOREIGN KEY (id_room) REFERENCES rooms(id_room),
     FOREIGN KEY (id_user) REFERENCES users(id_user)
@@ -47,15 +46,6 @@ CREATE TABLE months (
     month_name VARCHAR(20) NOT NULL,
     id_promotion INT,
     FOREIGN KEY (id_promotion) REFERENCES promotions(id_promotion)
-);
-
-CREATE TABLE user_reserves (
-    id INT AUTO_INCREMENT,
-    id_user INT NOT NULL,
-    id_reserve INT NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (id_user) REFERENCES users(id_user),
-    FOREIGN KEY (id_reserve) REFERENCES reserves(id_reserve)
 );
 
 INSERT INTO rooms (name, description, stars, capacity, price) VALUES 
@@ -104,11 +94,10 @@ INSERT INTO months (month_name, id_promotion) VALUES ('Junio', 4);
 
 -- Reservas de ejemplo
 INSERT INTO reserves (id_room, id_user, start_date, end_date) VALUES
-(1, 1, '2022-01-01', '2022-01-02');
-
--- My-reservas de ejemplo
-INSERT INTO user_reserves (id_user, id_reserve) VALUES
-(1, 1);
+(2, 1, '2022-02-01', '2022-02-02'),
+(3, 2, '2022-03-01', '2022-03-02'),
+(4, 2, '2022-04-01', '2022-04-02'),
+(1, 3, '2022-05-01', '2022-05-02');
 
 -- Instruccion para traer la relacion entre promotions y months
 -- SELECT p.title, p.description, p.start_date, p.end_date, m.month_name
@@ -116,5 +105,4 @@ INSERT INTO user_reserves (id_user, id_reserve) VALUES
 -- JOIN months m ON p.id_promotion = m.id_promotion
 -- ORDER BY p.id_promotion, m.id_month;
 
-
---AGREGAR PROCENTAJE DE DESCUENTO EN LAS PROMOCIONES
+-- AGREGAR PROCENTAJE DE DESCUENTO EN LAS PROMOCIONES
