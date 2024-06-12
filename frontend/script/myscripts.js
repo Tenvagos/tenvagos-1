@@ -34,5 +34,54 @@ document.getElementById('reservationForm').addEventListener('submit', function(e
     alert(`Reserva realizada para la habitación ${roomType} del ${checkin} al ${checkout}.`);
 });
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////REVISAR Y ADAPTAR ///////////////////////////////////////////////////////////////////////////
 
+/*
+document.getElementById('reservation-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita el envío del formulario
 
+    // Captura los datos del formulario
+    const roomType = document.getElementById('room-type').value;
+    const checkInDate = document.getElementById('check-in').value;
+    const checkOutDate = document.getElementById('check-out').value;
+
+    // Validar fechas
+    if (new Date(checkInDate) >= new Date(checkOutDate)) {
+        document.getElementById('reservation-status').textContent = 'La fecha de salida debe ser después de la fecha de entrada.';
+        return;
+    }
+
+    // Verificar disponibilidad
+    $.ajax({
+        url: '/check_availability',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            roomType: roomType,
+            checkInDate: checkInDate,
+            checkOutDate: checkOutDate
+        }),
+        success: function(response) {
+            if (response.available) {
+                // Hacer la reserva
+                $.ajax({
+                    url: '/make_reservation',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        roomType: roomType,
+                        checkInDate: checkInDate,
+                        checkOutDate: checkOutDate
+                    }),
+                    success: function(reservationResponse) {
+                        document.getElementById('reservation-status').textContent = `Reserva exitosa! Precio total: $${reservationResponse.totalPrice.toFixed(2)}. Precio con descuento: $${reservationResponse.discountedPrice.toFixed(2)}.`;
+                    }
+                });
+            } else {
+                document.getElementById('reservation-status').textContent = 'No hay habitaciones disponibles para las fechas seleccionadas.';
+            }
+        }
+    });
+});
+*/
