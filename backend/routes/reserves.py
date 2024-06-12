@@ -9,8 +9,6 @@ def create_reserves_router(engine):
     @reservesRouter.route('/reserves',methods =['GET'])
     def reserves():
         conn = engine.connect()
-
-        query = "SELECT * FROM reserves;"        
         
         query = f"""SELECT reserves.*, u.email, u.user_name, r.room_name,r.capacity, r.price, r.stars, r.description 
         FROM reserves
@@ -28,8 +26,6 @@ def create_reserves_router(engine):
         for row in result:
             entity = {}
             entity['id_reserve'] = row.id_reserve
-            entity['id_room'] = row.id_room
-            entity['id_user'] = row.id_user
             entity['start_date']=row.start_date
             entity['end_date'] = row.end_date
             entity['created_at'] = row.created_at
@@ -131,10 +127,6 @@ def create_reserves_router(engine):
     @reservesRouter.route('/reserves/<id_reserve>', methods = ['GET'])
     def get_reserve(id_reserve):
         conn = engine.connect()
-        query = f"""SELECT *
-                FROM reserves
-                WHERE id_reserve = {id_reserve};
-                """
         query = f"""SELECT reserves.*, u.email, u.user_name, r.room_name,r.capacity, r.price, r.stars, r.description 
         FROM reserves
         INNER JOIN rooms r ON reserves.id_room = r.id_room
@@ -152,13 +144,6 @@ def create_reserves_router(engine):
             data = {}
             row = result.first()
             data['id_reserve'] = row[0]
-            data['id_room'] = row[1]
-            data['id_user'] = row[2]
-            data['start_date'] = row[3]
-            data['end_date'] = row[4]
-            data['created_at'] = row[5]
-            data['modified_at'] = row[6]
-            data['amount'] = row[7]
             data['start_date'] = row[1]
             data['end_date'] = row[2]
             data['created_at'] = row[3]

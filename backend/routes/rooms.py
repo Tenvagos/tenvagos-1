@@ -23,7 +23,6 @@ def create_rooms_router(engine):
         for row in result:
             entity = {}
             entity['id_room'] = row.id_room
-            entity['name'] = row.name
             entity['room_name'] = row.room_name
             entity['capacity'] = row.capacity
             entity['price'] = row.price
@@ -39,7 +38,6 @@ def create_rooms_router(engine):
     def create_room():
         conn = engine.connect()
         new_user = request.get_json()
-        query = f"""INSERT INTO rooms (name, capacity, price, stars, description ) VALUES { new_user["name"] ,new_user["capacity"],new_user["price"],new_user["stars"], new_user["description"]};"""
         query = f"""INSERT INTO rooms (room_name, capacity, price, stars, description ) VALUES { new_user["room_name"] ,new_user["capacity"],new_user["price"],new_user["stars"], new_user["description"]};"""
         try:
             conn.execute(text(query))
@@ -102,7 +100,6 @@ def create_rooms_router(engine):
             data = {}
             row = result.first()
             data['id_room'] = row[0]
-            data['name'] = row[1]
             data['room_name'] = row[1]
             data['capacity'] = row[2]
             data['price'] = row[3]
@@ -162,7 +159,6 @@ def create_rooms_router(engine):
         for row in result:
             entity = {}
             entity['id_room'] = row.id_room
-            entity['name'] = row.name
             entity['room_name'] = row.room_name
             entity['capacity'] = row.capacity
             entity['price'] = row.price

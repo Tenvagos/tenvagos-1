@@ -1,6 +1,5 @@
 CREATE TABLE rooms (
     id_room INT AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
     room_name VARCHAR(50) NOT NULL,
     capacity INT NOT NULL,
     price DECIMAL(20,2) NOT NULL,
@@ -12,7 +11,6 @@ CREATE TABLE rooms (
 
 CREATE TABLE users (
     id_user INT AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
     user_name VARCHAR(50) NOT NULL,
     password VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
@@ -38,14 +36,11 @@ CREATE TABLE promotions (
     id_promotion INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     description TEXT,
-    start_date DATE,
     first_date DATE,
     discount INT NOT NULL,
-    end_date DATE
     last_date DATE
 );
 
-INSERT INTO rooms (name, description, stars, capacity, price) VALUES 
 INSERT INTO rooms (room_name, description, stars, capacity, price) VALUES 
 ( 'Habitación Básica','La Habitación Básica está diseñada para quienes buscan una estancia práctica y funcional. Con una superficie de 15 a 20 metros cuadrados, esta habitación es perfecta para estadías cortas o viajes de negocios. Encontrarás una cama individual o matrimonial que ofrece el confort esencial, junto con un escritorio pequeño y una silla, ideales para trabajar o estudiar. Entre los servicios y comodidades disponibles, destaca el Wi-Fi gratuito, que te mantendrá conectado en todo momento. También tendrás acceso a una televisión por cable para tu entretenimiento y aire acondicionado para asegurar una temperatura agradable durante toda tu estancia. El baño privado cuenta con una ducha y está equipado con artículos de aseo básicos como jabón y champú, además de toallas y un secador de pelo para tu conveniencia. La decoración de la Habitación Básica es sencilla y funcional, con colores neutros que promueven la relajación y el descanso. Como extras, recibirás una botella de agua gratuita y podrás disfrutar de un servicio de limpieza diario que mantendrá tu habitación impecable. Un pequeño armario o perchas están a tu disposición para organizar tu ropa de manera práctica.', 1, 2, 1500),
 ( 'Confort Estándar', 'La Habitación Confort Estándar ofrece una experiencia más amplia y cómoda, con una superficie de 20 a 25 metros cuadrados. Puedes elegir entre una cama matrimonial o dos camas individuales, adaptándose a tus necesidades. Además, cuenta con una zona de estar con silla o sillón, proporcionando un espacio adicional para relajarte. \n Esta habitación está equipada con Wi-Fi gratuito de alta velocidad, ideal tanto para el trabajo como para el entretenimiento sin interrupciones. La televisión de pantalla plana ofrece una excelente calidad de imagen para disfrutar de tus programas favoritos. El aire acondicionado y la calefacción garantizan una estancia confortable en cualquier época del año. \n El baño privado puede incluir una ducha o una bañera, y está provisto de artículos de aseo de mejor calidad, toallas de mayor grosor y un secador de pelo. La decoración es moderna y confortable, con colores cálidos y detalles decorativos que crean un ambiente acogedor. \n Entre los extras, encontrarás un mini bar con una selección de bebidas y snacks, así como un servicio de limpieza diario y servicio a la habitación. También dispones de una caja fuerte para guardar tus objetos de valor con total seguridad.',2, 3, 2000),
@@ -55,7 +50,6 @@ INSERT INTO rooms (room_name, description, stars, capacity, price) VALUES
 ( 'Suite Presidencial','La Suite Presidencial es la cúspide del lujo, con una superficie de 50 a 70 metros cuadrados. Esta suite incluye un dormitorio principal con cama king size, una sala de estar y un comedor independientes, ofreciendo un espacio opulento y privado. \n El Wi-Fi gratuito de alta velocidad y los televisores de pantalla plana en todas las habitaciones aseguran una excelente conectividad y entretenimiento. La suite está equipada con aire acondicionado, calefacción y un sistema de sonido envolvente para una experiencia auditiva inigualable. \n El baño privado incluye una bañera de hidromasaje y una ducha separada, además de artículos de aseo de lujo y amenities exclusivas. Albornoces, zapatillas y toallas de alta calidad están disponibles para tu comodidad. La decoración es opulenta y sofisticada, con mobiliario de diseño y obras de arte exclusivas que reflejan un gusto refinado. \n Además, dispones de un bar privado y un servicio de limpieza y mayordomo disponibles las 24 horas para atender todas tus necesidades. Tendrás acceso a una sala ejecutiva y otros servicios VIP que aseguran una estancia de primera clase.', 6, 4, 12500),
 ( 'Residencia Real','La Residencia Real redefine el lujo con una superficie de 100 a 150 metros cuadrados. Incluye múltiples habitaciones, como un dormitorio principal y habitaciones adicionales, así como una sala de estar, un comedor, una cocina y un estudio independientes.\n El Wi-Fi gratuito de alta velocidad y los televisores de pantalla plana en todas las habitaciones aseguran una conectividad y entretenimiento excepcionales. La residencia está equipada con aire acondicionado, calefacción y un sistema de sonido envolvente para una experiencia inigualable.\n Los baños privados cuentan con bañeras de hidromasaje y duchas separadas, además de artículos de aseo de lujo y amenities exclusivas. Albornoces, zapatillas y toallas de alta calidad están disponibles para tu confort. La decoración es extremadamente lujosa y personalizada, con mobiliario de diseño, antigüedades y obras de arte exclusivas que crean un ambiente único.\n Además, dispones de una cocina completamente equipada, ideal para estancias prolongadas. El servicio de limpieza y mayordomo están disponibles las 24 horas, y tendrás acceso a todos los servicios VIP del hotel, incluyendo transporte privado y actividades exclusivas, asegurando una estancia verdaderamente inolvidable.', 7, 8, 20000);
 
-INSERT INTO users (name, password, email, admin) VALUES 
 INSERT INTO users (user_name, password, email, admin) VALUES 
 ('Alice Smith', 'password1', 'alice@example.com', 0),
 ('Bob Johnson', 'password2', 'bob@example.com', 1),
@@ -65,7 +59,6 @@ INSERT INTO users (user_name, password, email, admin) VALUES
 
 -- Inserción de Promociones en la tabla `promotions`
 
-INSERT INTO promotions (title, description, start_date, end_date, discount) VALUES 
 INSERT INTO promotions (title, description, first_date, last_date, discount) VALUES 
 ('Winter Wonderland', 'Enjoy our winter wonderland promotion with special discounts on all rooms!', '2024-06-21', '2025-09-20', 40),
 ('Spring Fling', 'Celebrate spring with our exclusive offers on select rooms!', '2024-09-21', '2024-12-20', 20),

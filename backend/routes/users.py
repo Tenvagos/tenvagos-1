@@ -24,7 +24,6 @@ def create_users_router(engine):
             entity['id_user'] = row.id_user
             entity['email'] = row.email
             entity['password'] = row.password
-            entity['name'] = row.name
             entity['user_name'] = row.user_name
             entity['admin'] = row.admin
             entity['created_at'] = row.created_at
@@ -37,7 +36,6 @@ def create_users_router(engine):
     def create_user():
         conn = engine.connect()
         new_user = request.get_json()
-        query = f"""INSERT INTO users (email, password, name, admin) VALUES { new_user["email"] ,new_user["password"],new_user["name"],new_user["admin"]};"""
         query = f"""INSERT INTO users (email, password, user_name, admin) VALUES { new_user["email"] ,new_user["password"],new_user["user_name"],new_user["admin"]};"""
         try:
             conn.execute(text(query))
