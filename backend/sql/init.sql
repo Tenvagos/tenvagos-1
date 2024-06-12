@@ -1,6 +1,7 @@
 CREATE TABLE rooms (
     id_room INT AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
+    room_name VARCHAR(50) NOT NULL,
     capacity INT NOT NULL,
     price DECIMAL(20,2) NOT NULL,
     stars INT NOT NULL,
@@ -12,6 +13,7 @@ CREATE TABLE rooms (
 CREATE TABLE users (
     id_user INT AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
+    user_name VARCHAR(50) NOT NULL,
     password VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     admin TINYINT(1) NOT NULL DEFAULT 0,
@@ -37,18 +39,14 @@ CREATE TABLE promotions (
     title VARCHAR(255) NOT NULL,
     description TEXT,
     start_date DATE,
+    first_date DATE,
     discount INT NOT NULL,
     end_date DATE
-);
-
-CREATE TABLE months (
-    id_month INT AUTO_INCREMENT PRIMARY KEY,
-    month_name VARCHAR(20) NOT NULL,
-    id_promotion INT,
-    FOREIGN KEY (id_promotion) REFERENCES promotions(id_promotion)
+    last_date DATE
 );
 
 INSERT INTO rooms (name, description, stars, capacity, price) VALUES 
+INSERT INTO rooms (room_name, description, stars, capacity, price) VALUES 
 ( 'Habitación Básica','La Habitación Básica está diseñada para quienes buscan una estancia práctica y funcional. Con una superficie de 15 a 20 metros cuadrados, esta habitación es perfecta para estadías cortas o viajes de negocios. Encontrarás una cama individual o matrimonial que ofrece el confort esencial, junto con un escritorio pequeño y una silla, ideales para trabajar o estudiar. Entre los servicios y comodidades disponibles, destaca el Wi-Fi gratuito, que te mantendrá conectado en todo momento. También tendrás acceso a una televisión por cable para tu entretenimiento y aire acondicionado para asegurar una temperatura agradable durante toda tu estancia. El baño privado cuenta con una ducha y está equipado con artículos de aseo básicos como jabón y champú, además de toallas y un secador de pelo para tu conveniencia. La decoración de la Habitación Básica es sencilla y funcional, con colores neutros que promueven la relajación y el descanso. Como extras, recibirás una botella de agua gratuita y podrás disfrutar de un servicio de limpieza diario que mantendrá tu habitación impecable. Un pequeño armario o perchas están a tu disposición para organizar tu ropa de manera práctica.', 1, 2, 1500),
 ( 'Confort Estándar', 'La Habitación Confort Estándar ofrece una experiencia más amplia y cómoda, con una superficie de 20 a 25 metros cuadrados. Puedes elegir entre una cama matrimonial o dos camas individuales, adaptándose a tus necesidades. Además, cuenta con una zona de estar con silla o sillón, proporcionando un espacio adicional para relajarte. \n Esta habitación está equipada con Wi-Fi gratuito de alta velocidad, ideal tanto para el trabajo como para el entretenimiento sin interrupciones. La televisión de pantalla plana ofrece una excelente calidad de imagen para disfrutar de tus programas favoritos. El aire acondicionado y la calefacción garantizan una estancia confortable en cualquier época del año. \n El baño privado puede incluir una ducha o una bañera, y está provisto de artículos de aseo de mejor calidad, toallas de mayor grosor y un secador de pelo. La decoración es moderna y confortable, con colores cálidos y detalles decorativos que crean un ambiente acogedor. \n Entre los extras, encontrarás un mini bar con una selección de bebidas y snacks, así como un servicio de limpieza diario y servicio a la habitación. También dispones de una caja fuerte para guardar tus objetos de valor con total seguridad.',2, 3, 2000),
 ( 'Habitación Superior', 'La Habitación Superior se distingue por su amplitud y elegancia, con una superficie de 25 a 30 metros cuadrados. Ofrece una cama king size o dos camas queen, junto con una zona de estar con mesa y sillas, proporcionando un espacio adicional para trabajar o relajarte. \n El Wi-Fi gratuito de alta velocidad y la televisión de pantalla plana de mayor tamaño aseguran una conexión y entretenimiento de alta calidad. La habitación cuenta con aire acondicionado, calefacción y un purificador de aire para mantener un ambiente saludable y confortable. \n El baño privado incluye una bañera y está equipado con artículos de aseo de lujo, así como albornoces y zapatillas para una experiencia más refinada. La decoración es elegante y moderna, con colores sofisticados y obras de arte que añaden un toque de distinción. \n Además, dispones de una máquina de café/té para preparar tus bebidas favoritas en cualquier momento. El servicio de limpieza y el servicio a la habitación están disponibles las 24 horas para tu comodidad. También puedes solicitar un periódico diario para mantenerte informado.', 2, 3, 3500),
@@ -58,6 +56,7 @@ INSERT INTO rooms (name, description, stars, capacity, price) VALUES
 ( 'Residencia Real','La Residencia Real redefine el lujo con una superficie de 100 a 150 metros cuadrados. Incluye múltiples habitaciones, como un dormitorio principal y habitaciones adicionales, así como una sala de estar, un comedor, una cocina y un estudio independientes.\n El Wi-Fi gratuito de alta velocidad y los televisores de pantalla plana en todas las habitaciones aseguran una conectividad y entretenimiento excepcionales. La residencia está equipada con aire acondicionado, calefacción y un sistema de sonido envolvente para una experiencia inigualable.\n Los baños privados cuentan con bañeras de hidromasaje y duchas separadas, además de artículos de aseo de lujo y amenities exclusivas. Albornoces, zapatillas y toallas de alta calidad están disponibles para tu confort. La decoración es extremadamente lujosa y personalizada, con mobiliario de diseño, antigüedades y obras de arte exclusivas que crean un ambiente único.\n Además, dispones de una cocina completamente equipada, ideal para estancias prolongadas. El servicio de limpieza y mayordomo están disponibles las 24 horas, y tendrás acceso a todos los servicios VIP del hotel, incluyendo transporte privado y actividades exclusivas, asegurando una estancia verdaderamente inolvidable.', 7, 8, 20000);
 
 INSERT INTO users (name, password, email, admin) VALUES 
+INSERT INTO users (user_name, password, email, admin) VALUES 
 ('Alice Smith', 'password1', 'alice@example.com', 0),
 ('Bob Johnson', 'password2', 'bob@example.com', 1),
 ('Charlie Brown', 'password3', 'charlie@example.com', 0),
@@ -67,30 +66,12 @@ INSERT INTO users (name, password, email, admin) VALUES
 -- Inserción de Promociones en la tabla `promotions`
 
 INSERT INTO promotions (title, description, start_date, end_date, discount) VALUES 
+INSERT INTO promotions (title, description, first_date, last_date, discount) VALUES 
 ('Winter Wonderland', 'Enjoy our winter wonderland promotion with special discounts on all rooms!', '2024-06-21', '2025-09-20', 40),
 ('Spring Fling', 'Celebrate spring with our exclusive offers on select rooms!', '2024-09-21', '2024-12-20', 20),
 ('Summer Escape', 'Escape the heat with our summer discounts and special packages!', '2024-12-21', '2025-03-20', 10),
 ('Autumn Adventure', 'Experience the beauty of autumn with our seasonal deals!', '2025-03-21', '2025-06-21', 30);
 
--- Meses para la promoción 'Winter Wonderland'
-INSERT INTO months (month_name, id_promotion) VALUES ('Julio', 1);
-INSERT INTO months (month_name, id_promotion) VALUES ('Agosto', 1);
-INSERT INTO months (month_name, id_promotion) VALUES ('Septiembre', 1);
-
--- Meses para la promoción 'Spring Fling'
-INSERT INTO months (month_name, id_promotion) VALUES ('Octubre', 2);
-INSERT INTO months (month_name, id_promotion) VALUES ('Noviembre', 2);
-INSERT INTO months (month_name, id_promotion) VALUES ('Diciembre', 2);
-
--- Meses para la promoción 'Summer Escape'
-INSERT INTO months (month_name, id_promotion) VALUES ('Enero', 3);
-INSERT INTO months (month_name, id_promotion) VALUES ('Febrero', 3);
-INSERT INTO months (month_name, id_promotion) VALUES ('Marzo', 3);
-
--- Meses para la promoción 'Autumn Adventure'
-INSERT INTO months (month_name, id_promotion) VALUES ('Abril', 4);
-INSERT INTO months (month_name, id_promotion) VALUES ('Mayo', 4);
-INSERT INTO months (month_name, id_promotion) VALUES ('Junio', 4);
 
 -- Reservas de ejemplo
 INSERT INTO reserves (id_room, id_user, start_date, end_date) VALUES

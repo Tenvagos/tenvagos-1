@@ -25,6 +25,7 @@ def create_users_router(engine):
             entity['email'] = row.email
             entity['password'] = row.password
             entity['name'] = row.name
+            entity['user_name'] = row.user_name
             entity['admin'] = row.admin
             entity['created_at'] = row.created_at
             data.append(entity)
@@ -37,6 +38,7 @@ def create_users_router(engine):
         conn = engine.connect()
         new_user = request.get_json()
         query = f"""INSERT INTO users (email, password, name, admin) VALUES { new_user["email"] ,new_user["password"],new_user["name"],new_user["admin"]};"""
+        query = f"""INSERT INTO users (email, password, user_name, admin) VALUES { new_user["email"] ,new_user["password"],new_user["user_name"],new_user["admin"]};"""
         try:
             conn.execute(text(query))
             conn.commit()
@@ -96,7 +98,7 @@ def create_users_router(engine):
             data = {}
             row = result.first()
             data['id_user'] = row[0]
-            data['name'] = row[1]
+            data['user_name'] = row[1]
             data['password'] = row[2]
             data['email'] = row[3]
             data['admin'] = row[4]

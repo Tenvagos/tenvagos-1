@@ -27,6 +27,8 @@ def create_promotions_router(engine):
             entity['description'] = row.description
             entity['start_date'] = row.start_date
             entity['end_date'] = row.end_date
+            entity['first_date'] = row.first_date
+            entity['last_date'] = row.last_date
             data.append(entity)
 
         return jsonify(data), 200
@@ -37,6 +39,7 @@ def create_promotions_router(engine):
         conn = engine.connect()
         new_user = request.get_json()
         query = f"""INSERT INTO promotions (title, description, start_date, end_date ) VALUES { new_user["title"] ,new_user["description"], new_user["start_date"], new_user["end_date"]};"""
+        query = f"""INSERT INTO promotions (title, description, first_date, last_date ) VALUES { new_user["title"] ,new_user["description"], new_user["first_date"], new_user["last_date"]};"""
         try:
             conn.execute(text(query))
             conn.commit()
@@ -102,6 +105,8 @@ def create_promotions_router(engine):
             data['description'] = row[2]
             data['start_date'] = row[3]
             data['end_date'] = row[4]
+            data['first_date'] = row[3]
+            data['last_date'] = row[4]
             return jsonify(data), 200
         return jsonify({"message": f"La promocion con id {id} no existe"}), 404
 

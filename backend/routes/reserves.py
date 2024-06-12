@@ -11,6 +11,12 @@ def create_reserves_router(engine):
         conn = engine.connect()
 
         query = "SELECT * FROM reserves;"        
+        
+        query = f"""SELECT reserves.*, u.email, u.user_name, r.room_name,r.capacity, r.price, r.stars, r.description 
+        FROM reserves
+        INNER JOIN rooms r ON reserves.id_room = r.id_room
+        INNER JOIN users u ON reserves.id_user = u.id_user
+        """ 
         try:
             result = conn.execute(text(query))
             conn.close()
@@ -29,6 +35,18 @@ def create_reserves_router(engine):
             entity['created_at'] = row.created_at
             entity['modified_at'] = row.modified_at
             entity['amount'] = row.amount
+            
+            entity['id_user'] = row.id_user
+            entity['email'] = row.email
+            entity['user_name'] = row.user_name
+           
+            entity['id_room'] = row.id_room
+            entity['room_name'] = row.room_name
+            entity['capacity'] = row.capacity
+            entity['room_price'] = row.price
+            entity['stars'] = row.stars
+            entity['description'] = row.description
+            
             data.append(entity)
 
         return jsonify(data), 200
@@ -117,6 +135,13 @@ def create_reserves_router(engine):
                 FROM reserves
                 WHERE id_reserve = {id_reserve};
                 """
+        query = f"""SELECT reserves.*, u.email, u.user_name, r.room_name,r.capacity, r.price, r.stars, r.description 
+        FROM reserves
+        INNER JOIN rooms r ON reserves.id_room = r.id_room
+        INNER JOIN users u ON reserves.id_user = u.id_user
+        FROM reserves
+        WHERE id_reserve = {id_reserve}; """
+        
         try:
             result = conn.execute(text(query))
             conn.commit()
@@ -134,6 +159,23 @@ def create_reserves_router(engine):
             data['created_at'] = row[5]
             data['modified_at'] = row[6]
             data['amount'] = row[7]
+            data['start_date'] = row[1]
+            data['end_date'] = row[2]
+            data['created_at'] = row[3]
+            data['modified_at'] = row[4]
+            data['amount'] = row[5]
+            
+            data['id_user'] = row[6]
+            data['email'] = row[7]
+            data['user_name'] = row[8]
+            
+            data['id_room'] = row[9]
+            data['room_name'] = row[10]
+            data['capacity'] = row[11]
+            data['room_price'] = row[12]
+            data['stars'] = row[13]
+            data['description'] = row[14]
+            
             return jsonify(data), 200
         return jsonify({"message": "La reserva no existe"}), 404
 

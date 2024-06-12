@@ -17,6 +17,7 @@ def create_login_router(engine):
         conn = engine.connect()
         try:
             query = text("SELECT * FROM users WHERE name = :username AND password = :password")
+            query = text("SELECT * FROM users WHERE user_name = :username AND password = :password")
             result = conn.execute(query, {'username': username, 'password': password})
             user = result.fetchone()
         except SQLAlchemyError as err:
