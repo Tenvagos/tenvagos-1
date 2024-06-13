@@ -44,6 +44,8 @@ def login():
     if request.method == 'POST' and 'user' in request.form and 'contraseña' in request.form:
         session['loggedin'] = request.form.get("user")
         return redirect(url_for('home'))
+    if 'loggedin' in session:
+        return render_template('home.html', username=session['loggedin'])
     return render_template('login.html')
 
 @app.route('/reservar')

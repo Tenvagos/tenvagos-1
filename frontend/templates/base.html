@@ -61,16 +61,7 @@
                 <li class="nav-item">
                   <a href="{{ url_for('home') }}#contacto" class="nav-link text-center">CONTACTO</a>
                 </li>
-                <!--Boton de usuario-->
-                <li class="nav-item perfil">
-                    <a href="#" class="nav-link">Usuario</a>
-                        <div id="dropdown">
-                            <a href="{{ url_for('reservas') }}" class="perfil-links"><i class="bi bi-calendar-check"></i> Mis reservas</a>
-                            <a href="{{ url_for('logout') }}" class="perfil-links"><i class="bi bi-box-arrow-right"></i> Cerrar sesión</a>
-                        </div>
-                
-                </li>
-                <!---->
+                {% if username == None %}
                 <li class="nav-item mt-3 mt-lg-0" id="btn-login">
                   <button class="btn btn-lg w-100 w-lg-auto btn-iniciar-sesion type1">
                     <a href="{{ url_for('login') }}" class="nav-link">
@@ -78,6 +69,20 @@
                     </a>
                   </button>
                 </li>
+                {% else %}
+                <!--Boton de usuario-->
+                
+                <li class="nav-item perfil">
+                    <button class="nav-link boton-usuario">{{username}}</button>
+                        <div id="dropdown">
+                            <a href="{{ url_for('reservas') }}" class="perfil-links"><i class="bi bi-calendar-check"></i> Mis reservas</a>
+                            <a href="{{ url_for('logout') }}" class="perfil-links"><i class="bi bi-box-arrow-right"></i> Cerrar sesión</a>
+                        </div>
+                
+                </li>
+                <!---->
+
+                {% endif %}
               </ul>
             </div>
           </div>
