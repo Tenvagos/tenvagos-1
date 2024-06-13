@@ -24,7 +24,7 @@ def create_my_reserves_router(engine):
 
         offset = (page - 1) * page_size
 
-        query = f"""SELECT reserves.*, rooms.stars FROM reserves 
+        query = f"""SELECT reserves.*, rooms.stars, rooms.room_name, rooms.price, rooms.url_imagen, rooms.description, rooms.stars FROM reserves 
                     INNER JOIN rooms ON reserves.id_room = rooms.id_room 
                     WHERE id_user = {id_user} 
                     ORDER BY {sort_by} {sort_order} 
@@ -42,7 +42,13 @@ def create_my_reserves_router(engine):
             entity['id_user'] = row.id_user
             entity['start_date'] = row.start_date
             entity['end_date'] = row.end_date
+            entity['id_room'] = row.id_room
+            entity['room_name'] = row.room_name
+            entity['price'] = row.price
+            entity['amount'] = row.amount
             entity['stars'] = row.stars
+            entity['description'] = row.description
+            entity['url_imagen'] = row.url_imagen
             data.append(entity)
 
         return jsonify(data), 200
@@ -51,7 +57,7 @@ def create_my_reserves_router(engine):
     def my_reserve_detail(id_user, id_reserve):
         conn = engine.connect()
 
-        query = f"""SELECT reserves.*, rooms.stars, rooms.name FROM reserves 
+        query = f"""SELECT reserves.*, rooms.stars, rooms.room_name, rooms.description, rooms.price, rooms.url_imagen FROM reserves 
                     INNER JOIN rooms ON reserves.id_room = rooms.id_room 
                     WHERE id_user = {id_user} AND id_reserve = {id_reserve};"""
         try:
@@ -70,8 +76,12 @@ def create_my_reserves_router(engine):
         entity['start_date'] = row.start_date
         entity['end_date'] = row.end_date
         entity['stars'] = row.stars
-        entity['name'] = row.name
+        entity['room_name'] = row.room_name
         entity['amount'] = row.amount
+        entity['description'] = row.description
+        entity['url_imagen'] = row.url_imagen
+        entity['price'] = row.price
+
 
         return jsonify(entity), 200
     

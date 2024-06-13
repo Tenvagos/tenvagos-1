@@ -131,7 +131,6 @@ def create_reserves_router(engine):
         FROM reserves
         INNER JOIN rooms r ON reserves.id_room = r.id_room
         INNER JOIN users u ON reserves.id_user = u.id_user
-        FROM reserves
         WHERE id_reserve = {id_reserve}; """
         
         try:

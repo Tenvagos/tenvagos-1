@@ -27,6 +27,7 @@ def create_users_router(engine):
             entity['user_name'] = row.user_name
             entity['admin'] = row.admin
             entity['created_at'] = row.created_at
+            entity['url_imagen'] = row.url_imagen
             data.append(entity)
 
         return jsonify(data), 200
@@ -101,6 +102,7 @@ def create_users_router(engine):
             data['email'] = row[3]
             data['admin'] = row[4]
             data['created_at'] = row[5]
+            data['url_imagen'] = row[6]
             return jsonify(data), 200
         return jsonify({"message": "El usuario no existe"}), 404
 

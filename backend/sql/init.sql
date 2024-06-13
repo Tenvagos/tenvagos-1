@@ -16,6 +16,7 @@ CREATE TABLE users (
     email VARCHAR(100) UNIQUE NOT NULL,
     admin TINYINT(1) NOT NULL DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    url_imagen VARCHAR(256) DEFAULT NULL,
     PRIMARY KEY (id_user)
 );
 CREATE TABLE reserves (
@@ -50,12 +51,12 @@ INSERT INTO rooms (room_name, description, stars, capacity, price) VALUES
 ( 'Suite Presidencial','La Suite Presidencial es la cúspide del lujo, con una superficie de 50 a 70 metros cuadrados. Esta suite incluye un dormitorio principal con cama king size, una sala de estar y un comedor independientes, ofreciendo un espacio opulento y privado. \n El Wi-Fi gratuito de alta velocidad y los televisores de pantalla plana en todas las habitaciones aseguran una excelente conectividad y entretenimiento. La suite está equipada con aire acondicionado, calefacción y un sistema de sonido envolvente para una experiencia auditiva inigualable. \n El baño privado incluye una bañera de hidromasaje y una ducha separada, además de artículos de aseo de lujo y amenities exclusivas. Albornoces, zapatillas y toallas de alta calidad están disponibles para tu comodidad. La decoración es opulenta y sofisticada, con mobiliario de diseño y obras de arte exclusivas que reflejan un gusto refinado. \n Además, dispones de un bar privado y un servicio de limpieza y mayordomo disponibles las 24 horas para atender todas tus necesidades. Tendrás acceso a una sala ejecutiva y otros servicios VIP que aseguran una estancia de primera clase.', 6, 4, 12500),
 ( 'Residencia Real','La Residencia Real redefine el lujo con una superficie de 100 a 150 metros cuadrados. Incluye múltiples habitaciones, como un dormitorio principal y habitaciones adicionales, así como una sala de estar, un comedor, una cocina y un estudio independientes.\n El Wi-Fi gratuito de alta velocidad y los televisores de pantalla plana en todas las habitaciones aseguran una conectividad y entretenimiento excepcionales. La residencia está equipada con aire acondicionado, calefacción y un sistema de sonido envolvente para una experiencia inigualable.\n Los baños privados cuentan con bañeras de hidromasaje y duchas separadas, además de artículos de aseo de lujo y amenities exclusivas. Albornoces, zapatillas y toallas de alta calidad están disponibles para tu confort. La decoración es extremadamente lujosa y personalizada, con mobiliario de diseño, antigüedades y obras de arte exclusivas que crean un ambiente único.\n Además, dispones de una cocina completamente equipada, ideal para estancias prolongadas. El servicio de limpieza y mayordomo están disponibles las 24 horas, y tendrás acceso a todos los servicios VIP del hotel, incluyendo transporte privado y actividades exclusivas, asegurando una estancia verdaderamente inolvidable.', 7, 8, 20000);
 
-INSERT INTO users (user_name, password, email, admin) VALUES 
-('Alice Smith', 'password1', 'alice@example.com', 0),
-('Bob Johnson', 'password2', 'bob@example.com', 1),
-('Charlie Brown', 'password3', 'charlie@example.com', 0),
-('Diana Prince', 'password4', 'diana@example.com', 1),
-('Evan Davis', 'password5', 'evan@example.com', 0);
+INSERT INTO users (user_name, password, email, admin, url_imagen) VALUES 
+('Alice Smith', 'password1', 'alice@example.com', 0,"https://i.pinimg.com/564x/c6/f3/df/c6f3dfae6b76fcea17c975fda36586d0.jpg"),
+('Bob Johnson', 'password2', 'bob@example.com', 1,"https://i.pinimg.com/564x/a9/fd/3d/a9fd3d91b5fb4b66c8afc9a7c8d2af48.jpg"),
+('Charlie Brown', 'password3', 'charlie@example.com', 0,"https://i.pinimg.com/564x/d8/bf/4a/d8bf4a1465fcf805f838f8c26fbe46b4.jpg"),
+('Diana Prince', 'password4', 'diana@example.com', 1,"https://i.pinimg.com/564x/be/73/31/be73315b54a89d2c0425c5c9b398d884.jpg"),
+('Evan Davis', 'password5', 'evan@example.com', 0, "https://i.pinimg.com/564x/33/7a/5f/337a5fef9e8c54a791bf0b8a4e88411a.jpg");
 
 -- Inserción de Promociones en la tabla `promotions`
 
