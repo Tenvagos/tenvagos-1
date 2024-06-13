@@ -1,6 +1,17 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify
+"""from dotenv import load_dotenv"""
+import os
+import requests
+"""from flask_cors import CORS"""
+
+"""load_dotenv()"""
+
 
 app = Flask(__name__)
+
+"""CORS(app)"""
+
+url_api = "https://testvagos.pythonanywhere.com/rooms"
 app.secret_key = '6LeoBfIpAAAAAKi8ooFzL8knFiKGwqfCnOQrCF6c'
 
 @app.route('/')
@@ -9,35 +20,22 @@ def home():
             return render_template('home.html', username=session['loggedin'])
     return render_template('home.html', username=None)
 
-@app.route('/habitaciones')
+@app.route('/habitaciones', methods = ['GET'])
 def habitaciones():
+    api_url = url_api
+    response = requests.get(api_url)
+    if response.status_code == 200:
+        data = response.json()
         if 'loggedin' in session:
-                return render_template('habitaciones.html', username=session['loggedin'])
-        return render_template('habitaciones.html', username=None)
+                return render_template('habitaciones.html', username=session['loggedin'], rooms = data)
+        return render_template('habitaciones.html', username=None, rooms = data)
+    else:
+        return jsonify({'error': 'No se pudieron obtener los datos externos'}), response.status_code
 
-@app.route('/1s')
-def habitacion1():
-      return render_template('1s.html')
-
-@app.route('/2s')
-def habitacion2():
-      return render_template('2s.html')
-
-@app.route('/3s')
-def habitacion3():
-      return render_template('3s.html')
-
-@app.route('/4s')
-def habitacion4():
-      return render_template('4s.html')
-
-@app.route('/5s')
-def habitacion5():
-      return render_template('5s.html')
-
-@app.route('/6s')
-def habitacion6():
-      return render_template('6s.html')
+@app.route('/<variable>')
+def habitacion(variable):
+    template = '%ss.html' % variable
+    return render_template(template)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
