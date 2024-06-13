@@ -5,9 +5,9 @@ app.secret_key = '6LeoBfIpAAAAAKi8ooFzL8knFiKGwqfCnOQrCF6c'
 
 @app.route('/')
 def home():
-    if 'loggedin' in session:
-            return render_template('home.html', username=session['loggedin'])
-    return render_template('home.html', username=None)
+        if 'loggedin' in session:
+                return render_template('home.html', username=session['loggedin'])
+        return render_template('home.html', username=None)
 
 @app.route('/habitaciones')
 def habitaciones():
@@ -15,51 +15,26 @@ def habitaciones():
                 return render_template('habitaciones.html', username=session['loggedin'])
         return render_template('habitaciones.html', username=None)
 
-@app.route('/1s')
-def habitacion1():
-      return render_template('1s.html')
-
-@app.route('/2s')
-def habitacion2():
-      return render_template('2s.html')
-
-@app.route('/3s')
-def habitacion3():
-      return render_template('3s.html')
-
-@app.route('/4s')
-def habitacion4():
-      return render_template('4s.html')
-
-@app.route('/5s')
-def habitacion5():
-      return render_template('5s.html')
-
-@app.route('/6s')
-def habitacion6():
-      return render_template('6s.html')
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'POST' and 'user' in request.form and 'contraseña' in request.form:
-        session['loggedin'] = request.form.get("user")
-        return redirect(url_for('home'))
-    return render_template('login.html')
+        if request.method == 'POST' and 'user' in request.form and 'contraseña' in request.form:
 
-@app.route('/reservar')
-def reservar():
-      return render_template('reservar.html')
+                session['loggedin'] = request.form.get("user")
+
+                return redirect(url_for('home'))
+        return render_template('login.html')
 
 @app.route('/logout')
 def logout():
-    session.pop('loggedin')
-    return redirect(url_for('home'))
+        session.pop('loggedin')
+        return redirect(url_for('home'))
 
 @app.route('/reservas')
 def reservas():
-    if 'loggedin' in session:
-        return render_template('reservas.html', username=session['loggedin'])
-    return redirect(url_for('login'))
+        if 'loggedin' in session:
+                return render_template('reservas.html', username=session['loggedin'])
+
+        return redirect(url_for('login'))
 
 if __name__ == '__main__':
         app.run(debug=True, port=8080)
