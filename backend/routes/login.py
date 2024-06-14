@@ -1,6 +1,7 @@
 from flask import jsonify, request, Blueprint, json
 from sqlalchemy import text
 from sqlalchemy.exc import SQLAlchemyError
+import bcrypt
 
 
 def create_login_router(engine):
@@ -26,7 +27,11 @@ def create_login_router(engine):
 
         if user is None:
             return jsonify({"message": "El nombre de usuario o contraseña es incorrecto"}), 401
-       
+
+        hashed_password = user.password.encode('utf-8')
+        if not bcrypt.checkpw(password.encode('utf-8'), hashed_password):
+            return jsonify({"message": "El nombre de usuario o contraseña es incorrecto"}), 401
+               
         data = {}
         row = user
         data['id_user'] = row[0]
