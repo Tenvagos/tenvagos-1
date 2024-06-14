@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
 {% block title %} RESERVAS {% endblock %}
 {% block content %}
-</div>
 <div class="booking">
     <div class="container">
 
         <div class="user-card">
             <div class="user-header">
-                <img src="https://i.pinimg.com/564x/c6/f3/df/c6f3dfae6b76fcea17c975fda36586d0.jpg">
+                <img src="https://i.pinimg.com/564x/c6/f3/df/c6f3dfae6b76fcea17c975fda36586d0.jpg" alt="">
                 <p class="username">{{user.user_name}}</p>
             </div>
             <div class="user-details">
@@ -27,7 +26,7 @@
             {%else%}
             {% for reserva in reserves %}
             <div class="card-reserve">
-                <img src="../static/img/habitacion-1s-1.jpg"" alt=" Imagen de la reserva" class="card-img-reserve">
+                <img src="../static/img/habitacion-1s-1.jpg" alt=" Imagen de la reserva" class="card-img-reserve">
                 <div class="card-content-reserve">
                     <h3 class="card-title-reserve">{{reserva.room_name}}</h3>
                     <p class="card-date-reserve">Fecha de entrada: {{reserva.start_date}}</p>
@@ -36,7 +35,7 @@
                     {% if reserva.end_date < fecha%} <button class="card-btn complete-btn">Concluido</button>
 
                         {% else %}
-                        <button class="card-btn-reserve">Cancelar</button>
+                        <button class="card-btn-reserve" data-user-id="{{reserva.id_user}}" data-reserve-id="{{reserva.id_reserve}}">Cancelar</button>
                         {%endif %}
                 </div>
             </div>
@@ -47,4 +46,36 @@
 
     </div>
 </div>
+<script>
+document.querySelectorAll('.card-btn-reserve').forEach(button => {
+    button.addEventListener('click', event => {
+        event.preventDefault();
+
+        const confirmation = confirm('¿Estás seguro de que querés cancelar esta reserva?');
+        if (!confirmation) {
+            return;
+        }
+
+        const id_user = event.target.getAttribute('data-id_user');
+        const id_reserve = event.target.getAttribute('data-id_reserve');
+
+        fetch(`/my_reserves/${id_user}/${id_reserve}`, {
+            method: 'DELETE',
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error HTTP! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(json => {
+            console.log(json);
+            button.closest('.card-reserve').remove();
+        })
+        .catch(e => {
+            console.log('Hubo un problema realizando la operación: ' + e.message);
+        });
+    });
+});
+</script>
 {% endblock %}
