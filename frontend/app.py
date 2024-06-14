@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
+from datetime import datetime, date
 """from dotenv import load_dotenv"""
 import os
 import requests
@@ -11,7 +12,7 @@ app = Flask(__name__)
 
 """CORS(app)"""
 
-url_api = "https://testvagos.pythonanywhere.com/rooms"
+url_api = "https://tenvagoss.pythonanywhere.com"
 app.secret_key = '6LeoBfIpAAAAAKi8ooFzL8knFiKGwqfCnOQrCF6c'
 
 @app.route('/')
@@ -23,7 +24,7 @@ def home():
 @app.route('/habitaciones', methods = ['GET'])
 def habitaciones():
     api_url = url_api
-    response = requests.get(api_url)
+    response = requests.get(f"{api_url}/rooms")
     if response.status_code == 200:
         data = response.json()
         if 'loggedin' in session:
@@ -58,7 +59,31 @@ def logout():
 @app.route('/reservas')
 def reservas():
     if 'loggedin' in session:
-        return render_template('reservas.html', username=session['loggedin'])
+
+        def convertir_fecha(fecha):
+            fecha_obj = datetime.strptime(fecha, "%a, %d %b %Y %H:%M:%S %Z")
+            return fecha_obj.strftime("%d/%m/%Y")
+        
+        def convertir_fecha_actual(fecha):
+            fecha_obj = datetime.strptime(fecha, "%Y-%m-%d")
+            return fecha_obj.strftime("%d/%m/%Y")
+        
+        fechita = f"{date.today()}"
+        fecha_actual = convertir_fecha_actual(fechita)
+
+        user = {
+             "user_name" : "Test test",
+             "email": "test@test.com",
+             "id_user": 2,
+        }
+        
+        response = requests.get(f"{url_api}/my_reserves/{user['id_user']}")
+        reserves = response.json()
+        for reserva in reserves:
+            reserva["start_date"] = convertir_fecha(reserva["start_date"])
+            print(reserva["start_date"])
+            reserva["end_date"] = convertir_fecha(reserva["end_date"])
+        return render_template('reservas.html', reserves = reserves, user = user, fecha =  fecha_actual)
     return redirect(url_for('login'))
 
 if __name__ == '__main__':

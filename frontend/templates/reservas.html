@@ -1,45 +1,50 @@
 {% extends 'base.html' %}
 {% block title %} RESERVAS {% endblock %}
 {% block content %}
-    </div>
-    <div class="booking">
-        <div class="container">
+</div>
+<div class="booking">
+    <div class="container">
 
-            <div class="user-card">
-                <div class="user-header">
-                    <img src="https://i.pinimg.com/564x/c6/f3/df/c6f3dfae6b76fcea17c975fda36586d0.jpg">
-                    <p class="username">Carlos Mendoza</p>
-                </div>
-                <div class="user-details">
-                    <ul>
-                        <li><i class="bi bi-envelope-fill"></i>CarlosMendoza@algo.com</li>
-                        <li><i class="bi bi-telephone-fill"></i>+54 9 11 1234-5678</li>
-                    </ul>
+        <div class="user-card">
+            <div class="user-header">
+                <img src="https://i.pinimg.com/564x/c6/f3/df/c6f3dfae6b76fcea17c975fda36586d0.jpg">
+                <p class="username">{{user.user_name}}</p>
+            </div>
+            <div class="user-details">
+                <ul>
+                    <li><i class="bi bi-envelope-fill"></i>{{user.email}}</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Mis reservas</h2>
+
+        <div class="container-reserve">
+            {%if not reserves %}
+            <div class="card-reserve">
+                <h4>Historial de reservas vacio</h4>
+            </div>
+            {%else%}
+            {% for reserva in reserves %}
+            <div class="card-reserve">
+                <img src="../static/img/habitacion-1s-1.jpg"" alt=" Imagen de la reserva" class="card-img-reserve">
+                <div class="card-content-reserve">
+                    <h3 class="card-title-reserve">{{reserva.room_name}}</h3>
+                    <p class="card-date-reserve">Fecha de entrada: {{reserva.start_date}}</p>
+                    <p class="card-date-reserve">Fecha de salida: {{reserva.end_date}}</p>
+                    <p class="card-amount-reserve">Monto total: ${{reserva.amount}}</p>
+                    {% if reserva.end_date < fecha%} <button class="card-btn complete-btn">Concluido</button>
+
+                        {% else %}
+                        <button class="card-btn-reserve">Cancelar</button>
+                        {%endif %}
                 </div>
             </div>
-
-            <h2>Mis reservas</h2>
-
-                <div class="user-booking">
-                    <div class="booking-image">
-                        <img class="booking-image" src="../static/img/habitacion-1s-1.jpg" />
-                    </div>
-                    <div class="booking-content">
-                        <div class="room-title">
-                            <h1>Habitación Básica</h1>
-                        </div>
-                        <div class="room-details">
-                            <div class="flex">
-                                <h3>Monto total</h3>
-                                <p>$300.000</p>
-                            </div>
-                            <div>
-                                <button  class="btn btn-primary">Cancelar reserva</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            {%endfor %}
+            {%endif%}
 
         </div>
+
     </div>
+</div>
 {% endblock %}

@@ -1304,3 +1304,102 @@ iframe{
   margin-bottom: 20px;
   
 }
+
+/* ------------------------------------- Alex ----------------- */
+
+.container-reserve {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card-reserve {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-img-reserve {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content-reserve {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card-title-reserve {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.card-date-reserve,
+.card-amount-reserve {
+  font-size: 1em;
+  margin-bottom: 5px;
+}
+
+.card-btn-reserve {
+  margin-top: auto;
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #ff4c4c;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card-btn-reserve:hover {
+  background-color: #ff0000;
+}
+.complete-btn {
+  margin-top: auto;
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
+
+.complete-btn:hover {
+  background-color: #45a049;
+}
+@media (max-width: 768px) {
+  .container-reserve {
+      flex-direction: column;
+      align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-content-reserve {
+      padding: 15px;
+  }
+
+  .card-title-reserve {
+      font-size: 1.2em;
+  }
+
+  .card-date-reserve,
+  .card-amount-reserve,
+  .card-btn-reserve {
+      font-size: 0.9em;
+  }
+}
