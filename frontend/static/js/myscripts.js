@@ -24,14 +24,13 @@ document.getElementById('reservationForm').addEventListener('submit', function(e
 
     const checkin = document.getElementById('checkin').value;
     const checkout = document.getElementById('checkout').value;
-    const roomType = document.getElementById('roomType').value;
 
     if (new Date(checkin) >= new Date(checkout)) {
         alert('La fecha de salida debe ser posterior a la fecha de entrada.');
         return;
     }
 
-    alert(`Reserva realizada para la habitación ${roomType} del ${checkin} al ${checkout}.`);
+    alert('Las siguientes habitaciones están disponibles desde ${checkin} hasta ${checkout}.');
 });
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
