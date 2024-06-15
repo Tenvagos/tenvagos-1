@@ -1305,6 +1305,167 @@ iframe{
   
 }
 
+/* --------------------------------------- ROOMS - Daniel ---------------------------------------*/
+
+.about-section {
+  background: url(../img/gimnasio.jpg) no-repeat left;
+  background-size: 55%;
+  background-color: white;
+  overflow: hidden;
+  padding: 0px;
+  margin-bottom: 40px;
+}
+
+.inner-container {
+  width: 50%;
+  float: right;
+  background: white;
+  padding: 90px;
+}
+
+.inner-container h1 {
+  margin-bottom: 30px;
+  font-size: 40px;
+  font-weight: 900;
+}
+
+.about-section-right {
+  background: url(../img/1.jpg) no-repeat right;
+  background-size: 55%;
+  background-color: white;
+  overflow: hidden;
+  padding: 0px;
+  margin-bottom: 90px;
+}
+
+.inner-container-right {
+  width: 50%;
+  float: left;
+  background: white;
+  padding: 90px;
+}
+
+.inner-container-right h1 {
+  margin-bottom: 30px;
+  font-size: 40px;
+  font-weight: 900;
+}
+
+.text {
+  font-size: 16px;
+  color: black;
+  line-height: 30px;
+  text-align: justify;
+  margin-bottom: 40px;
+}
+
+.skills {
+  display: flex;
+  justify-content: space-around;
+  font-weight: 700;
+  font-size: 13px;
+  color: black;
+}
+
+@media screen and (max-width: 1200px) {
+  .inner-container {
+    padding: 80px;
+  }
+  .inner-container-right {
+    padding: 80px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .about-section,
+  .about-section-right {
+    background-size: 100%;
+    padding: 100px 40px;
+  }
+  .inner-container,
+  .inner-container-right {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .about-section,
+  .about-section-right {
+    padding: 0;
+  }
+  .inner-container,
+  .inner-container-right {
+    padding: 60px;
+  }
+}
+
+
+
+
+
+.half-sect__second {
+  background-image: url(../img/1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    background-color:#fff;
+}
+
+.half {
+  width: 50%;
+  display: table-cell;
+  background-color:#fff;
+}
+
+.half-sect__first {
+  padding: 150px;
+ background-color:#fff;
+}
+
+.description__p {
+  margin-bottom: 40px;
+}
+
+.description__title {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.sect--best {
+  background-image: url(../img/1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+padding: 160px 0;
+    background-color:#ffffff;
+}
+
+.best__title {
+  letter-spacing: 1px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  color: #0866ff;
+}
+
+.best__img {
+  width: 50px;
+}
+
+.best--margin {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.best--bottom {
+  margin-bottom: 40px;
+}
+
+
+
+
 /* ------------------------------------- Alex ----------------- */
 
 .container-reserve {
