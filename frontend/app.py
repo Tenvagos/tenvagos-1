@@ -1,24 +1,24 @@
-from flask import Flask, render_template, request, redirect, url_for, session, jsonify
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify, flash
 from datetime import datetime, date
 """from dotenv import load_dotenv"""
 import os
 import requests
-"""from flask_cors import CORS"""
+from flask_cors import CORS
 
 """load_dotenv()"""
 
 
 app = Flask(__name__)
 
-"""CORS(app)"""
+CORS(app)
 
 url_api = "https://tenvagoss.pythonanywhere.com"
 app.secret_key = '6LeoBfIpAAAAAKi8ooFzL8knFiKGwqfCnOQrCF6c'
 
 @app.route('/')
 def home():
-    if 'loggedin' in session:
-            return render_template('home.html', username=session['loggedin'])
+    if 'name' in session:
+            return render_template('home.html', username=session['name'])
     return render_template('home.html', username=None)
 
 @app.route('/habitaciones', methods = ['GET'])
@@ -27,8 +27,8 @@ def habitaciones():
     response = requests.get(f"{api_url}/rooms")
     if response.status_code == 200:
         data = response.json()
-        if 'loggedin' in session:
-                return render_template('habitaciones.html', username=session['loggedin'], rooms = data)
+        if 'name' in session:
+                return render_template('habitaciones.html', username=session['name'], rooms = data)
         return render_template('habitaciones.html', username=None, rooms = data)
     else:
         return jsonify({'error': 'No se pudieron obtener los datos externos'}), response.status_code
@@ -40,11 +40,36 @@ def habitacion(variable):
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'POST' and 'user' in request.form and 'contraseña' in request.form:
-        session['loggedin'] = request.form.get("user")
+    if request.method == 'POST':
+        api_url = url_api
+        login_route = f"{api_url}/login"
+        usuario = request.form.get("user")
+        contraseña = request.form.get("contraseña")
+
+        user = {"username": usuario, "password": contraseña}
+        
+        response = requests.post(login_route, json = user)
+
+        if response.status_code == 200:
+            datos = response.json()
+            session['id_usuario'] = datos['id_user']
+            session['name'] = datos['user_name']
+            session['email'] = datos['email']
+            session['image'] = datos['url_imagen']
+
+        elif response.status_code == 401:
+            mensaje = response.json()
+            flash(mensaje['message'])
+            return render_template('login.html')
+
+        else:
+            return jsonify({'error': 'No se pudieron obtener los datos externos'}), response.status_code
+
         return redirect(url_for('home'))
-    if 'loggedin' in session:
-        return render_template('home.html', username=session['loggedin'])
+
+    if 'name' in session:
+        return render_template('home.html', username=session['name'])
+
     return render_template('login.html')
 
 @app.route('/reservar')
@@ -53,12 +78,14 @@ def reservar():
 
 @app.route('/logout')
 def logout():
-    session.pop('loggedin')
+    if 'name' in session:
+        session.clear()
+    
     return redirect(url_for('home'))
 
 @app.route('/reservas')
 def reservas():
-    if 'loggedin' in session:
+    if 'name' in session:
 
         def convertir_fecha(fecha):
             fecha_obj = datetime.strptime(fecha, "%a, %d %b %Y %H:%M:%S %Z")
@@ -72,12 +99,13 @@ def reservas():
         fecha_actual = convertir_fecha_actual(fechita)
 
         user = {
-             "user_name" : "Test test",
-             "email": "test@test.com",
-             "id_user": 2,
+             "user_name" : session['name'],
+             "email": session['email'],
+             "id_user": session['id_usuario'],
+             "image": session['image'],
         }
         
-        response = requests.get(f"{url_api}/my_reserves/{user['id_user']}")
+        response = requests.get(f"{url_api}/my_reserves/{session['id_usuario']}")
         reserves = response.json()
         for reserva in reserves:
             reserva["start_date"] = convertir_fecha(reserva["start_date"])

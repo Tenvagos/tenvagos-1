@@ -31,15 +31,25 @@
             <h3 class="text-center text-login-form">Inicie sesión</h3>
               <div class="heading-line"></div>
                     
-                <form action="", method="POST">
+                <form action="{{url_for('login')}}", method="POST">
+                  {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                  {% for message in messages %}
+                  <div class="alert alert-primary alert-dismissable d-flex" role="alert">
+                    <strong>{{ message }}</strong>
+                    <button type="button" class="btn-close align-self-end" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                  {% endfor %}
+                  {% endif %}
+                  {%endwith %}
                   <div class="row login-row">
                     <div class="mb-3">
-                      <label class="form-label" for="user">Correo Electrónico</label>
+                      <label class="form-label" for="user">Usuario</label>
                       <input class="log_box" type="text" name="user", id="fuser" required>
                     </div>
                     <div class="mb-3">
                       <label class="form-label" for="user">Contraseña</label>
-                      <input class="log_box" type="text" name="contraseña", id="fcontraseña" required>
+                      <input class="log_box" type="password" name="contraseña", id="fcontraseña" required>
                     </div>
                     <div class="text-center">
                       <input class="btn btn-primary boton_form" type="submit" value="Iniciar Sesión">

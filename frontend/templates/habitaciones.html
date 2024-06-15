@@ -27,9 +27,9 @@
                   provident alias corporis necessitatibus voluptatum. Sapiente, est nobis illum totam laborum cupiditate
                   itaque eaque repudiandae.</p>
                 <p></p>
-                {% set counter = 0 %}
+                {% set counter = room.stars %}
                 <button class="button">
-                  {% for counter in range(room.stars) %}
+                  {% for i in range(counter) %}
                       <i class="bi bi-star-fill"></i>
                   {% endfor %}
                 </button>

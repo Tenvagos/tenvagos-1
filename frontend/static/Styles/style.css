@@ -340,11 +340,11 @@ nav {
 .login .login_form {
   background-color: rgb(161, 161, 161);
   padding: 40px;
-  height: 500px;
+  height: 100%;
 }
 
 .login-row {
-  padding-top: 60px;
+  padding-top: 20px;
 }
 
 .log_box {
