@@ -7,14 +7,14 @@ import bcrypt
 def create_login_router(engine):
     loginRouter = Blueprint('login', __name__)
 
-    @loginRouter.route('/login', methods = ['POST'])
+    @loginRouter.route('/login', methods=['POST'])
     def login():
         username = request.json['username']
         password = request.json['password']
         
         conn = engine.connect()
         try:
-            query = text(f"SELECT * FROM users WHERE user_name = '{username}' AND password = '{password}'")
+            query = text(f"SELECT * FROM users WHERE user_name = '{username}'")
             result = conn.execute(query)
             user = result.fetchone()
             print(user)
