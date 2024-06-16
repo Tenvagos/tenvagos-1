@@ -19,19 +19,19 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // filtro de reservas
-document.getElementById('reservationForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+// document.getElementById('reservationForm').addEventListener('submit', function(event) {
+//     event.preventDefault();
 
-    const checkin = document.getElementById('checkin').value;
-    const checkout = document.getElementById('checkout').value;
+//     const checkin = document.getElementById('checkin').value;
+//     const checkout = document.getElementById('checkout').value;
 
-    if (new Date(checkin) >= new Date(checkout)) {
-        alert('La fecha de salida debe ser posterior a la fecha de entrada.');
-        return;
-    }
+//     if (new Date(checkin) >= new Date(checkout)) {
+//         alert('La fecha de salida debe ser posterior a la fecha de entrada.');
+//         return;
+//     }
 
-    alert('Las siguientes habitaciones están disponibles desde ${checkin} hasta ${checkout}.');
-});
+//     alert('Las siguientes habitaciones están disponibles desde ${checkin} hasta ${checkout}.');
+// });
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////REVISAR Y ADAPTAR ///////////////////////////////////////////////////////////////////////////

@@ -141,6 +141,7 @@ def reservar():
         else:
             flash('Error al realizar la reserva')
             return render_template('reservar.html')
+        
 
     return render_template('reservar.html')
 
