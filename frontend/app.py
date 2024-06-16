@@ -161,6 +161,10 @@ def reservar():
 
     return render_template('reservar.html')
 
+@app.errorhandler(404)
+def errorhandler(e):
+    return render_template('404.html')
+
 @app.route('/logout')
 def logout():
     if 'name' in session:
