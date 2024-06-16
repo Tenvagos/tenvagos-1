@@ -29,7 +29,7 @@
         <p style="color: white"> {% for _ in range(estrellas) %}
                                <i class="bi bi-star-fill"></i>
                                        {% endfor %}</p>
-        <a class="parallax-button" href="{{ url_for('reservar') }}">RESERVALO AHORA POR ${{precio}}</a>
+        <a class="parallax-button" href="{{ url_for('reservar') }}">RESERVALO AHORA POR <del>${{precio}}</del> ${{precio_con_descuento}}</a>
         </div>
       </div>
   </div>
