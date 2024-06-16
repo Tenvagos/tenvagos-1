@@ -17,15 +17,13 @@
       <div class="cn-card">
         <div class="content-card">
         {%for room in rooms %}
-          <a class="card" href="{{ url_for('habitacion', variable=room.id_room) }}">
-            <div class="front" style="background-image: url({{room.url_imagen}})">
-              <p> {{room.name}} </p>
+          <a class="card" href="{{ url_for('habitacion', variable=room.id_room) }}">            
+            <div class="front" style="background-image: url('../static/{{room.url_imagen}}')">
+              <p> {{room.room_name}} </p>
             </div>
             <div class="back">
               <div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta maxime non tenetur cum hic ea,
-                  provident alias corporis necessitatibus voluptatum. Sapiente, est nobis illum totam laborum cupiditate
-                  itaque eaque repudiandae.</p>
+                <p>{{room.description}}</p>
                 <p></p>
                 {% set counter = room.stars %}
                 <button class="button">

@@ -56,10 +56,10 @@ document.querySelectorAll('.card-btn-reserve').forEach(button => {
             return;
         }
 
-        const id_user = event.target.getAttribute('data-id_user');
-        const id_reserve = event.target.getAttribute('data-id_reserve');
-
-        fetch(`/my_reserves/${id_user}/${id_reserve}`, {
+        const id_user = event.target.getAttribute('data-user-id');
+        const id_reserve = event.target.getAttribute('data-reserve-id');
+        console.log(id_user, id_reserve)
+        fetch(`https://tenvagoss.pythonanywhere.com/my_reserves/${id_user}/${id_reserve}`, {
             method: 'DELETE',
         })
         .then(response => {

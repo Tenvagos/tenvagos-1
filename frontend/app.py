@@ -115,11 +115,11 @@ def reservas():
 
         def convertir_fecha(fecha):
             fecha_obj = datetime.strptime(fecha, "%a, %d %b %Y %H:%M:%S %Z")
-            return fecha_obj.strftime("%d/%m/%Y")
+            return fecha_obj.strftime("%d-%m-%Y")
         
         def convertir_fecha_actual(fecha):
             fecha_obj = datetime.strptime(fecha, "%Y-%m-%d")
-            return fecha_obj.strftime("%d/%m/%Y")
+            return fecha_obj.strftime("%d-%m-%Y")
         
         fechita = f"{date.today()}"
         fecha_actual = convertir_fecha_actual(fechita)
