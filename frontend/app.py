@@ -4,7 +4,6 @@ from datetime import datetime, date
 import os
 import requests
 from flask_cors import CORS
-from flask_recaptcha import ReCaptcha
 
 """load_dotenv()"""
 
@@ -73,9 +72,7 @@ def contacto():
  
         return redirect("https://formsubmit.co/c692c80bc93633c1c420822f2cee9914", code=307)
 
-
-        
-
+    redirect(url_for('home'))
 
 @app.route('/habitaciones', methods = ['GET'])
 def habitaciones():
@@ -143,6 +140,22 @@ def login():
 
     return render_template('login.html')
 
+@app.route('/registro', methods=['GET', 'POST'])
+def registro():
+    if request.method == 'POST':
+        contraseña = request.form.get("contraseña")
+        email = request.form.get("email")
+        nombre = request.form.get("name")
+
+        new_user = {
+            "password": contraseña,
+            "email": email,
+            "name": nombre,
+            "admin": 0,
+            "created_at": datetime.now().isoformat(),
+        }
+    return render_template('registro.html')
+
 @app.route('/reservar', methods=['GET', 'POST'])
 def reservar():
     if request.method == 'POST':
@@ -173,6 +186,10 @@ def reservar():
         
 
     return render_template('reservar.html')
+
+@app.errorhandler(404)
+def errorhandler(e):
+    return render_template('404.html')
 
 @app.route('/logout')
 def logout():
