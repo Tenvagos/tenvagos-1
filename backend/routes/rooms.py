@@ -140,30 +140,24 @@ def create_rooms_router(engine):
         return jsonify({"message": f"La habitacion con id {id} no existe"}), 404
 
 
-    @roomsRouter.route('/rooms/<id>', methods = ['DELETE'])
-    def delete_room(id):
+    @roomsRouter.route('/rooms/<id_room>', methods = ['DELETE'])
+    def delete_room(id_room):
         conn = engine.connect()
-        query = f"""DELETE FROM rooms
-                WHERE id_room = {id};
+        query = f"""DELETE FROM rooms WHERE id_room = {id_room};
                 """
-        validation_query = f"SELECT * FROM rooms WHERE id_room = {id}"
+        validation_query = f"SELECT * FROM rooms WHERE id_room = {id_room}"     
+        val_result = conn.execute(text(validation_query), {"id_room":id_room}).fetchone()
+        if not val_result:
+            conn.close()
+            return jsonify({"message": f"la habitacion con el id {id_room} no existe"}), 404
         try:
-            val_result = conn.execute(text(validation_query))
-            if val_result.rowcount != 0 :
-                result = conn.execute(text(query))
-                conn.commit()
-                conn.close()
-            else:
-                conn.close()
-                return jsonify({"message": f"la habitacion con el id {id} no existe"}), 404
+            conn.execute(text(query), {"id_room": id})
+            conn.commit()
+            conn.close()    
         except SQLAlchemyError as err:
             jsonify(str(err.__cause__))
-        return jsonify({'message': 'Se ha eliminado correctamente la habitacion'}), 202
-    
-
-        
-
-                    
+            
+        return jsonify({'message': 'Se ha eliminado correctamente la habitacion'}), 200 
     return roomsRouter
 
 

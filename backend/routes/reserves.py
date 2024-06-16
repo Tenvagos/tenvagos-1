@@ -135,33 +135,35 @@ def create_reserves_router(engine):
         
         try:
             result = conn.execute(text(query))
-            conn.commit()
             conn.close()
         except SQLAlchemyError as err:
             return jsonify(str(err.__cause__))
-        if result.rowcount !=0:
-            data = {}
-            row = result.first()
-            data['id_reserve'] = row[0]
-            data['start_date'] = row[1]
-            data['end_date'] = row[2]
-            data['created_at'] = row[3]
-            data['modified_at'] = row[4]
-            data['amount'] = row[5]
+        
+        row = result.fetchone()
+        if row is None:
+            return jsonify({'error': 'Reserva no encontrada'}), 404
+       
+        
+        data = {}
+        data['id_reserve'] = row.id_reserve 
+        data['start_date'] = row.start_date
+        data['end_date'] = row.end_date
+        data['created_at'] = row.created_at
+        data['modified_at'] = row.modified_at
+        data['amount'] = row.amount
+        
+        data['id_user'] = row.id_user
+        data['email'] = row.email
+        data['user_name'] = row.user_name
+                    
+        data['id_room'] = row.id_room
+        data['room_name'] = row.room_name
+        data['capacity'] = row.capacity
+        data['room_price'] = row.price
+        data['stars'] = row.stars
+        data['description'] = row.description
             
-            data['id_user'] = row[6]
-            data['email'] = row[7]
-            data['user_name'] = row[8]
-            
-            data['id_room'] = row[9]
-            data['room_name'] = row[10]
-            data['capacity'] = row[11]
-            data['room_price'] = row[12]
-            data['stars'] = row[13]
-            data['description'] = row[14]
-            
-            return jsonify(data), 200
-        return jsonify({"message": "La reserva no existe"}), 404
+        return jsonify(data), 200
 
 
     @reservesRouter.route('/reserves/<id_reserve>', methods = ['DELETE'])
