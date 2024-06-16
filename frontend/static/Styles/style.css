@@ -708,7 +708,7 @@ footer {
 
 .parallax-top {
   /* Establece la imagen de fondo y sus propiedades */
-  background-image: url(../img/1.jpg);
+  background-image: url(../img/parallax.jpg);
   background-attachment: fixed;
   background-position: center;
   background-size: cover;

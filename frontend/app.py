@@ -15,11 +15,38 @@ CORS(app)
 url_api = "https://tenvagoss.pythonanywhere.com"
 app.secret_key = '6LeoBfIpAAAAAKi8ooFzL8knFiKGwqfCnOQrCF6c'
 
+
+def obtener_mes_actual():
+    fecha_actual = datetime.now()
+    return fecha_actual.month
+
+def promocion(): #podemos extraer la promocion del la estacion segun querramos usarla
+    mesactual = obtener_mes_actual()
+    if mesactual == 12 or mesactual == 1 or mesactual == 2 :
+        id = 3
+    elif mesactual == 3 or mesactual == 4 or mesactual == 5:
+        id = 4
+    elif mesactual == 6 or mesactual == 7 or mesactual == 8:
+        id = 1
+    elif mesactual == 9 or mesactual == 10 or mesactual == 11:
+        id = 2
+    api_url = url_api
+    response = requests.get(f"{api_url}/promotions/{id}")
+    if response.status_code == 200:
+        data = response.json()
+        title = data.get("title")
+        discount = data.get("last_date")
+        return title,discount
+    else:
+        return jsonify({'error': 'No se pudieron obtener los datos externos'}), response.status_code  
+
+
 @app.route('/')
 def home():
+    title,discount = promocion()
     if 'name' in session:
-            return render_template('home.html', username=session['name'])
-    return render_template('home.html', username=None)
+            return render_template('home.html', username=session['name'],titulo=title,descuento=discount)
+    return render_template('home.html', username=None,titulo=title,descuento=discount)
 
 @app.route('/habitaciones', methods = ['GET'])
 def habitaciones():
@@ -33,10 +60,12 @@ def habitaciones():
     else:
         return jsonify({'error': 'No se pudieron obtener los datos externos'}), response.status_code
 
+    
 @app.route('/<variable>')
 def habitacion(variable):
+    title,discount = promocion()
     template = '%ss.html' % variable
-    return render_template(template)
+    return render_template(template,titulo=title,descuento=discount)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
