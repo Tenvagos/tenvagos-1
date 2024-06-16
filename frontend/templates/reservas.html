@@ -26,7 +26,7 @@
             {%else%}
             {% for reserva in reserves %}
             <div class="card-reserve">
-                <img src="../static/img/habitacion-1s-1.jpg" alt=" Imagen de la reserva" class="card-img-reserve">
+                <img src="{{ url_for('static', filename='') }}{{reserva.url_imagen}}" alt=" Imagen de la reserva" class="card-img-reserve">
                 <div class="card-content-reserve">
                     <h3 class="card-title-reserve">{{reserva.room_name}}</h3>
                     <p class="card-date-reserve">Fecha de entrada: {{reserva.start_date}}</p>

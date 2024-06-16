@@ -16,9 +16,10 @@
     <div class="card-container">
       <div class="cn-card">
         <div class="content-card">
+        
         {%for room in rooms %}
           <a class="card" href="{{ url_for('habitacion', variable=room.id_room) }}">            
-            <div class="front" style="background-image: url('../static/{{room.url_imagen}}')">
+            <div class="front" style="background-image: url('{{ url_for('static', filename='') }}{{room.url_imagen}}')">
               <p> {{room.room_name}} </p>
             </div>
             <div class="back">
