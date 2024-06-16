@@ -1330,7 +1330,7 @@ iframe{
 }
 
 .about-section-right {
-  background: url(../img/1.jpg) no-repeat right;
+  background: url(../img/entretenimiento.jpg) no-repeat right;
   background-size: 55%;
   background-color: white;
   overflow: hidden;
@@ -1432,7 +1432,7 @@ iframe{
 }
 
 .sect--best {
-  background-image: url(../img/1.jpg);
+  background-image: url(../img/basica.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
