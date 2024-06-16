@@ -114,6 +114,22 @@ def login():
 
     return render_template('login.html')
 
+@app.route('/registro', methods=['GET', 'POST'])
+def registro():
+    if request.method == 'POST':
+        contraseña = request.form.get("contraseña")
+        email = request.form.get("email")
+        nombre = request.form.get("name")
+
+        new_user = {
+            "password": contraseña,
+            "email": email,
+            "name": nombre,
+            "admin": 0,
+            "created_at": datetime.now().isoformat(),
+        }
+    return render_template('registro.html')
+
 @app.route('/reservar', methods=['GET', 'POST'])
 def reservar():
     if request.method == 'POST':

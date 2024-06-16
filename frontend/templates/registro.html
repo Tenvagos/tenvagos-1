@@ -1,18 +1,17 @@
 {% extends 'base.html' %}
-{% block title %} LOGIN {% endblock %}
+{% block title %} REGISTRO {% endblock %}
 {% block content %}
-    <div class="login">
+    <div class="register">
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <h3 class="text-login"> 
+            <h3 class="text-register"> 
               <span class="display-2--name">Hotel Tenvagos</span>
                 <span class="display-3--description">
-                  <p>Estamos encantados de tenerte con nosotros. Por favor, inicia sesión para 
-                     acceder a tu cuenta y disfrutar de todos los beneficios exclusivos que 
-                     hemos preparado para ti. 
+                  <p>¡Bienvenido a nuestro hotel! Regístrate para crear una cuenta y empezar 
+                     a disfrutar de todos los beneficios exclusivos que hemos preparado para ti.
                   </p>
-                  <p>Al iniciar sesión, podrás:</p> 
+                  <p>Al registrarte, podrás:</p> 
                 </span>
                 <ul class="display-3--description">
                   <li>
@@ -27,11 +26,11 @@
                 </ul>
             </h3>
           </div>
-          <div class="col-md-6 login_form">
-            <h3 class="text-center text-login-form">Inicie sesión</h3>
+          <div class="col-md-6 register_form">
+            <h3 class="text-center text-register-form">Regístrate</h3>
               <div class="heading-line"></div>
                     
-                <form action="{{url_for('login')}}", method="POST">
+                <form action="{{url_for('registro')}}" method="POST">
                   {% with messages = get_flashed_messages() %}
                   {% if messages %}
                   {% for message in messages %}
@@ -42,21 +41,24 @@
                   {% endfor %}
                   {% endif %}
                   {%endwith %}
-                  <div class="row login-row">
+                  <div class="row register-row">
                     <div class="mb-3">
-                      <label class="form-label" for="user">Usuario</label>
-                      <input class="log_box" type="text" name="user", id="fuser" required>
+                      <label class="form-label" for="name">Nombre</label>
+                      <input class="reg_box" type="text" name="name" id="fname" required>
                     </div>
                     <div class="mb-3">
-                      <label class="form-label" for="user">Contraseña</label>
-                      <input class="log_box" type="password" name="contraseña", id="fcontraseña" required>
+                      <label class="form-label" for="email">Email</label>
+                      <input class="reg_box" type="email" name="email" id="femail" required>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label" for="contraseña">Contraseña</label>
+                      <input class="reg_box" type="password" name="contraseña" id="fcontraseña" required>
                     </div>
                     <div class="text-center">
-                      <input class="btn btn-primary boton_form" type="submit" value="Iniciar Sesión">
+                      <input class="btn btn-primary boton_form" type="submit" value="Registrarse">
                     </div>
                     <div>
-                      <p>¿Olvido su contraseña?</p>
-                      <a href="{{url_for('registro')}}">¿Todavia no tenes una cuenta? Creala ahora</a>
+                      <a href="{{ url_for('login') }}">¿Ya tienes una cuenta? Inicia sesión aquí.</a>
                     </div>
                   </div>
                 </form>
