@@ -31,12 +31,13 @@
                     <h3 class="card-title-reserve">{{reserva.room_name}}</h3>
                     <p class="card-date-reserve">Fecha de entrada: {{reserva.start_date}}</p>
                     <p class="card-date-reserve">Fecha de salida: {{reserva.end_date}}</p>
+                    {% if reserva.end_date < fecha%} 
+                    <p class="card-amount-reserve">&nbsp;</p>
+                    <button class="card-btn complete-btn">Concluido</button>
+                    {% else %}
                     <p class="card-amount-reserve">Monto total: ${{reserva.amount}}</p>
-                    {% if reserva.end_date < fecha%} <button class="card-btn complete-btn">Concluido</button>
-
-                        {% else %}
-                        <button class="card-btn-reserve" data-user-id="{{reserva.id_user}}" data-reserve-id="{{reserva.id_reserve}}">Cancelar</button>
-                        {%endif %}
+                    <button class="card-btn-reserve" data-user-id="{{reserva.id_user}}" data-reserve-id="{{reserva.id_reserve}}">Cancelar</button>
+                    {%endif %}
                 </div>
             </div>
             {%endfor %}
