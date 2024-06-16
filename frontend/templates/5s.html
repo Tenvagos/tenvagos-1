@@ -9,7 +9,7 @@
     <div class="container">
       <div class="row row--center">
         <div class="col-md-6 col-sm-7 col-xs-12">
-          <h1 class="sect__title best--bottom sect--white-text" style="color: white;">SUITE PRESIDENCIAL </h1>
+          <h1 class="sect__title best--bottom sect--white-text" style="color: white;">{{nombre}} </h1>
           <div class="row">
             <div class="col-md-4 col-sm-4 col-xs-4">
               <img src="../static/img/LOGO-ICON.png" class="best__img">
@@ -26,11 +26,13 @@
           </div>
           
         <p class="sect__subtitle best--margin sect--white-text " style="color: white;" >
-            Lujo absoluto con vistas panorámicas. Amplia sala de estar, dormitorio principal, jacuzzi y servicios exclusivos. Experiencia inigualable.
+          {{descripcion}}
         </p>
         <br>
-        <p style="color: white"> <i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i><i class="bi bi-star-fill"> </i></p>
-        <a class="parallax-button" href="{{ url_for('reservar') }}">RESERVALO AHORA</a>
+        <p style="color: white"> {% for _ in range(estrellas) %}
+          <i class="bi bi-star-fill"></i>
+                  {% endfor %}</p>
+        <a class="parallax-button" href="{{ url_for('reservar') }}">RESERVALO AHORA POR ${{precio}}</a>
         </div>
       </div>
   </div>
@@ -68,7 +70,7 @@
       <div class="description">
         <h2 class="description__title">La Cúspide del Lujo y la Exclusividad con un {{descuento}}% menos</h2>
         <p class="description__p">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-        
+        <p class="description__p">Capacidad: {{capacidad}} personas</p>
       </div>
   
     </div>

@@ -65,7 +65,19 @@ def habitaciones():
 def habitacion(variable):
     title,discount = promocion()
     template = '%ss.html' % variable
-    return render_template(template,titulo=title,descuento=discount)
+    api_url = url_api
+    response = requests.get(f"{api_url}/rooms/{variable}")
+    if response.status_code == 200:
+        data = response.json()
+        capacity = data.get("capacity")
+        price = data.get("price")
+        name = data.get("room_name")
+        description = data.get("description")
+        stars = data.get("stars")
+        return render_template(template,titulo=title,descuento=discount,capacidad=capacity,precio=price,nombre=name,descripcion=description,estrellas=stars)
+    else:
+        return jsonify({'error': 'No se pudieron obtener los datos externos'}), response.status_code
+    
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
