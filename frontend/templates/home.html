@@ -270,7 +270,16 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <form action="https://formsubmit.co/c692c80bc93633c1c420822f2cee9914", method="POST">
+                    <form action="{{ url_for('contacto') }}", method="POST">
+                        <!-- Honeypot -->
+                        <input type="text" name="_honey" style="display: none;">
+
+                        <!-- Desactivar captcha de formsubmit -->
+                        <input type="hidden" name="_captcha" value="false">
+
+                        <!-- Redireccionar a home -->
+                        <input type="hidden" name="_next" value="{{ url_for('home', _external=True) }}#contacto">
+
                         <div class="row">
                             <div class="mb-3">
                                 <input class="form-control contactanos" type="text" placeholder="NOMBRE" name="nombre" id="fnombre" required>
@@ -284,6 +293,15 @@
                             <div class="mb-3">
                                 <textarea class="form-control mensaje_contacto" type="text" placeholder="MENSAJE" name="mensaje" id="fmensaje"></textarea>
                             </div>
+                            {% with messages = get_flashed_messages() %}
+                                {% if messages %}
+                                {% for message in messages %}
+                                <div class="alert alert-primary alert-dismissable" role="alert">
+                                    <strong>{{ message }}</strong>
+                                </div>
+                                {% endfor %}
+                                {% endif %}
+                                {%endwith %}
                             <div class="mb-3">
                                 <div class="g-recaptcha" data-sitekey="6LdA0_UpAAAAAIXHtapvLporqaKwa0XNJZ6BnkQy"></div>
                             </div>

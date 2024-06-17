@@ -40,6 +40,15 @@ def promocion(): #podemos extraer la promocion del la estacion segun querramos u
     else:
         return jsonify({'error': 'No se pudieron obtener los datos externos'}), response.status_code  
 
+def verificar_captcha(captcha_response):
+    """ Valida el captcha desde el servidor de google
+        retorna true si es correcto o false si no
+    """
+    secret = "6LdA0_UpAAAAAEjzhk363bZfGDwgt8GCtvAMFZi2"
+    payload = {'response':captcha_response, 'secret':secret}
+    response = requests.post("https://www.google.com/recaptcha/api/siteverify", payload)
+    respuesta = response.json()
+    return respuesta['success']
 
 @app.route('/')
 def home():
@@ -47,6 +56,23 @@ def home():
     if 'name' in session:
             return render_template('home.html', username=session['name'],titulo=title,descuento=discount)
     return render_template('home.html', username=None,titulo=title,descuento=discount)
+
+@app.route('/contact', methods = ['POST'])
+def contacto():
+ 
+    if request.method == "POST":
+
+        captcha_response = request.form.get('g-recaptcha-response')
+         
+        if verificar_captcha(captcha_response):
+            flash("Mensaje enviado")
+        else:
+            flash("Completa el desafio reCaptcha")
+            return redirect(url_for('home')+"#contacto")
+ 
+        return redirect("https://formsubmit.co/c692c80bc93633c1c420822f2cee9914", code=307)
+
+    redirect(url_for('home'))
 
 @app.route('/habitaciones', methods = ['GET'])
 def habitaciones():
@@ -183,6 +209,10 @@ def reservar():
         
 
     return render_template('reservar.html')
+
+@app.errorhandler(404)
+def errorhandler(e):
+    return render_template('404.html')
 
 @app.route('/logout')
 def logout():
