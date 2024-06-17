@@ -117,6 +117,8 @@ def login():
 @app.route('/registro', methods=['GET', 'POST'])
 def registro():
     if request.method == 'POST':
+        api_url = url_api
+        registro_route = f"{api_url}/users"
         contraseña = request.form.get("contraseña")
         email = request.form.get("email")
         nombre = request.form.get("name")
@@ -124,11 +126,32 @@ def registro():
         new_user = {
             "password": contraseña,
             "email": email,
-            "name": nombre,
-            "admin": 0,
-            "created_at": datetime.now().isoformat(),
+            "user_name": nombre,
+            "admin": 0
         }
+
+        try:
+            response = requests.post(registro_route, json=new_user)
+        except requests.RequestException as e:
+            return jsonify({'error': 'Error al intentar conectar con el servidor externo: ' + str(e)}), 400
+
+        if response.status_code == 201:
+            return redirect(url_for('login'))
+
+        elif response.status_code == 400: 
+            mensaje = response.json()
+            flash(mensaje['message'])
+            return render_template('registro.html')
+
+        else:
+            flash(f'Error {response.status_code}: {response.text}')
+            return render_template('registro.html')
+
+    if 'name' in session:
+        return redirect(url_for('home'))
+
     return render_template('registro.html')
+
 
 @app.route('/reservar', methods=['GET', 'POST'])
 def reservar():
