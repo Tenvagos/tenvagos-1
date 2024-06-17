@@ -35,7 +35,7 @@
                     <p class="card-amount-reserve">&nbsp;</p>
                     <button class="card-btn complete-btn">Concluido</button>
                     {% else %}
-                    <p class="card-amount-reserve">Monto total: ${{reserva.amount}}</p>
+                    <p class="card-amount-reserve">Monto total: ${{reserva.price}}</p>
                     <button class="card-btn-reserve" data-user-id="{{reserva.id_user}}" data-reserve-id="{{reserva.id_reserve}}">Cancelar</button>
                     {%endif %}
                 </div>
