@@ -215,12 +215,12 @@ def reservas():
 
         def convertir_fecha(fecha):
             fecha_obj = datetime.strptime(fecha, "%a, %d %b %Y %H:%M:%S %Z")
-            return fecha_obj.strftime("%d-%m-%Y")
-        
+            return fecha_obj.date()
+
         def convertir_fecha_actual(fecha):
             fecha_obj = datetime.strptime(fecha, "%Y-%m-%d")
-            return fecha_obj.strftime("%d-%m-%Y")
-        
+            return fecha_obj.date()
+
         fechita = f"{date.today()}"
         fecha_actual = convertir_fecha_actual(fechita)
 
@@ -230,12 +230,11 @@ def reservas():
              "id_user": session['id_usuario'],
              "image": session['image'],
         }
-        
+
         response = requests.get(f"{url_api}/my_reserves/{session['id_usuario']}")
         reserves = response.json()
         for reserva in reserves:
             reserva["start_date"] = convertir_fecha(reserva["start_date"])
-            print(reserva["start_date"])
             reserva["end_date"] = convertir_fecha(reserva["end_date"])
         return render_template('reservas.html', reserves = reserves, user = user, fecha =  fecha_actual)
     return redirect(url_for('login'))
