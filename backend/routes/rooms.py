@@ -159,9 +159,3 @@ def create_rooms_router(engine):
             
         return jsonify({'message': 'Se ha eliminado correctamente la habitacion'}), 200 
     return roomsRouter
-
-
-
-        
-        
-        

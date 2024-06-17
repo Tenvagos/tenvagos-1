@@ -27,6 +27,7 @@ def create_promotions_router(engine):
             entity['description'] = row.description
             entity['first_date'] = row.first_date
             entity['last_date'] = row.last_date
+            entity['discount'] = row.discount
             data.append(entity)
 
         return jsonify(data), 200

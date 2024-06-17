@@ -2,6 +2,7 @@ from flask import Flask
 from sqlalchemy import create_engine
 import os
 from dotenv import load_dotenv
+from flask_cors import CORS
 from routes.rooms import create_rooms_router
 from routes.reserves import create_reserves_router
 from routes.users import create_users_router
@@ -19,6 +20,7 @@ db =  os.getenv('DB_NAME')
 
 
 app = Flask(__name__)
+CORS(app)
 engine = create_engine(f'mysql+mysqlconnector://{user}:{password}@{host}/{db}')
 
 app.register_blueprint(create_rooms_router(engine))
