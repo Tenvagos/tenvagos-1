@@ -72,9 +72,11 @@
                 {% else %}
                 <!--Boton de usuario-->
                 
-                <li class="nav-item perfil">
-                    <button class="nav-link boton-usuario">{{username}}</button>
-                        <div id="dropdown">
+                <li class="nav-item perfil d-flex align-items-center">
+                  <button class="nav-link boton-usuario">{{username}}</button>
+                    {% if session['image'] %}
+                      <img src="{{ session['image'] }}" alt="Imagen de usuario" class="usuario-imagen">
+                    {% endif %}                        <div id="dropdown">
                             <a href="{{ url_for('reservas') }}" class="perfil-links"><i class="bi bi-calendar-check"></i> Mis reservas</a>
                             <a href="{{ url_for('logout') }}" class="perfil-links"><i class="bi bi-box-arrow-right"></i> Cerrar sesión</a>
                         </div>
