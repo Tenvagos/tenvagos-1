@@ -94,6 +94,8 @@ def habitacion(variable):
     api_url = url_api
     response = requests.get(f"{api_url}/rooms/{variable}")
     if response.status_code == 200:
+        if 'name' in session:
+            user_id = session['id_usuario']
         data = response.json()
         price = data.get("price")  # Obtener el precio de la habitación
         # Aplicar el descuento al precio de la habitación
@@ -102,7 +104,8 @@ def habitacion(variable):
         name = data.get("room_name")
         description = data.get("description")
         stars = data.get("stars")
-        return render_template(template, titulo=title, descuento=discount, capacidad=capacity, precio=price, precio_con_descuento=discounted_price, nombre=name, descripcion=description, estrellas=stars)
+        id_room = data.get("id_room")
+        return render_template(template, titulo=title, descuento=discount, capacidad=capacity, precio=price, precio_con_descuento=discounted_price, nombre=name, descripcion=description, estrellas=stars, id_room = id_room, user_id = user_id)
     else:
         return jsonify({'error': 'No se pudieron obtener los datos externos'}), response.status_code
 

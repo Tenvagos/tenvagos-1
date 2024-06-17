@@ -3,7 +3,52 @@
 {% block content %}
 
 
-  
+      <!-- Modal reservar -->
+      <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+      tabindex="-1" style="top: 50%; left: 50%; transform: translate(-50%, -50%); height:100%; width:100%;">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalToggleLabel">Seleccionar fechas</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div>
+              <label for="checkin" class="form-label">Fecha de Entrada:</label>
+              <input type="date" id="start_date_modal-'{{user_id}}'" name="checkin" class="form-control" required>
+            </div>
+            <div>
+              <label for="checkout" class="form-label">Fecha de Salida:</label>
+              <input type="date" id="end_date_modal-'{{user_id}}'" name="checkout" class="form-control" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+              data-bs-dismiss="modal"
+              onclick="confirmarReserva('{{precio_con_descuento}}', '{{user_id}}','{{id_room}}')">Reservar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="top: 50%; left: 50%; transform: translate(-50%, -50%); height:100%; width:100%;" class="modal fade"
+      id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalToggleLabel2">Confirmar Reserva</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p id="mensaje_confirmacion" style="gap: 10px;"></p>
+          </div>
+          <div class="modal-footer">
+            <button class='card-btn-reserve' data-bs-dismiss='modal''>Cancelar</button>
+      <button class=' complete-btn'
+              onclick="realizarReserva('{{precio_con_descuento}}', '{{user_id}}', '{{id_room}}')">Confirmar</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
   <div class="sect sect--best sect--center" style="background-image: url(../static/img/banner6.png);">
     <div class="container">
@@ -32,7 +77,10 @@
         <p style="color: white"> {% for _ in range(estrellas) %}
           <i class="bi bi-star-fill"></i>
                   {% endfor %}</p>
-        <a class="parallax-button" href="{{ url_for('reservar') }}">RESERVALO AHORA POR <del>${{precio}}</del> ${{precio_con_descuento}}</a>
+                  <button class="parallax-button" data-bs-toggle="modal" href="#exampleModalToggle">RESERVALO AHORA POR
+                    <del>${{precio}}</del>
+                    ${{precio_con_descuento}}
+                  </button>
         </div>
       </div>
   </div>
@@ -115,4 +163,5 @@
     </div>
   
     </div>
+    <script src="{{url_for('static', filename='js/modal.js')}}"></script>
     {% endblock content %}
