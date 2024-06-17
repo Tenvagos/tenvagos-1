@@ -183,34 +183,15 @@ def registro():
 
 @app.route('/reservar', methods=['GET', 'POST'])
 def reservar():
-    if request.method == 'POST':
-        checkin = request.form.get('checkin')
-        checkout = request.form.get('checkout')
 
-        if 'name' in session:
-            user_id = session['id_usuario']
-        else:
-            flash('Debes iniciar sesión para realizar una reserva')
-            return redirect(url_for('login'))
-
-        reserva = {
-            "user_id": user_id,
-            "checkin": checkin,
-            "checkout": checkout,
-        }
-
-        api_url = f"{url_api}/reservations"
-        response = requests.post(api_url, json=reserva)
-
-        if response.status_code == 200:
-            flash('Reserva realizada con éxito')
-            return redirect(url_for('reservas'))
-        else:
-            flash('Error al realizar la reserva')
-            return render_template('reservar.html')
-        
-
-    return render_template('reservar.html')
+    if 'name' in session:
+        user_id = session['id_usuario']
+        title,discount = promocion()
+    else:
+        flash('Debes iniciar sesión para realizar una reserva')
+        return redirect(url_for('login'))
+    
+    return render_template('reservar.html', user_id = user_id, descuento = discount)
 
 @app.errorhandler(404)
 def errorhandler(e):
