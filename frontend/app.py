@@ -87,7 +87,7 @@ def habitaciones():
         return jsonify({'error': 'No se pudieron obtener los datos externos'}), response.status_code
 
     
-@app.route('/<variable>')
+@app.route('/habitaciones/<variable>')
 def habitacion(variable):
     title,discount = promocion()
     template = '%ss.html' % variable
@@ -96,6 +96,8 @@ def habitacion(variable):
     if response.status_code == 200:
         if 'name' in session:
             user_id = session['id_usuario']
+        else:
+            user_id=None
         data = response.json()
         price = data.get("price")  # Obtener el precio de la habitación
         # Aplicar el descuento al precio de la habitación
