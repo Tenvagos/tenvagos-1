@@ -101,7 +101,7 @@ def habitacion(variable):
         data = response.json()
         price = data.get("price")  # Obtener el precio de la habitación
         # Aplicar el descuento al precio de la habitación
-        discounted_price = float(price) * (discount / 100)
+        discounted_price = float(price) - float(price) * (discount / 100)
         capacity = data.get("capacity")
         name = data.get("room_name")
         description = data.get("description")

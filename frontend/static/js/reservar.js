@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 const calcular_descuento = (price, discount)=>{
-    let total = parseInt(price)*parseInt(discount)/100
+    let total = parseInt(price) - parseInt(price)*parseInt(discount)/100
     return total
 }
 
