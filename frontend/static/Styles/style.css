@@ -1606,6 +1606,12 @@ padding: 160px 0;
 }
 
 /* ------------------------------------- REGISTRO ----------------- */
+
+.register {
+  padding-top: 60px;
+  padding-bottom: 30px;
+}
+
 .reg_box {
   width: 100%;
   padding: 10px;

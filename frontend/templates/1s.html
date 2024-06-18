@@ -40,7 +40,7 @@
             <p id="mensaje_confirmacion" style="gap: 10px;"></p>
           </div>
           <div class="modal-footer">
-            <button class='card-btn-reserve' data-bs-dismiss='modal''>Cancelar</button>
+            <button class='card-btn-reserve' data-bs-dismiss='modal'>Cancelar</button>
       <button class=' complete-btn'
               onclick="realizarReserva('{{precio_con_descuento}}', '{{user_id}}', '{{id_room}}')">Confirmar</button>
           </div>
@@ -173,7 +173,7 @@
       Nuestro personal atento y profesional está siempre dispuesto a ayudarte, asegurando que tu experiencia sea tan
       única como tú.
       Ven y descubre un hotel donde tus expectativas son nuestra prioridad.</p>
-    <button class="parallax-button" onclick="abrirModal()">RESERVALO AHORA</button>
+      <a class="parallax-button" href="{{ url_for('reservar') }}">RESERVALO AHORA</a>
   </div>
 
 </div>
