@@ -1,3 +1,0 @@
-pipenv install flask_sqlalchemy
-pipenv install mysql-connector-python
-pipenv install python-dotenv
