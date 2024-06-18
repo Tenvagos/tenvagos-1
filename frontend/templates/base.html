@@ -10,7 +10,7 @@
      <!--ICONOS BOOTSTRAP-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!--FAVICON-->
-    <link rel="shortcut icon" href="{{ url_for('static', filename='img/LOGO-ICON.png') }}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/LOGO-ICON.png',_external=True) }}" type="image/x-icon" />
     <!--FONTAWESOME-->
     <link
     rel="stylesheet"
@@ -33,7 +33,7 @@
         <!--NAVBAR-->
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 fixed-top">
           <div class="container">
-            <a href="{{ url_for('home') }}" class="navbar-brand"><img src="{{ url_for('static', filename='img/LOGO.png') }}" alt="LOGO-TENVAGOS"></a>
+            <a href="{{ url_for('home') }}" class="navbar-brand"><img src="{{ url_for('static', filename='img/LOGO.png', _external=True) }}" alt="LOGO-TENVAGOS"></a>
 
             <button 
               class="navbar-toggler"
@@ -108,7 +108,7 @@
               </div>
               
               <div class="footer-title">
-                  <img src="{{ url_for('static', filename='img/LOGO.png') }}" alt="TENVAGOS">
+                  <img src="{{ url_for('static', filename='img/LOGO.png', _external=True) }}" alt="TENVAGOS">
               </div>
               
               <div class="footer-extra">

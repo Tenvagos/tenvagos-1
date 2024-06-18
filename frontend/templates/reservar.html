@@ -6,7 +6,7 @@
         <div class="row text-center">
             <div class="container my-5">
                 <div class="form-container p-4 bg-light rounded shadow">
-                    <form id="reservationForm" class="row g-3" action="{{ url_for('reservar') }}" method="POST"  data-discount="{{descuento}}"" data-userID="{{user_id}}">
+                    <form id="reservationForm" class="row g-3" action="{{ url_for('reservar') }}" method="POST"  data-discount="{{descuento}}" data-userID="{{user_id}}">
                         <div class="col-md-4">
                             <label for="checkin" class="form-label">Fecha de Entrada:</label>
                             <input type="date" id="start_date" name="checkin" class="form-control" required>

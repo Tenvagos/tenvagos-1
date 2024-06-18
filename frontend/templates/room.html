@@ -18,7 +18,7 @@
             
                 <div class="content-card">
                     <a class="card" href="1s.html">
-                    <div class="front" style="background-image: url(/static/img/1.jpg)">
+                    <div class="front" style="background-image: url('{{url_for('static', filename='img/1.jpg', _external=True)}}')">
                         
                         <p> Habitación Básica</p>
                     </div>
@@ -30,7 +30,7 @@
                         </div>
                     </div></a>
                     <a class="card" href="2s.html">
-                    <div class="front" style="background-image: url(/static/img/1.jpg)">
+                    <div class="front" style="background-image: url('{{url_for('static', filename='img/1.jpg', _external=True)}}')">
                         <p>Confort Estándar</p>
                     </div>
                     <div class="back">
@@ -41,7 +41,7 @@
                         </div>
                     </div></a>
                     <a class="card" href="3s.html">
-                    <div class="front" style="background-image: url(/static/img/1.jpg)">
+                    <div class="front" style="background-image: url('{{url_for('static', filename='img/1.jpg', _external=True)}}')">
                         <p>Habitación Superior</p>
                     </div>
                     <div class="back">
@@ -65,7 +65,7 @@
             
                   <div class="content-card">
                     <a class="card" href="4s.html">
-                      <div class="front" style="background-image: url(/static/img/1.jpg)">
+                      <div class="front" style="background-image: url('{{url_for('static', filename='img/1.jpg', _external=True)}}')">
                         <p>Suite Ejecutiva</p>
                       </div>
                       <div class="back">
@@ -76,7 +76,7 @@
                         </div>
                       </div></a>
                       <a class="card" href="5s.html">
-                      <div class="front" style="background-image: url(/static/img/1.jpg)">
+                      <div class="front" style="background-image: url('{{url_for('static', filename='img/1.jpg', _external=True)}}')">
                         <p>Suite Presidencial</p>
                       </div>
                       <div class="back">
@@ -87,7 +87,7 @@
                         </div>
                       </div></a>
                       <a class="card" href="6s.html">
-                      <div class="front" style="background-image: url(/static/img/1.jpg)">
+                      <div class="front" style="background-image: url('{{url_for('static', filename='img/1.jpg', _external=True)}}')">
                         <p>Residencia Real</p>
                       </div>
                       <div class="back">
@@ -105,6 +105,6 @@
                       </div>
                       
               
-    <script src="script/myscripts.js"></script>
+    <script src="{{ url_for('static', filename='js/myscripts.js') }}"></script>
 </body>
 </html>

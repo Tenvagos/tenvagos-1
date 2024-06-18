@@ -49,22 +49,22 @@
         </div>
       </div>
     </div>
-  <div class="sect sect--best sect--center" style="background-image: url(../static/img/banner3.png);">
+  <div class="sect sect--best sect--center" style="background-image: url('{{url_for('static', filename='img/banner3.png')}}');">
     <div class="container">
       <div class="row row--center">
         <div class="col-md-6 col-sm-7 col-xs-12">
           <h1 class="sect__title best--bottom sect--white-text" style="color: white;">{{nombre}} </h1>
           <div class="row">
             <div class="col-md-4 col-sm-4 col-xs-4">
-              <img src="../static/img/LOGO-ICON.png" class="best__img">
+              <img src="{{url_for('static', filename='img/LOGO-ICON.png',external=True)}}" class="best__img">
               <h2 class="best__title">Atención </h2>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-4">
-              <img src="../static/img/LOGO-ICON.png" class="best__img">
+              <img src="{{url_for('static', filename='img/LOGO-ICON.png',external=True)}}" class="best__img">
               <h2 class="best__title">Trayectoria </h2>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-4">
-              <img src="../static/img/LOGO-ICON.png" class="best__img">
+              <img src="{{url_for('static', filename='img/LOGO-ICON.png',external=True)}}" class="best__img">
               <h2 class="best__title">Reconocimiento</h2>
             </div>
           </div>
@@ -121,10 +121,10 @@
       </div>
   
     </div>
-      <div class="half half-sect__second" style="background-image: url(../static/img/habitacion-3s-2.jpg);">  </div>
+      <div class="half half-sect__second" style="background-image: url('{{url_for('static', filename='img/habitacion-3s-2.jpg', _external=True)}}');">  </div>
   </div>
 
-    <div class="about-section" style="background: url(../static/img/habitacion-3s-3.jpg) no-repeat left;background-size:55%;;">
+    <div class="about-section" style="background: url('{{url_for('static', filename='img/habitacion-3s-3.jpg', _external=True)}}') no-repeat left;background-size:55%;;">
       <div class="inner-container">
         <h1>"Lujo y Espacio en la Habitación Superior: Disfruta de la Amplitud y Elegancia"</h1>
         <p class="text">La Habitación Superior se distingue por su amplitud y elegancia, con una superficie de 25 a 30 metros cuadrados. Ofrece una cama king size o dos camas queen, junto con una zona de estar con mesa y sillas, proporcionando un espacio adicional para trabajar o relajarte.
@@ -141,7 +141,7 @@
     </div>
     </div>
 
-    <div class="about-section" style="background: url(../static/img/baño.jpg) no-repeat left;background-size:55%;;">
+    <div class="about-section" style="background: url('{{url_for('static', filename='img/baño.jpg', _external=True)}}') no-repeat left;background-size:55%;;">
       <div class="inner-container">
         <h1>"Un Oasis de Lujo: Descubre el Baño Privado de la Habitación Superior"</h1>
         <p class="text">El baño privado incluye una bañera y está equipado con artículos de aseo de lujo, así como albornoces y zapatillas para una experiencia más refinada. La decoración es elegante y moderna, con colores sofisticados y obras de arte que añaden un toque de distinción.
@@ -149,7 +149,7 @@
     </div>
       </div>
 
-      <div class="about-section-right" style="background: url(../static/img/bar-imagen.png) no-repeat right;background-size:55%;;">
+      <div class="about-section-right" style="background: url('{{url_for('static', filename='img/bar-imagen.png', _external=True)}}') no-repeat right;background-size:55%;;">
         <div class="inner-container-right">
           <h1> "Detalles que Hacen la Diferencia: Disfruta de las Comodidades de la Habitación Superior"</h1>
           <p class="text">Además, dispones de una máquina de café/té para preparar tus bebidas favoritas en cualquier momento. El servicio de limpieza y el servicio a la habitación están disponibles las 24 horas para tu comodidad. También puedes solicitar un periódico diario para mantenerte informado.
