@@ -152,7 +152,7 @@ def registro():
         contraseña = request.form.get("contraseña")
         email = request.form.get("email")
         nombre = request.form.get("name")
-        imagen = "static/usuario-default"   
+        imagen = url_for('static', filename='img/usuario-default.png', _external=True)
 
         new_user = {
             "password": contraseña,
