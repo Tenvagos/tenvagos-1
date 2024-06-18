@@ -49,22 +49,22 @@
         </div>
       </div>
     </div>
-  <div class="sect sect--best sect--center" style="background-image: url(../static/img/banner2.png);">
+  <div class="sect sect--best sect--center" style="background-image: url('{{url_for('static', filename='img/banner2.png')}}');">
     <div class="container">
       <div class="row row--center">
         <div class="col-md-6 col-sm-7 col-xs-12">
           <h1 class="sect__title best--bottom sect--white-text" style="color: white;">{{nombre}} </h1>
           <div class="row">
             <div class="col-md-4 col-sm-4 col-xs-4">
-              <img src="../static/img/LOGO-ICON.png" class="best__img">
+              <img src="{{url_for('static', filename='img/LOGO-ICON.png',external=True)}}" class="best__img">
               <h2 class="best__title">Atención </h2>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-4">
-              <img src="../static/img/LOGO-ICON.png" class="best__img">
+              <img src="{{url_for('static', filename='img/LOGO-ICON.png',external=True)}}" class="best__img">
               <h2 class="best__title">Trayectoria </h2>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-4">
-              <img src="../static/img/LOGO-ICON.png" class="best__img">
+              <img src="{{url_for('static', filename='img/LOGO-ICON.png',external=True)}}" class="best__img">
               <h2 class="best__title">Reconocimiento</h2>
             </div>
           </div>
@@ -120,10 +120,10 @@
       </div>
   
     </div>
-      <div class="half half-sect__second"style="background-image: url(../static/img/habitacion-2s-2.jpg);">  </div>
+      <div class="half half-sect__second"style="background-image: url('{{url_for('static', filename='img/habitacion-2s-2.jpg', _external=True)}}');">  </div>
   </div>
 
-    <div class="about-section" style="background: url(../static/img/habitacion-2s-3.jpg) no-repeat left;background-size:55%;;">
+    <div class="about-section" style="background: url('{{url_for('static', filename='img/habitacion-2s-3.jpg', _external=True)}}') no-repeat left;background-size:55%;;">
       <div class="inner-container">
         <h1>"Experimenta el Confort Ampliado: Descubre Nuestra Habitación Confort Estándar"</h1>
         <p class="text">La Habitación Confort Estándar ofrece una experiencia más amplia y cómoda, con una superficie de 20 a 25 metros cuadrados. Puedes elegir entre una cama matrimonial o dos camas individuales, adaptándose a tus necesidades. Además, cuenta con una zona de estar con silla o sillón, proporcionando un espacio adicional para relajarte.
@@ -132,7 +132,7 @@
     </div>
       </div>
   
-  <div class="about-section-right" style="background: url(../static/img/wifi.jpeg) no-repeat right;background-size:55%;;">
+  <div class="about-section-right" style="background: url('{{url_for('static', filename='img/wifi.jpeg', _external=True)}}') no-repeat right;background-size:55%;;">
     <div class="inner-container-right" >
       <h1> "Conectividad y Entretenimiento de Primera: Disfruta de la Tecnología en la Habitación Confort Estándar"</h1>
       <p class="text">Esta habitación está equipada con Wi-Fi gratuito de alta velocidad, ideal tanto para el trabajo como para el entretenimiento sin interrupciones. La televisión de pantalla plana ofrece una excelente calidad de imagen para disfrutar de tus programas favoritos. El aire acondicionado y la calefacción garantizan una estancia confortable en cualquier época del año.
@@ -140,7 +140,7 @@
     </div>
     </div>
 
-    <div class="about-section" style="background: url(../static/img/baño.jpg) no-repeat left;background-size:55%;;">
+    <div class="about-section" style="background: url('{{url_for('static', filename='img/baño.jpg', _external=True)}}') no-repeat left;background-size:55%;;">
       <div class="inner-container">
         <h1>"Relájate y Renueva Energías: Descubre el Baño Privado de Nuestra Habitación Confort Estándar"</h1>
         <p class="text">El baño privado puede incluir una ducha o una bañera, y está provisto de artículos de aseo de mejor calidad, toallas de mayor grosor y un secador de pelo. La decoración es moderna y confortable, con colores cálidos y detalles decorativos que crean un ambiente acogedor.
@@ -148,7 +148,7 @@
     </div>
       </div>
       
-      <div class="about-section-right" style="background: url(../static/img/camarista.jpg) no-repeat right;background-size:55%;;">
+      <div class="about-section-right" style="background: url('{{url_for('static', filename='img/camarista.jpg', _external=True)}}') no-repeat right;background-size:55%;;">
         <div class="inner-container-right">
           <h1> "Comodidades Extra para una Estancia sin Preocupaciones en la Habitación Confort Estándar"</h1>
           <p class="text">Entre los extras, encontrarás un mini bar con una selección de bebidas y snacks, así como un servicio de limpieza diario y servicio a la habitación. También dispones de una caja fuerte para guardar tus objetos de valor con total seguridad.

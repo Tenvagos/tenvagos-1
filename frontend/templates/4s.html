@@ -50,22 +50,22 @@
       </div>
     </div>
 
-  <div class="sect sect--best sect--center" style="background-image: url(../static/img/banner4.png);">
+  <div class="sect sect--best sect--center" style="background-image: url('{{url_for('static', filename='img/banner4.png')}}');">
     <div class="container">
       <div class="row row--center">
         <div class="col-md-6 col-sm-7 col-xs-12">
           <h1 class="sect__title best--bottom sect--white-text" style="color: white;">{{nombre}}</h1>
           <div class="row">
             <div class="col-md-4 col-sm-4 col-xs-4">
-              <img src="../static/img/LOGO-ICON.png" class="best__img">
+              <img src="{{url_for('static', filename='img/LOGO-ICON.png',external=True)}}" class="best__img">
               <h2 class="best__title">Atención </h2>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-4">
-              <img src="../static/img/LOGO-ICON.png" class="best__img">
+              <img src="{{url_for('static', filename='img/LOGO-ICON.png',external=True)}}" class="best__img">
               <h2 class="best__title">Trayectoria </h2>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-4">
-              <img src="../static/img/LOGO-ICON.png" class="best__img">
+              <img src="{{url_for('static', filename='img/LOGO-ICON.png',external=True)}}" class="best__img">
               <h2 class="best__title">Reconocimiento</h2>
             </div>
           </div>
@@ -122,10 +122,10 @@
       </div>
   
     </div>
-      <div class="half half-sect__second" style="background-image: url(../static/img/habitacion-4s-2.jpg);">  </div>
+      <div class="half half-sect__second" style="background-image: url('{{url_for('static', filename='img/habitacion-4s-2.jpg', _external=True)}}');">  </div>
   </div>
 
-    <div class="about-section" style="background: url(../static/img/habitacion-4s-3.jpg) no-repeat left;background-size:55%;;">
+    <div class="about-section" style="background: url('{{url_for('static', filename='img/habitacion-4s-3.jpg', _external=True)}}') no-repeat left;background-size:55%;;">
       <div class="inner-container">
         <h1>"Lujo y Espacio en la Suite Ejecutiva: Disfruta de la Comodidad y Elegancia"</h1>
         <p class="text">La Suite Ejecutiva ofrece un lujo superior con una superficie de 35 a 45 metros cuadrados. Incluye una cama king size y una sala de estar separada con sofá y escritorio, proporcionando un amplio espacio para relajarte y trabajar.
@@ -133,7 +133,7 @@
     </div>
       </div>
   
-  <div class="about-section-right" style="background: url(../static/img/conectividad.jpeg) no-repeat right;background-size:55%;;">
+  <div class="about-section-right" style="background: url('{{url_for('static', filename='img/conectividad.jpeg', _external=True)}}') no-repeat right;background-size:55%;;">
     <div class="inner-container-right">
       <h1> "Entretenimiento y Conectividad de Primera en la Suite Ejecutiva: Disfruta de la Tecnología Avanzada"</h1>
       <p class="text">El Wi-Fi gratuito de alta velocidad y las televisiones de pantalla plana en el dormitorio y la sala de estar aseguran entretenimiento y conectividad sin interrupciones. La suite está equipada con aire acondicionado, calefacción y un sistema de sonido para una experiencia auditiva excepcional.
@@ -141,7 +141,7 @@
     </div>
     </div>
 
-    <div class="about-section" style="background: url(../static/img/spa.jpg) no-repeat left;background-size:55%;;">
+    <div class="about-section" style="background: url('{{url_for('static', filename='img/spa.jpg', _external=True)}}') no-repeat left;background-size:55%;;">
       <div class="inner-container">
         <h1>"Un Spa Privado en la Suite Ejecutiva: Descubre el Lujo y la Elegancia en el Baño"</h1>
         <p class="text">El baño privado cuenta con una bañera y una ducha separada, así como artículos de aseo premium, albornoces, zapatillas y un espejo de aumento. La decoración es lujosa y moderna, con colores sofisticados y acabados de alta calidad que crean un ambiente exclusivo.

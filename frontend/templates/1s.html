@@ -47,22 +47,22 @@
         </div>
       </div>
     </div>
-<div class="sect sect--best sect--center" style="background-image: url(../static/img/banner1.png);">
+<div class="sect sect--best sect--center" style="background-image: url('{{url_for('static', filename='img/banner1.png')}}');">
   <div class="container">
     <div class="row row--center">
       <div class="col-md-6 col-sm-7 col-xs-12">
         <h1 class="sect__title best--bottom sect--white-text" style="color: white;">{{nombre}}</h1>
         <div class="row">
           <div class="col-md-4 col-sm-4 col-xs-4">
-            <img src="../static/img/LOGO-ICON.png" class="best__img">
+            <img src="{{url_for('static', filename='img/LOGO-ICON.png',external=True)}}" class="best__img">
             <h2 class="best__title">Atención </h2>
           </div>
           <div class="col-md-4 col-sm-4 col-xs-4">
-            <img src="../static/img/LOGO-ICON.png" class="best__img">
+            <img src="{{url_for('static', filename='img/LOGO-ICON.png',external=True)}}" class="best__img">
             <h2 class="best__title">Trayectoria </h2>
           </div>
           <div class="col-md-4 col-sm-4 col-xs-4">
-            <img src="../static/img/LOGO-ICON.png" class="best__img">
+            <img src="{{url_for('static', filename='img/LOGO-ICON.png',external=True)}}" class="best__img">
             <h2 class="best__title">Reconocimiento</h2>
           </div>
         </div>
@@ -121,11 +121,11 @@
     </div>
 
   </div>
-  <div class="half half-sect__second" style="background-image: url(../static/img/habitacion-1s-2.jpg);"> </div>
+  <div class="half half-sect__second" style="background-image: url('{{url_for('static', filename='img/habitacion-1s-2.jpg', _external=True)}}');"> </div>
 </div>
 
 <div class="about-section"
-  style="background: url(../static/img/habitacion-1s-3.jpg) no-repeat left;background-size:55%;;">
+  style="background: url('{{url_for('static', filename='img/habitacion-1s-3.jpg', _external=True)}}') no-repeat left;background-size:55%;;">
   <div class="inner-container">
     <h1>"Confort y Funcionalidad: La Habitación Básica para Estancias Prácticas"</h1>
     <p class="text">La Habitación Básica está diseñada para quienes buscan una estancia práctica y funcional. Con una
@@ -137,7 +137,7 @@
   </div>
 </div>
 
-<div class="about-section-right" style="background: url(../static/img/xp.jpeg) no-repeat right;background-size:55%;;">
+<div class="about-section-right" style="background: url('{{url_for('static', filename='img/xp.jpeg', _external=True)}}') no-repeat right;background-size:55%;;">
   <div class="inner-container-right">
     <h1> "Detalles que Marcan la Diferencia: Disfruta de la Sencillez y Comodidad en Nuestra Habitación Básica"</h1>
     <p class="text"> La decoración de la Habitación Básica es sencilla y funcional, con colores neutros que promueven la
@@ -149,7 +149,7 @@
 </div>
 
 <div class="about-section"
-  style="background: url(../static/img/conectividad.jpeg) no-repeat left;background-size:55%;;">
+  style="background: url('{{url_for('static', filename='img/conectividad.jpeg', _external=True)}}') no-repeat left;background-size:55%;;">
   <div class="inner-container">
     <h1>"Disfruta de Nuestros Servicios: Conéctate, Relájate y Siéntete como en Casa"</h1>
     <p class="text">Entre los servicios y comodidades disponibles, destaca el Wi-Fi gratuito, que te mantendrá conectado
