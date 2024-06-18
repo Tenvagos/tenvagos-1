@@ -1,10 +1,10 @@
 window.onload = function() {
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
+    var hoy = new Date();
+    var dd = String(hoy.getDate()).padStart(2, '0');
+    var mm = String(hoy.getMonth() + 1).padStart(2, '0');
+    var yyyy = hoy.getFullYear();
 
-    today = yyyy + '-' + mm + '-' + dd;
-    document.getElementById("start_date").setAttribute("min", today);
-    document.getElementById("end_date").setAttribute("min", today);
+    hoy = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("start_date").setAttribute("min", hoy);
+    document.getElementById("end_date").setAttribute("min", hoy);
 }

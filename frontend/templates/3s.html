@@ -170,5 +170,21 @@
     </div>
   
     </div>
-    <script src="{{url_for('static', filename='js/modal.js')}}"></script>
-    {% endblock content %}
+<script>
+  window.onload = function(){
+    let date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+
+    if(month < 10) month = "0" + month;
+    if(day < 10) day = "0" + day;
+
+    let today = year + "-" + month + "-" + day;
+
+    document.getElementById("start_date_modal-'{{user_id}}'").setAttribute("min", today);
+    document.getElementById("end_date_modal-'{{user_id}}'").setAttribute("min", today);
+  }
+</script>
+<script src="{{url_for('static', filename='js/modal.js')}}"></script>
+{% endblock content %}

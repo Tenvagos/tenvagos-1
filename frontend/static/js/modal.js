@@ -7,6 +7,11 @@ function confirmarReserva(descuento, id_user, id_room) {
     let fechaEntrada = document.getElementById(`start_date_modal-'${id_user}'`).value;
     let fechaSalida = document.getElementById(`end_date_modal-'${id_user}'`).value;
 
+    if (fechaEntrada > fechaSalida) {
+        alert("La fecha de entrada no puede ser posterior a la fecha de salida");
+        location.reload();
+        return false;
+    }
     // Mostrar el mensaje de confirmación
     let mensajeConfirmacion = "¿Deseas confirmar la reserva con las siguientes fechas?<br>";
     mensajeConfirmacion += "Fecha de entrada: " + fechaEntrada + "<br>";
