@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %} PAGINA NO ENCONTRADA {% endblock %}
+{% block content %}
+<div class="error-page">
+    <h1>Hotel Tenvagos</h1>
+    <h2>LO SENTIMOS</h2>
+    <p>¡No hemos podido encontrar la página que busca!</p>
+    <p>Vuelve a la página principal </p>
+    <a href="{{ url_for('home') }}">HOME</a>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %} RESERVAS {% endblock %}
+{% block content %}
+<div class="booking">
+    <div class="container">
+
+        <div class="user-card">
+            <div class="user-header">
+                <img src="{{user.image}}" alt="Imagen-perfil">
+                <p class="username">{{user.user_name}}</p>
+            </div>
+            <div class="user-details">
+                <ul>
+                    <li><i class="bi bi-envelope-fill"></i>{{user.email}}</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Mis reservas</h2>
+
+        <div class="container-reserve">
+            {%if not reserves %}
+            <div class="card-reserve">
+                <h4>Historial de reservas vacio</h4>
+            </div>
+            {%else%}
+            {% for reserva in reserves %}
+            <div class="card-reserve">
+                <img src="{{ url_for('static', filename='') }}{{reserva.url_imagen}}" alt=" Imagen de la reserva" class="card-img-reserve">
+                <div class="card-content-reserve">
+                    <h3 class="card-title-reserve">{{reserva.room_name}}</h3>
+                    <p class="card-date-reserve">Fecha de entrada: {{reserva.start_date}}</p>
+                    <p class="card-date-reserve">Fecha de salida: {{reserva.end_date}}</p>
+                    {% if reserva.end_date < fecha%} 
+                    <p class="card-amount-reserve">&nbsp;</p>
+                    <button class="card-btn complete-btn">Concluido</button>
+                    {% else %}
+                    <p class="card-amount-reserve">Monto total: ${{reserva.amount}}</p>
+                    <button class="card-btn-reserve" data-user-id="{{reserva.id_user}}" data-reserve-id="{{reserva.id_reserve}}">Cancelar</button>
+                    {%endif %}
+                </div>
+            </div>
+            {%endfor %}
+            {%endif%}
+
+        </div>
+
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/cancel_reserve.js') }}"></script>
+{% endblock %}

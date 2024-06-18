@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block title %} REGISTRO {% endblock %}
+{% block content %}
+    <div class="register">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h3 class="text-register"> 
+              <span class="display-2--name">Hotel Tenvagos</span>
+                <span class="display-3--description">
+                  <p>¡Bienvenido a nuestro hotel! Regístrate para crear una cuenta y empezar 
+                     a disfrutar de todos los beneficios exclusivos que hemos preparado para ti.
+                  </p>
+                  <p>Al registrarte, podrás:</p> 
+                </span>
+                <ul class="display-3--description">
+                  <li>
+                    <p>Verificar disponibilidad de las habitaciones</p>
+                  </li>
+                  <li>
+                    <p>Filtrar habitaciones por estrellas</p>
+                  </li>
+                  <li>
+                    <p>Ver al detalle cada habitación</p>
+                  </li>
+                </ul>
+            </h3>
+          </div>
+          <div class="col-md-6 register_form">
+            <h3 class="text-center text-register-form">Regístrate</h3>
+              <div class="heading-line"></div>
+                    
+                <form action="{{url_for('registro')}}" method="POST">
+                  {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                  {% for message in messages %}
+                  <div class="alert alert-primary alert-dismissable d-flex" role="alert">
+                    <strong>{{ message }}</strong>
+                    <button type="button" class="btn-close align-self-end" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                  {% endfor %}
+                  {% endif %}
+                  {%endwith %}
+                  <div class="row register-row">
+                    <div class="mb-3">
+                      <label class="form-label" for="name">Nombre</label>
+                      <input class="reg_box" type="text" name="name" id="fname" required>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label" for="email">Email</label>
+                      <input class="reg_box" type="email" name="email" id="femail" required>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label" for="contraseña">Contraseña</label>
+                      <input class="reg_box" type="password" name="contraseña" id="fcontraseña" required>
+                    </div>
+                    <div class="text-center">
+                      <input class="btn btn-primary boton_form" type="submit" value="Registrarse">
+                    </div>
+                    <div>
+                      <a href="{{ url_for('login') }}">¿Ya tienes una cuenta? Inicia sesión aquí.</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

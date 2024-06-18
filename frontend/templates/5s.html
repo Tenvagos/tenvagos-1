@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% block title %} SUIT PRES {% endblock %}
+{% block content %}
+
+
+  
+    <!-- Modal reservar -->
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+      tabindex="-1" style="top: 50%; left: 50%; transform: translate(-50%, -50%); height:100%; width:100%;">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalToggleLabel">Seleccionar fechas</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div>
+              <label for="checkin" class="form-label">Fecha de Entrada:</label>
+              <input type="date" id="start_date_modal-'{{user_id}}'" name="checkin" class="form-control" required>
+            </div>
+            <div>
+              <label for="checkout" class="form-label">Fecha de Salida:</label>
+              <input type="date" id="end_date_modal-'{{user_id}}'" name="checkout" class="form-control" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+              data-bs-dismiss="modal"
+              onclick="confirmarReserva('{{precio_con_descuento}}', '{{user_id}}','{{id_room}}')">Reservar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="top: 50%; left: 50%; transform: translate(-50%, -50%); height:100%; width:100%;" class="modal fade"
+      id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalToggleLabel2">Confirmar Reserva</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p id="mensaje_confirmacion" style="gap: 10px;"></p>
+          </div>
+          <div class="modal-footer">
+            <button class='card-btn-reserve' data-bs-dismiss='modal''>Cancelar</button>
+      <button class=' complete-btn'
+              onclick="realizarReserva('{{precio_con_descuento}}', '{{user_id}}', '{{id_room}}')">Confirmar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="sect sect--best sect--center" style="background-image: url(../static/img/banner5.png);">
+    <div class="container">
+      <div class="row row--center">
+        <div class="col-md-6 col-sm-7 col-xs-12">
+          <h1 class="sect__title best--bottom sect--white-text" style="color: white;">{{nombre}} </h1>
+          <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-4">
+              <img src="../static/img/LOGO-ICON.png" class="best__img">
+              <h2 class="best__title">Atención </h2>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4">
+              <img src="../static/img/LOGO-ICON.png" class="best__img">
+              <h2 class="best__title">Trayectoria </h2>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4">
+              <img src="../static/img/LOGO-ICON.png" class="best__img">
+              <h2 class="best__title">Reconocimiento</h2>
+            </div>
+          </div>
+          
+        <p class="sect__subtitle best--margin sect--white-text " style="color: white;" >
+          {{descripcion}}
+        </p>
+        <br>
+        <p style="color: white"> {% for _ in range(estrellas) %}
+          <i class="bi bi-star-fill"></i>
+                  {% endfor %}</p>
+                  <button class="parallax-button" data-bs-toggle="modal" href="#exampleModalToggle">RESERVALO AHORA POR
+                    <del>${{precio}}</del>
+                    ${{precio_con_descuento}}
+                  </button>
+        </div>
+      </div>
+  </div>
+    </div>
+
+    <!--  DESCUENTOS  -->
+    <div class="banner">
+      <div class="slider">
+          <div class="slide">
+              <div class="moveBox">
+                  <div class="D"><i class="bi bi-balloon-heart-fill"></i> | Descuentos imperdibles</div>
+              </div>
+          </div>
+          <div class="slide">
+              <div class="moveBox">
+                  <div class="D"><i class="bi bi-cloud-snow"></i> | {{titulo}}</div>
+              </div>
+          </div>
+          <div class="slide">
+              <div class="moveBox">
+                  <div class="D"><i class="bi bi-fire"></i> | {{descuento}}% de descuento</div>
+                  
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!--  DESCUENTOS  -->
+
+
+    
+
+  <div class="half-sect">
+    <div class="half half-sect__first">
+      <div class="description">
+        <h2 class="description__title">La Cúspide del Lujo y la Exclusividad con un {{descuento}}% menos</h2>
+        <p class="description__p">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        <p class="description__p">Capacidad: {{capacidad}} personas</p>
+      </div>
+  
+    </div>
+      <div class="half half-sect__second" style="background-image: url(../static/img/habitacion-5s-2.jpg);">  </div>
+  </div>
+
+    <div class="about-section" style="background: url(../static/img/habitacion-5s-3.jpg) no-repeat left;background-size:55%;;">
+      <div class="inner-container">
+        <h1>"Confort y Funcionalidad: La Habitación Básica para Estancias Prácticas"</h1>
+        <p class="text">La Habitación Básica está diseñada para quienes buscan una estancia práctica y funcional. Con una superficie de 15 a 20 metros cuadrados, esta habitación es perfecta para estadías cortas o viajes de negocios. Encontrarás una cama individual o matrimonial que ofrece el confort esencial, junto con un escritorio pequeño y una silla, ideales para trabajar o estudiar.
+
+        </p>
+    </div>
+      </div>
+  
+      <div class="about-section-right" style="background: url(../static/img/dj.jpg) no-repeat right;background-size:55%;;">
+        <div class="inner-container-right">
+          <h1> "Entretenimiento y Conectividad de Primera en la Suite Ejecutiva: Disfruta de la Tecnología Avanzada"</h1>
+          <p class="text">El Wi-Fi gratuito de alta velocidad y las televisiones de pantalla plana en el dormitorio y la sala de estar aseguran entretenimiento y conectividad sin interrupciones. La suite está equipada con aire acondicionado, calefacción y un sistema de sonido para una experiencia auditiva excepcional.
+          </p>
+        </div>
+        </div>
+    
+        <div class="about-section" style="background: url(../static/img/baño2.jpg) no-repeat left;background-size:55%;;">
+          <div class="inner-container">
+            <h1>"Un Spa Privado en la Suite Ejecutiva: Descubre el Lujo y la Elegancia en el Baño"</h1>
+            <p class="text">El baño privado cuenta con una bañera y una ducha separada, así como artículos de aseo premium, albornoces, zapatillas y un espejo de aumento. La decoración es lujosa y moderna, con colores sofisticados y acabados de alta calidad que crean un ambiente exclusivo.
+            </p>
+        </div>
+          </div>
+        
+
+    <div class="parallax-top">
+      <div class="contenido-parallax">
+      <h2>Tenvagos</h2>
+      <p>Imagina un lugar donde cada detalle está pensado para ti. Bienvenido a nuestro hotel, donde nos adaptamos a tus necesidades y deseos.
+           Ya sea que busques una estancia de negocios eficiente, una escapada romántica, o unas vacaciones familiares inolvidables, aquí encontrarás el espacio perfecto. 
+           Ofrecemos servicios personalizados, desde habitaciones confortables y equipadas, hasta gastronomía deliciosa que satisface todos los paladares. 
+           Nuestro personal atento y profesional está siempre dispuesto a ayudarte, asegurando que tu experiencia sea tan única como tú.
+           Ven y descubre un hotel donde tus expectativas son nuestra prioridad.</p>
+           <a class="parallax-button" href="{{ url_for('reservar') }}">RESERVALO AHORA</a>
+    </div>
+  
+    </div>
+<script>
+  window.onload = function(){
+    let date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+
+    if(month < 10) month = "0" + month;
+    if(day < 10) day = "0" + day;
+
+    let today = year + "-" + month + "-" + day;
+
+    document.getElementById("start_date_modal-'{{user_id}}'").setAttribute("min", today);
+    document.getElementById("end_date_modal-'{{user_id}}'").setAttribute("min", today);
+  }
+</script>
+<script src="{{url_for('static', filename='js/modal.js')}}"></script>
+{% endblock content %}

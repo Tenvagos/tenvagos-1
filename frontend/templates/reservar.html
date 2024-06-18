@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %} RESERVAR {% endblock %}
+{% block content %}
+<section class="banner-reservar-section" style="min-height: 100vh; height:fit-content">
+    <div class="container">
+        <div class="row text-center">
+            <div class="container my-5">
+                <div class="form-container p-4 bg-light rounded shadow">
+                    <form id="reservationForm" class="row g-3" action="{{ url_for('reservar') }}" method="POST"  data-discount="{{descuento}}"" data-userID="{{user_id}}">
+                        <div class="col-md-4">
+                            <label for="checkin" class="form-label">Fecha de Entrada:</label>
+                            <input type="date" id="start_date" name="checkin" class="form-control" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="checkout" class="form-label">Fecha de Salida:</label>
+                            <input type="date" id="end_date" name="checkout" class="form-control" required>
+                        </div>
+                        <div class="col-md-4" text-center>
+                            <button type="submit" class="btn btn-primary">VER DISPONIBILIDAD</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="results" class="container-reserve"></div>
+    </div>
+    <script src="{{url_for('static',filename='js/reservar.js')}}"></script>
+</section>
+<script src="{{ url_for('static', filename='js/calendar_disable_past_dates.js') }}"></script>
+<script src="{{ url_for('static', filename='js/dates_in_past.js') }}"></script>
+{% endblock %}

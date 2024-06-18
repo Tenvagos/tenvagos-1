@@ -1,0 +1,45 @@
+{% extends 'base.html' %}  
+{%block title %} HABITACIONES {% endblock %}
+{% block content%}
+  <!--BANNER SECTION-->
+  <section id="intro-section">
+    <div class="banner-section">
+      <div class="container">
+        <div class="row text-center">  
+          <h1 class="display-habs-title fw-bold text-capitalize">Nuestras Habitaciones</h1>
+          <div class="heading-line"></div>
+          <p class="display-habs-subtitle">¡Donde el lujo se encuentra con la comodidad!</p>
+        </div>
+      </div>    
+    </div>
+            
+    <div class="card-container">
+      <div class="cn-card">
+        <div class="content-card">
+        
+        {%for room in rooms %}
+          <a class="card" href="{{ url_for('habitacion', variable=room.id_room) }}">            
+            <div class="front" style="background-image: url('{{ url_for('static', filename='') }}{{room.url_imagen}}')">
+              <p> {{room.room_name}} </p>
+            </div>
+            <div class="back">
+              <div>
+                <p>{{room.description}}</p>
+                <p></p>
+                {% set counter = room.stars %}
+                <button class="button">
+                  {% for i in range(counter) %}
+                      <i class="bi bi-star-fill"></i>
+                  {% endfor %}
+                </button>
+
+              </div>
+            </div>
+          </a>
+         {%endfor %}
+        </div>
+      </div>
+    </div>
+  </section>           
+
+{% endblock %}

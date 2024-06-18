@@ -1,0 +1,1645 @@
+/* --------------------------------------- ESTILOS GENERALES ---------------------------------------*/
+
+body {
+  padding-top: 4.5rem;
+  font-family: "Nunito", sans-serif;
+}
+
+/*-------HEADER-------*/
+nav {
+  background: linear-gradient(to right, #b4b8b4, #464745);
+  padding: 0.5rem 0;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.navbar-nav .nav-link {
+  color: #1a1a1b;  /* Color oscuro */
+}
+.navbar-nav .nav-link:hover {
+  color: #000000; /* Color más oscuro al pasar el cursor */
+}
+
+/*--ESTILO DE BOTON INICIAR SESIÓN--*/
+
+.btn-iniciar-sesion {
+  height: 50px;
+  width: 250px;
+  position: relative;
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  overflow: hidden;
+  border-radius: 30px;
+  color: #333;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-txt {
+  font-family: Nunito;
+  z-index: 1;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: #ffffff;
+}
+
+.type1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 0.5s ease-in-out;
+  background-color: #0c4dc7;
+  border-radius: 30px;
+  visibility: hidden;
+  height: 10px;
+  width: 10px;
+  z-index: -1;
+}
+
+.btn-iniciar-sesion:hover {
+  box-shadow: 1px 1px 200px #ffffff;
+  color: #fff;
+  border: none;
+}
+
+.type1:hover::after {
+  visibility: visible;
+  transform: scale(100) translateX(2px);
+}
+
+#img-full {
+  max-width: 100%; /* Se ajusta al contenedor */
+  height: auto; /* Mantiene la proporción */
+}
+
+/* ------------------------------------------ ESTILOS HAROLD -------------------------------------*/
+
+
+/*INTRO SECTION*/
+
+#intro-section {
+  background: linear-gradient(to right, #ffffff, #b4b8b4);
+}
+
+.display-2 {
+  margin-bottom: 1rem;
+  text-transform: none;
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+.display-2--name {
+  font-family: "Dancing Script", cursive;
+  display: block;
+  text-align: center;
+  font-size: 2.2rem;
+  margin-top: 1.2rem;
+  text-transform: none;
+  color:#296D9E;
+}
+
+.display-2--intro {
+  display: inline-block;
+  font-weight: 700;
+  text-align: center;
+  color:black;
+  font-family: "Raleway";
+}
+
+.display-2--description {
+  display: block;
+  text-align: center;
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: bold;
+  max-width: 450px;
+  margin-top: 1.2rem;
+  text-transform: none;
+  color:#004CC8;
+}
+/*-------RESERVAR-------*/
+/* FILTRO DE RESERVAS */
+
+.banner-reservar-section {
+  position: relative;
+  margin-top: 1.9rem;
+  width: 100%;
+  height: 500px;
+  padding: 20px;
+  background: url('../img/RECEPCION.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.form-container {
+  max-width: 900px;
+  margin: 0 auto;
+  z-index: 0.1;
+}
+
+
+/*MEDIA QUERIES*/
+@media (min-width: 768px) {
+  #btn-login {
+    margin-left: 25px;
+  }
+    .display-2 {
+    font-size: 3.4rem;
+  }
+  .display-2--name {
+    font-family: "Dancing Script", cursive;
+    font-size: 2.4rem;
+    display: inline-block;
+    color:#296D9E;
+  }
+  .display-2--intro {
+    text-align: left;
+    font-family: "Raleway";
+  }
+  .display-2--description {
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: bold;
+    display: inline-block;
+    text-align: left;
+    color:#004CC8;
+  }
+}
+@media (min-width: 1024px) {
+  .display-2 {
+    font-size: 4.5rem;
+  }
+  .display-2--name {
+    font-family: "Dancing Script", cursive;
+    font-size: 2.9rem;
+    display: inline-block;
+    color:#296D9E;
+  }
+  .display-2--description {
+    font-size: 1.4rem;
+    font-style: italic;
+    font-weight: bold;
+    display: inline-block;
+    text-align: left;
+    color:#004CC8;
+  }
+}
+
+.error-page {
+  text-align: center;
+  margin-bottom: 6rem;
+  margin-top: 6rem;
+}
+
+.error-page h1 {
+  font-family: "Dancing Script", cursive;
+  font-size: 5rem;
+  margin-top: 2rem;
+  color: #296D9E;
+}
+
+.error-page h2 {
+  font-size: 3rem;
+  margin: 1.2rem 0;
+}
+
+.error-page p {
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}
+
+.error-page a {
+  display: inline-block;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 2rem;
+  color: #fff;
+  background-color: #3498db;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s;
+}
+
+.error-page a:hover {
+  background-color: #2980b9;
+}
+
+/*------------------------------------------------------------------------------------*/
+
+/* Estilos para el banner de habitaciones*/
+.banner-section {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background: url('../img/IMG-BANNER-HAB.png') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.banner-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Fondo semitransparente */
+  z-index: 0.5;
+}
+
+.display-habs-title {
+  
+  text-transform: none;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #ffffff;
+  z-index: 1;
+}
+
+.display-habs-subtitle {
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin-bottom: 6rem;
+  font-style: italic;
+  color: #ffffff;
+  z-index: 1;
+}
+
+.heading-line::before {
+  content: "";
+  width: 10rem;
+  height: 0.2rem;
+  display: block;
+  margin: 0 auto;
+  background-color: #ffffff;
+  z-index: 1;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 0.8;
+  color: white;
+}
+
+.banner-content h1 {
+  font-size: 3rem; /* Tamaño del título */
+  margin: 0;
+  padding: 0;
+}
+
+.banner-content p {
+  font-size: 1.5rem; /* Tamaño del párrafo */
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.us-box {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Imagen dentro de las cards */
+.us-box img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+/* Información dentro de las cards */
+.us-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+/* Efecto de hover en las cards */
+.us-box:hover {
+  transform: scale(1.05);
+}
+
+/* Mostrar información en hover */
+.us-box:hover .us-info {
+  opacity: 1;
+}
+
+/* Estilos para el texto de la información */
+.caption {
+  text-align: center;
+}
+
+.caption h4,
+.caption p {
+  margin: 0;
+  padding: 0 15px;
+}
+
+/* --------------------------------------- ESTILOS GASTON ---------------------------------------*/
+
+/* Seccion login */
+
+.login {
+  padding: 40px;
+  margin: 1.5rem 0rem;
+  }
+
+.text-login{
+  font-style: italic;
+  font-weight: 400;
+  color:#000000;
+}
+
+.display-3--description {
+  display: block;
+  text-align: center;
+  font-size: 1.5rem;
+  max-width: 450px;
+  margin-top: 1.2rem;
+  text-transform: none;
+}
+
+.login .login_form {
+  background-color: rgb(161, 161, 161);
+  padding: 40px;
+  height: 100%;
+}
+
+.login-row {
+  padding-top: 20px;
+}
+
+.log_box {
+  border: 1px;
+  margin-bottom: 25px;
+  margin-top: 10px;
+  outline: none;
+  width: 100%;
+  height: 40px;
+  font-size: 20px;
+  box-shadow: 0px 0px 6px rgba(56, 52, 52, 0.2);
+}
+
+.text-login-form{
+  font-family: Nunito;
+}
+
+/*MEDIA QUERIES*/
+@media (min-width: 768px) {
+  .display-3--description {
+    font-size: 1rem;
+    display: inline-block;
+    text-align: left;
+  }
+}
+@media (min-width: 1024px) {
+  .display-3--description {
+    font-size: 1.4rem;
+    display: inline-block;
+    text-align: left;
+  }
+}
+/* Boton usuario */
+
+.perfil .boton-usuario {
+  text-transform: uppercase;
+}
+
+.perfil:focus-within #dropdown{
+  display: flex;
+}
+
+#dropdown {
+  position: absolute;
+  width: fit-content;
+  display: none;
+  flex-direction: column;
+  text-align: left;
+  top: 60px;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 5px 0;
+  transform: translateX(-12%) translateY(10%);
+}
+
+#dropdown .perfil-links {
+  display: block;
+  color: #000000;
+  text-decoration: none;
+  padding: 10px 30px 10px 20px;
+}
+.perfil-links:hover {
+      background-color: #c2bbbb;
+
+}
+
+/* Seccion contactos */
+
+
+.contactanos {
+    
+    width: 100%;
+    height: 60px;
+    font-size: 15px;
+    
+}
+
+.mensaje_contacto {
+    
+    width: 100%;
+    height: 160px;
+    font-size: 15px;
+    
+}
+
+/* Mis Reservas */
+
+.booking {
+  padding: 30px;
+}
+
+.user-card {
+
+  background: #747e85;
+  border-radius: 12px;
+}
+
+.user-header {
+  background: linear-gradient(135deg,#296D9E ,#004cc8);
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.user-header img{
+  width: 4.8em;
+  height: 4.8em;
+  border-radius: 50%;
+}
+
+.user-card  .username {
+  padding-left: 20px;
+  font-size: 1.53em;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+}
+
+.user-details {
+  display: flex;
+  align-items: center;
+}
+
+.user-details i{
+  margin-right: 10px;
+}
+
+.user-details ul {
+    list-style: none;
+  }
+
+.user-details li {
+  margin-right: 20px;
+  display: inline;
+}
+
+.user-booking {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  border-radius: 10px;
+}
+
+.booking-image {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.booking-content {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.room-title {
+  margin: 10px 10px 20px;
+}
+
+.room-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 20px 0 0 20px;
+  background-color: #747e85;
+}
+
+/* --------------------------------------- ESTILOS LUCAS ---------------------------------------*/
+
+/* --------------------------------------- Servicios - Lucas ---------------------------------------*/
+
+#servicios h2 {
+  color: #0866ff;
+  text-align: center;
+}
+
+.image-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.image-container .image-block {
+  margin-top: 30px;
+  position: relative;
+  width: 98%;
+}
+
+.image-container .image-block img {
+  width: 100%;
+  display: block;
+}
+
+.image-container .overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.7);
+  color: black;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+
+.image-container .overlay p {
+  margin: 25px;
+}
+
+@media screen and (max-width: 800px) {
+  .image-container .overlay p{
+    display: none;
+  }
+}
+
+.servicios-section {
+    background-color: #ffffff;
+    padding: 60px 0;
+}
+
+.servicios-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.servicio-item {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.servicio-img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+    border: 5px solid #fff; 
+}
+
+.servicio-item h3 {
+    font-size: 18px;
+    margin-top: 15px;
+    color: #3b607b;
+}
+
+/* --------------------------------------- Footer - Lucas ---------------------------------------*/
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.footer-links, .footer-extra {
+    flex: 1;
+}
+
+.footer-title {
+    flex: 2;
+    text-align: center;
+}
+
+.footer-title i {
+    display: block;
+    margin: 0 auto 10px;
+    font-size: 50px;
+}
+
+.footer-links ul, .footer-extra ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li, .footer-extra ul li{
+    margin: 10px 0;
+}
+
+.footer-links ul li a, .footer-social-media a, .footer-extra ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links ul li a:hover, .footer-social-media a:hover, .footer-extra ul li a:hover {
+    color: #0866ff;
+}
+
+.footer-social-media {
+    margin: 20px 0;
+}
+
+.footer-social-media a {
+    margin: 0 10px;
+}
+
+.footer-social-media img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-copyright {
+    background-color: #222;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .footer-extra{
+    display: none;
+  }
+}
+
+/* --------------------------------------- ESTILOS DANIEL ---------------------------------------*/
+
+
+/*--------------------------------- Daniel Parallax ---------------------------------------------*/
+.parallax-button {
+  display: inline-block;
+  padding: 0.9rem 1.8rem;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  border: 3px solid #0866ff;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+  font-family: inherit;
+ }
+ 
+ .parallax-button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0866ff;
+  transform: translateX(-100%);
+  transition: all .3s;
+  z-index: -1;
+ }
+ 
+ .parallax-button:hover::before {
+  transform: translateX(0);
+ }
+
+.parallax-top {
+  /* Establece la imagen de fondo y sus propiedades */
+  background-image: url(../img/parallax.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+
+  /* Establece una altura mínima para asegurar que la sección sea lo suficientemente alta */
+  min-height: 50vh;
+
+  /* Centra el contenido verticalmente y lo coloca en el centro del contenedor */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* Agrega un relleno para mejorar la legibilidad del contenido */
+  padding: 20px;
+}
+
+
+.parallax-top h2, .parallax-top p {
+  color: white;
+  text-align: center; /* Centra el texto horizontalmente */
+  max-width: 800px; /* Establece un ancho máximo para el texto para que sea legible en pantallas grandes */
+}
+
+/*------------------------------------------Daniel Sobre nosotros-------------------------------------------------------*/
+
+
+#daniel .section {
+    width: 100%;
+    min-height: 80vh;
+    background-color: #ffffff;
+}
+
+#daniel .container{
+    width: 80%;
+    display: block;
+    margin: auto;
+    padding-top:100px;
+}
+
+#daniel .content-section{
+    float: right;
+    width: 55%;
+}
+
+#daniel .image-section{
+    float: left;
+    width: 33%;
+}
+
+#daniel .image-section img{
+    width: 100%;
+    height: auto;
+}
+
+#daniel .content-section .title{
+    text-transform: uppercase;
+    font-size: 28px;
+}
+
+#daniel .content-section .content h3{
+    margin-top: 20px;
+    color: #1100ff;
+    font-size: 21px;
+}
+
+#daniel .content-section .content p{
+    color: #000000;
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+#daniel .content-section .content .button{
+    margin-top: 30px;
+}
+
+#daniel .content-section .content .button a{
+    background-color: #1100ff;
+    padding: 12px 40px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+    letter-spacing: 1.5px;
+}
+
+#daniel .content-section .content .button a:hover{
+    background-color: blue;
+    color: #ffffff;
+}
+
+#daniel .content-section .social{
+    margin: 40px -5px;
+}
+
+#daniel .content-section .social i{
+    color: blue;
+    font-size: 22px;
+    padding: 0px 10px;
+}
+
+#daniel .content-section .social i:hover{
+    color:#464646;
+}
+
+@media screen and (max-width: 768px){
+    #daniel .container{
+        width: 80%;
+        display: block;
+        margin: auto;
+        padding-top: 50px;
+        padding-bottom: 100px;
+    }
+    #daniel .content-section{
+        float: none;
+        width: 100%;
+        display: block;
+        margin: auto;
+    }
+    #daniel .image-section{
+        padding-bottom: 100px;
+        float: none;
+        width: 100%;
+    }
+    #daniel .image-section img{
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: auto;
+    }
+    #daniel .content-section .title{
+        text-align: center;
+        font-size: 19px;
+    }
+    #daniel .content-section .content .button{
+        text-align: center;
+    }
+    #daniel .content-section .content .button a{
+        padding: 9px 30px;
+    }
+    #daniel .content-section .social{
+        text-align: center;
+    }
+}
+
+/* --------------------------------------- testimonios - Daniel ---------------------------------------*/
+
+#daniel html{
+    font-weight: 200;
+}
+
+#daniel h1, h2, h3, h4 ,h5 ,h6, p{
+    margin: 0;
+    padding: 0;
+}
+.daniel{
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+
+.testimonials{
+    padding-top: 40px;
+    padding-bottom: 2.2em; 
+    text-align: center;
+    color: #666;
+}
+.testimonials h1{
+    color: #222;
+    font-size: 2.0em;
+}
+.testimonials .test-body{padding: 1em;}
+.testimonials .item{ 
+    text-align: center;
+    padding: 1em 0;
+}
+.testimonials img{
+    width: 4.8em;
+    height: 4.8em;
+    border-radius: 50%;
+}
+.testimonials .name{color: blue;}
+.testimonials .desig{
+    font-size: 0.7em;
+    padding: 0.5em 0;
+    color: #777;
+}
+.testimonials .share{
+    margin: 0 auto;
+    width: 5em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+.testimonials i{
+    color: #bfbfbf;
+    padding: 0.5em 0;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.testimonials i:hover{color: blue;}
+.testimonials p{
+    justify-content: center;
+    max-width: 27em;
+    margin: 0 auto;
+    font-size: 0.8em;
+}
+
+
+@media (min-width: 38.4rem){
+    .testimonials{
+        font-size: 1.2em;
+        
+    }
+    .testimonials .test-body{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    }
+    .testimonials p{
+        text-align: left;
+        padding: 1em;
+    }
+}
+@media (min-width: 770px){
+  .testimonials{
+    
+    padding-top: 35%;
+}
+}
+@media (min-width: 1174px){
+  .testimonials{
+    
+    padding-top: 0%;
+}
+}
+
+
+
+/* --------------------------------------- CARDS - Daniel ---------------------------------------*/
+
+
+.card-container {
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 300;
+  color: black;
+  font-family: "Poppins", sans-serif;
+}
+
+.cn-card {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  background-attachment: fixed;
+}
+
+.content-card {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1000px;
+}
+
+.heading {
+  width: 100%;
+  margin-left: 1rem;
+  font-weight: 900;
+  font-size: 1.618rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1ch;
+  line-height: 1;
+  padding-bottom: 0.5em;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.heading:after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 4px;
+  background: white;
+  bottom: 0;
+}
+
+.description {
+  width: 100%;
+  margin-top: 0;
+  margin-left: 1rem;
+  margin-bottom: 3rem;
+}
+
+.card {
+  color: inherit;
+  cursor: pointer;
+  width: calc(33% - 2rem);
+  min-width: calc(33% - 2rem);
+  height: 400px;
+  min-height: 400px;
+  perspective: 1000px;
+  margin: 1rem;
+  position: relative;
+}
+@media screen and (max-width: 800px) {
+  .card {
+    width: calc(50% - 2rem);
+  }
+}
+@media screen and (max-width: 500px) {
+  .card {
+    width: 100%;
+  }
+}
+
+.front,
+.back {
+  display: flex;
+  border-radius: 6px;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: ease-in-out 600ms;
+}
+
+.front {
+  background-size: cover;
+  padding: 2rem;
+  font-size: 1.618rem;
+  font-weight: 600;
+  color: white;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+.front:before {
+  position: absolute;
+  display: block;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgb(0, 60, 255), rgb(64, 104, 236));
+  opacity: 0.25;
+  z-index: -1;
+}
+.card:hover .front {
+  transform: rotateY(180deg);
+}
+.card:nth-child(even):hover .front {
+  transform: rotateY(-180deg);
+}
+
+.back {
+  background: var(--lightest);
+  transform: rotateY(-180deg);
+  padding: 0 2em;
+}
+.back .button {
+  background: linear-gradient(135deg,rgb(0, 60, 255), rgb(64, 104, 236));
+}
+.back .button:before {
+  box-shadow: 0 0 10px 10px rgba(26, 87, 230, 0.25);
+  background-color: rgba(26, 87, 230, 0.25);
+}
+.card:hover .back {
+  transform: rotateY(0deg);
+}
+.card:nth-child(even) .back {
+  transform: rotateY(180deg);
+}
+.card:nth-child(even) .back .button {
+  background: linear-gradient(135deg, rgb(0, 60, 255), rgb(64, 104, 236));
+}
+.card:nth-child(even) .back .button:before {
+  box-shadow: 0 0 10px 10px rgba(150, 84, 255, 0.25);
+  background-color: rgba(150, 84, 255, 0.25);
+}
+.card:nth-child(even):hover .back {
+  transform: rotateY(0deg);
+}
+
+.button {
+  transform: translateZ(40px);
+  cursor: pointer;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  font-weight: bold;
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 100px;
+  font: inherit;
+  border: none;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: 300ms ease;
+}
+.button:before {
+  transition: 300ms ease;
+  position: absolute;
+  display: block;
+  content: "";
+  transform: translateZ(-40px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  height: calc(100% - 20px);
+  width: calc(100% - 20px);
+  border-radius: 100px;
+  left: 10px;
+  top: 16px;
+}
+.button:hover {
+  transform: translateZ(55px);
+}
+.button:hover:before {
+  transform: translateZ(-55px);
+}
+.button:active {
+  transform: translateZ(20px);
+}
+.button:active:before {
+  transform: translateZ(-20px);
+  top: 12px;
+}
+
+
+/* --------------------------------------- partners - Daniel ---------------------------------------*/
+
+.partner-slide{
+    margin-top: 100px ;
+    margin-bottom: 100px ;
+  }
+  
+  .partner-slide h1{
+    font-size: 40px;
+    font-weight: 900;
+    text-align: center;
+  }
+  
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .logos {
+    overflow: hidden;
+    padding: 60px 0;
+    background: var(--lightest);
+    white-space: nowrap;
+    position: relative;
+  }
+  
+  .logos:before,
+  .logos:after {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+  }
+  
+  .logos:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--lightest));
+  }
+  
+  .logos:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--lightest));
+  }
+  
+  .logos:hover .logos-slide {
+    animation-play-state: paused;
+  }
+  
+  .logos-slide {
+    display: inline-block;
+    animation: 35s slide infinite linear;
+  }
+  
+  .logos-slide img {
+    height: 120px;
+    margin: 0 40px;
+  }
+
+
+/* --------------------------------------- Ofertas - Daniel ---------------------------------------*/
+
+  .banner {
+
+    width: 100%;
+    height: 10vh; /* Un cuarto de la altura de la pantalla */
+    background-image: url(../img/offers.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  font-family: "Nunito", sans-serif !important; 
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    
+}
+
+@media (max-width: 768px) {
+    .slide {
+        font-size: 1.2em;
+    }
+}
+
+
+.D {
+  background:url("https://i.pinimg.com/originals/66/45/6e/66456e7114c2e4d8dd02017f55fc2452.gif") repeat;
+  background-position:200px;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size:35px;
+  font-family: Helvetica, sans-serif;
+  font-weight:bold;
+  margin:0 auto;
+  background-position: 52% 48px;
+}
+
+.moveBox {
+ margin:0 auto;
+ width:500px;
+}
+
+@media (max-width: 768px) {
+  .D {
+      font-size: 20px;
+  }
+}
+
+/* --------------------------------------- Iframe - Daniel ---------------------------------------*/
+
+.video{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+iframe{
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.3);
+}
+
+.video h2{
+  margin-bottom: 20px;
+  
+}
+
+/* --------------------------------------- ROOMS - Daniel ---------------------------------------*/
+
+.about-section {
+  background: url(../img/gimnasio.jpg) no-repeat left;
+  background-size: 55%;
+  background-color: white;
+  overflow: hidden;
+  padding: 0px;
+  margin-bottom: 40px;
+}
+
+.inner-container {
+  width: 50%;
+  float: right;
+  background: white;
+  padding: 90px;
+}
+
+.inner-container h1 {
+  margin-bottom: 30px;
+  font-size: 40px;
+  font-weight: 900;
+}
+
+.about-section-right {
+  background: url(../img/entretenimiento.jpg) no-repeat right;
+  background-size: 55%;
+  background-color: white;
+  overflow: hidden;
+  padding: 0px;
+  margin-bottom: 90px;
+}
+
+.inner-container-right {
+  width: 50%;
+  float: left;
+  background: white;
+  padding: 90px;
+}
+
+.inner-container-right h1 {
+  margin-bottom: 30px;
+  font-size: 40px;
+  font-weight: 900;
+}
+
+.text {
+  font-size: 16px;
+  color: black;
+  line-height: 30px;
+  text-align: justify;
+  margin-bottom: 40px;
+}
+
+.skills {
+  display: flex;
+  justify-content: space-around;
+  font-weight: 700;
+  font-size: 13px;
+  color: black;
+}
+
+@media screen and (max-width: 1200px) {
+  .inner-container {
+    padding: 80px;
+  }
+  .inner-container-right {
+    padding: 80px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .about-section,
+  .about-section-right {
+    background-size: 100%;
+    padding: 100px 40px;
+  }
+  .inner-container,
+  .inner-container-right {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .about-section,
+  .about-section-right {
+    padding: 0;
+  }
+  .inner-container,
+  .inner-container-right {
+    padding: 60px;
+  }
+}
+
+
+
+
+
+.half-sect__second {
+  background-image: url(../img/1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    background-color:#fff;
+}
+
+.half {
+  width: 50%;
+  display: table-cell;
+  background-color:#fff;
+}
+
+.half-sect__first {
+  padding: 150px;
+ background-color:#fff;
+}
+
+.description__p {
+  margin-bottom: 40px;
+}
+
+.description__title {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.sect--best {
+  background-image: url(../img/basica.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+padding: 160px 0;
+    background-color:#ffffff;
+}
+
+.best__title {
+  letter-spacing: 1px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  color: #0866ff;
+}
+
+.best__img {
+  width: 50px;
+}
+
+.best--margin {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.best--bottom {
+  margin-bottom: 40px;
+}
+
+
+
+
+/* ------------------------------------- Alex ----------------- */
+
+.container-reserve {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card-reserve {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-img-reserve {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content-reserve {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card-title-reserve {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.card-date-reserve,
+.card-amount-reserve {
+  font-size: 1em;
+  margin-bottom: 5px;
+}
+
+.card-btn-reserve {
+  margin-top: auto;
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #ff4c4c;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card-btn-reserve:hover {
+  background-color: #ff0000;
+}
+.complete-btn {
+  margin-top: auto;
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
+
+.complete-btn:hover {
+  background-color: #45a049;
+}
+@media (max-width: 768px) {
+  .container-reserve {
+      flex-direction: column;
+      align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-content-reserve {
+      padding: 15px;
+  }
+
+  .card-title-reserve {
+      font-size: 1.2em;
+  }
+
+  .card-date-reserve,
+  .card-amount-reserve,
+  .card-btn-reserve {
+      font-size: 0.9em;
+  }
+}
+
+/* ------------------------------------- REGISTRO ----------------- */
+
+.register {
+  padding-top: 60px;
+  padding-bottom: 30px;
+}
+
+.reg_box {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 20px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.text-register {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.register_form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.usuario-imagen {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 10px;
+}
+

@@ -1,0 +1,363 @@
+{% extends 'base.html' %}
+{% block title %} TENVAGOS {% endblock %}
+{% block content %}
+<!--SECCION INTRO-->
+        <section class="bg-light text-dark p-5 text-center text-sm-start" id="intro-section">
+          <div class="container">
+            <div class="d-sm-flex align-items-center justify-content-between">
+              <h1 class="display-2 animate__animated animate__bounce"> 
+                <span class="display-2--name">Hotel Tenvagos</span>
+                <span class="display-2--intro">Un hotel que se adapta a tus necesidades</span>
+                <span class="display-2--description">
+                ¡Reserva directamente en nuestra web y obtén beneficios especiales!
+                </span>
+              </h1>            
+              <img class="img-fluid w-50 d-none d-sm-block animate__animated animate__fadeInRight" id="img-full" src="{{ url_for('static', filename='img/Intro-Image.png') }}" alt="Imagen-Banner"/>
+            </div>
+          </div>
+        </section>
+    </div>
+    
+    <!--OFERTAS-->
+    <div class="banner">
+        <div class="slider">
+            <div class="slide">
+                <div class="moveBox">
+                    <div class="D"><i class="bi bi-balloon-heart-fill"></i> | Descuentos imperdibles</div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="moveBox">
+                    <div class="D"><i class="bi bi-cloud-snow"></i> | {{titulo}}</div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="moveBox">
+                    <div class="D"><i class="bi bi-fire"></i> | {{descuento}}% de descuento</div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--OFERTAS-->
+    
+    <!--Sobre Nosotros-->
+
+    <div id="nosotros"></div>
+    <div class="daniel" id="daniel">
+        
+        <div class="section" id="daniel-us">
+            <div class="container" id="daniel-us">
+                <div class="content-section"id="daniel-us">
+                    <div class="title"id="daniel-us">
+                    <h1>Acerca de TENVAGOS</h1>
+                     </div>
+                     <div class="content"id="daniel-us">
+                        <h3>"Donde el lujo se encuentra con la comodidad"
+                        </h3>
+                        <p>El Hotel TENVAGOS, fundado en 1982 por la familia García en Buenos Aires, comenzó con diez habitaciones y ganó fama por su hospitalidad.
+                             En los 90, se amplió con un restaurante gourmet. Posteriormente, agregó una piscina y un spa. 
+                             Hoy, es un lujoso resort de treinta habitaciones,
+                             reconocido por su servicio excepcional y su mezcla de tradición y modernidad.</p>
+                        <div class="button" id="daniel-us">
+                            <a class="parallax-button" href="{{ url_for('reservar') }}">Reserva ahora!</a>
+                        </div>
+                     </div>
+                     <div class="social" id="daniel-us">
+                        <i class="bi bi-instagram"></i>
+                        <i class="bi bi-twitter-x"></i>
+                        <i class="bi bi-linkedin"></i>
+                        <i class="bi bi-facebook"></i>
+                        <i class="bi bi-whatsapp"></i>
+                     </div>
+                </div>
+                <div class="image-section" id="daniel-us">
+                    <img src="https://i.pinimg.com/564x/47/60/9f/47609ff63956c960d824f1bd68e282e3.jpg">
+                </div>
+            </div>
+        </div>
+
+        
+       
+<!--Testimonios-->
+        <div class="testimonials" id="daniel">
+            <h1 id="daniel">Testimonios</h1>
+            <div class="test-body" id="daniel">
+                <div class="item" id="daniel">
+                    <img src="https://i.pinimg.com/564x/c6/f3/df/c6f3dfae6b76fcea17c975fda36586d0.jpg" id="daniel">
+                    <div class="name" id="daniel">Carlos Mendoza</div>
+                    <small class="desig" id="daniel">Médico Especialista</small>
+                    <div class="share" id="daniel"><i class="bi bi-bing"></i><i class="bi bi-twitter-x"></i><i class="bi bi-linkedin"></i></i></div>
+                    <p id="daniel">"Estuve una semana en el hotel y fue maravilloso. 
+                        El personal siempre fue muy amable y las instalaciones estaban limpias y bien cuidadas. 
+                        El desayuno incluido fue delicioso y variado. Sin duda, volvería a hospedarme aquí en el futuro. ¡Altamente recomendado!"</p>
+                </div>
+                <div class="item" id="daniel">
+                    <img src="https://i.pinimg.com/564x/a9/fd/3d/a9fd3d91b5fb4b66c8afc9a7c8d2af48.jpg" id="daniel">
+                    <div class="name" id="daniel">Laura García</div>
+                    <small class="desig" id="daniel">Ingeniera de Software</small>
+                    <div class="share" id="daniel"><i class="bi bi-github"></i><i class="bi bi-twitter-x"></i><i class="bi bi-linkedin"></i></div>
+                    <p id="daniel">"Mi estancia en este hotel fue excelente. Las habitaciones eran cómodas y modernas, y el personal siempre estaba dispuesto a ayudar.
+                         La ubicación es perfecta, cerca de muchos restaurantes y tiendas. 
+                         Además, el servicio de habitaciones fue rápido y eficiente. ¡Muy satisfecha!"</p>
+                </div>
+                <div class="item" id="daniel">
+                    <img src="https://i.pinimg.com/564x/d8/bf/4a/d8bf4a1465fcf805f838f8c26fbe46b4.jpg" id="daniel">
+                    <div class="name" id="daniel">Alejandro Ramírez</div>
+                    <small class="desig" id="daniel">Arquitecto</small>
+                    <div class="share" id="daniel"><i class="bi bi-bing"></i><i class="bi bi-twitter-x"></i><i class="bi bi-linkedin"></i></div>
+                    <p id="daniel">"Pasamos un fin de semana estupendo en este hotel. El spa fue una experiencia relajante y la piscina siempre estaba limpia. 
+                        Las habitaciones eran amplias y tenían todas las comodidades necesarias. 
+                        El personal fue extremadamente cortés y profesional. ¡Volveremos seguro!"</p>
+                </div>
+            </div>
+            <div class="test-body" id="daniel">
+                <div class="item" id="daniel">
+                    <img src="https://i.pinimg.com/564x/be/73/31/be73315b54a89d2c0425c5c9b398d884.jpg" id="daniel">
+                    <div class="name" id="daniel">Isabel Fernández</div>
+                    <small class="desig" id="daniel">Abogada Corporativa</small>
+                    <div class="share" id="daniel"><i class="bi bi-bing"></i><i class="bi bi-twitter-x"></i><i class="bi bi-linkedin"></i></div>
+                    <p id="daniel">"Este hotel es fantástico. Desde el check-in hasta el check-out, todo fue impecable.
+                         La habitación tenía una vista espectacular y estaba muy bien equipada.
+                          El desayuno buffet tenía una gran variedad de opciones y todo estaba delicioso.
+                           ¡Gracias por una estancia inolvidable!"</p>
+                </div>
+                <div class="item" id="daniel">
+                    <img src="https://i.pinimg.com/564x/33/7a/5f/337a5fef9e8c54a791bf0b8a4e88411a.jpg" id="daniel">
+                    <div class="name" id="daniel">Marcos López</div>
+                    <small class="desig" id="daniel">Gerente de Finanzas</small>
+                    <div class="share" id="daniel"><i class="bi bi-bing"></i><i class="bi bi-twitter-x"></i><i class="bi bi-linkedin"></i></div>
+                    <p id="daniel">"Nos encantó nuestra estancia aquí. Las instalaciones son modernas y bien mantenidas.
+                         El personal fue muy atento y siempre dispuesto a ayudar con una sonrisa. La ubicación es ideal para explorar la ciudad a pie.
+                          ¡Definitivamente, una gran elección para nuestra escapada!"</p>
+                </div>
+                <div class="item" id="daniel">
+                    <img src="https://i.pinimg.com/564x/31/ea/c1/31eac1a624082824fdc5950f0a7bb308.jpg" id="daniel">
+                    <div class="name" id="daniel">Sofía Martínez</div>
+                    <small class="desig" id="daniel">Cantante</small>
+                    <div class="share" id="daniel"><i class="bi bi-bing"></i><i class="bi bi-twitter-x"></i><i class="bi bi-spotify"></i></div>
+                    <p id="daniel">"Mi experiencia en este hotel fue muy positiva. Las habitaciones eran limpias y acogedoras, y el personal siempre estaba disponible para cualquier necesidad.
+                         El gimnasio y la piscina fueron un gran plus. 
+                         El desayuno fue variado y delicioso. ¡Recomiendo este hotel a cualquiera!"</p>
+                </div>
+            </div>
+              
+        </div>
+
+       
+
+<!--parallax-->
+    <div class="parallax-top">
+        <div class="contenido-parallax">
+        <h2>Tenvagos</h2>
+        <p>Imagina un lugar donde cada detalle está pensado para ti. Bienvenido a nuestro hotel, donde nos adaptamos a tus necesidades y deseos.
+            Ya sea que busques una estancia de negocios eficiente, una escapada romántica, o unas vacaciones familiares inolvidables, aquí encontrarás el espacio perfecto. 
+            Ofrecemos servicios personalizados, desde habitaciones confortables y equipadas, hasta gastronomía deliciosa que satisface todos los paladares. 
+            Nuestro personal atento y profesional está siempre dispuesto a ayudarte, asegurando que tu experiencia sea tan única como tú.
+            Ven y descubre un hotel donde tus expectativas son nuestra prioridad.</p>
+            <a class="parallax-button" href="{{ url_for('reservar') }}">Reserva ahora!</a>
+    </div>
+
+    </div>
+<!--parallax-->
+
+    <!--servicios-->
+    <div id="servicios" class="container">
+        <h2>Servicios</h2>
+        <div class="image-container">
+            <div class="image-block">
+                <img src="{{ url_for('static', filename='img/piscina-imagen.png') }}" alt="Piscina">
+                <div class="overlay">
+                    <h2>Piscina Climatizada</h2>
+                    <p>Disfruta de nuestra espectacular pileta climatizada, el lugar perfecto para relajarte y revitalizarte durante tu estancia. Con temperaturas controladas durante todo el año, puedes sumergirte en un oasis de calma sin importar la estación. Nuestra pileta está diseñada para ofrecer una experiencia tranquila y lujosa, con cómodas tumbonas y un ambiente elegante. Además, disponemos de áreas de hidromasaje para una relajación adicional, ideal para eliminar el estrés y revitalizar tu cuerpo y mente.</p>
+                </div>
+            </div>
+            <div class="image-block">
+                <img src="{{ url_for('static', filename='img/gimnasio-imagen.png') }}" alt="Gimnasio">
+                <div class="overlay">
+                    <h2>Gimnasio 24hs</h2>
+                    <p>Nuestro gimnasio 24 horas está equipado con la última tecnología en equipos de ejercicio para que puedas mantener tu rutina de fitness en cualquier momento del día o de la noche. Ofrecemos una amplia variedad de máquinas cardiovasculares, pesas libres y equipos de resistencia para satisfacer todas tus necesidades de entrenamiento. Ya sea que prefieras una sesión de cardio intensa, entrenamiento de fuerza o ejercicios de estiramiento, nuestro gimnasio está siempre disponible para ayudarte a alcanzar tus objetivos de bienestar y salud durante tu estancia.</p>
+                </div>
+            </div>
+            <div class="image-block">
+                <img src="{{ url_for('static', filename='img/bar-imagen.png') }}" alt="Bar">
+                <div class="overlay">
+                    <h2>Bar</h2>
+                    <p>Sumérgete en la atmósfera sofisticada y acogedora de nuestro bar, el lugar ideal para relajarte y socializar. Ofrecemos una amplia selección de bebidas premium, desde cócteles creativos y exclusivos hasta vinos finos y cervezas artesanales. Nuestro talentoso equipo de bartenders está a tu disposición para preparar tu bebida favorita o sorprenderte con una nueva creación. Con cómodos asientos y una decoración elegante, nuestro bar es el escenario perfecto para disfrutar de una noche agradable con amigos, colegas o en solitario.</p>
+                </div>
+            </div>
+        <!-- Añade más bloques de imágenes según sea necesario -->
+        </div>
+    </div>
+    <section class="servicios-section">
+        <div class="container">
+            <h2 class="mb-4">Facilidades</h2>
+            <div class="row servicios-row">
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="servicio-item text-center">
+                        <img src="{{ url_for('static', filename='img/wifi.jpg') }}" alt="Wifi" class="img-fluid servicio-img">
+                        <h3>Wifi</h3>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="servicio-item text-center">
+                        <img src="{{ url_for('static', filename='img/desayuno.jpg') }}" alt="Desayuno" class="img-fluid servicio-img">
+                        <h3>Desayuno</h3>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="servicio-item text-center">
+                        <img src="{{ url_for('static', filename='img/piscina.jpg') }}" alt="Piscina" class="img-fluid servicio-img">
+                        <h3>Piscina</h3>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="servicio-item text-center">
+                        <img src="{{ url_for('static', filename='img/estacionamiento.jpg') }}" alt="Estacionamiento" class="img-fluid servicio-img">
+                        <h3>Estacionamiento</h3>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="servicio-item text-center">
+                        <img src="{{ url_for('static', filename='img/gimnasio.jpg') }}" alt="Gimansio" class="img-fluid servicio-img">
+                        <h3>Gimnasio</h3>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="servicio-item text-center">
+                        <img src="{{ url_for('static', filename='img/juegos.jpg') }}" alt="Centro de Juegos" class="img-fluid servicio-img">
+                        <h3>Centro de Juegos</h3>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="servicio-item text-center">
+                        <img src="{{ url_for('static', filename='img/luz.jpg') }}" alt="Luz 24/7" class="img-fluid servicio-img">
+                        <h3>Luz 24/7</h3>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="servicio-item text-center">
+                        <img src="{{ url_for('static', filename='img/lavanderia.jpg') }}" alt="Lavanderia" class="img-fluid servicio-img">
+                        <h3>Lavanderia</h3>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="servicio-item text-center">
+                        <img src="{{ url_for('static', filename='img/bar.jpg') }}" alt="Bar" class="img-fluid servicio-img">
+                        <h3>Bar</h3>
+                    </div>
+                </div>
+                <!-- si hacen falta mas servicios aca -->
+            </div>
+        </div>
+    </section>
+
+    <!--VIDEO-->
+ <div class="video">
+    <h2>Mira más sobre nosotros</h2>
+    <iframe width="960" height="540" src="https://www.youtube.com/embed/Oqb9rUXwCVs?si=f192rIKbVSxnDZ1B" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+<!--fin VIDEO-->
+    
+    <!--contacto-->
+    <section id="contacto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 pb-5 text-center">
+                    <h2>Contáctanos</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <form action="{{ url_for('contacto') }}", method="POST">
+                        <!-- Honeypot -->
+                        <input type="text" name="_honey" style="display: none;">
+
+                        <!-- Desactivar captcha de formsubmit -->
+                        <input type="hidden" name="_captcha" value="false">
+
+                        <!-- Redireccionar a home -->
+                        <input type="hidden" name="_next" value="{{ url_for('home', _external=True) }}#contacto">
+
+                        <div class="row">
+                            <div class="mb-3">
+                                <input class="form-control contactanos" type="text" placeholder="NOMBRE" name="nombre" id="fnombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <input class="form-control contactanos" type="text" placeholder="APELLIDO" name="apellido" id="fapellido" required>
+                            </div>
+                            <div class="mb-3">
+                                <input class="form-control contactanos" type="text" placeholder="EMAIL" name="email" id="femail" required>
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control mensaje_contacto" type="text" placeholder="MENSAJE" name="mensaje" id="fmensaje"></textarea>
+                            </div>
+                            {% with messages = get_flashed_messages() %}
+                                {% if messages %}
+                                {% for message in messages %}
+                                <div class="alert alert-primary alert-dismissable" role="alert">
+                                    <strong>{{ message }}</strong>
+                                </div>
+                                {% endfor %}
+                                {% endif %}
+                                {%endwith %}
+                            <div class="mb-3">
+                                <div class="g-recaptcha" data-sitekey="6LdA0_UpAAAAAIXHtapvLporqaKwa0XNJZ6BnkQy"></div>
+                            </div>
+                            <div class="mb-3 text-center">
+                                <input class="btn btn-primary boton_form" type="submit" value="ENVIAR">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6 my-auto">
+                    <div class="map-responsive">
+                        <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1641.9695984256969!2d-58.363558999999995!3d-34.605699!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a335ef4809ceef%3A0x3945c8c351477a54!2sHotel%20Hilton%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1717047608465!5m2!1ses-419!2sar" 
+                        height="500" style="border:0; width: 100%; display: flex;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="partner-slide">
+        <h1> Nuestros Partners</h1>
+          <div class="logos">
+            <div class="logos-slide">
+              <img src="https://i.pinimg.com/564x/45/20/dd/4520ddfc56208707045c56232e946f7f.jpg" />
+              <img src="https://i.pinimg.com/564x/a5/89/c8/a589c8077c7e4735b767a9ffc7ef6c23.jpg" />
+              <img src="https://i.pinimg.com/564x/ad/78/5a/ad785a9fb1587a496092b3d2f4e912b8.jpg" />
+              <img src="https://i.pinimg.com/564x/17/09/b8/1709b8e482eec0862ee62804e42766fa.jpg" />
+              <img src="https://i.pinimg.com/564x/89/1a/f2/891af2adbdcdf549c672c58add333977.jpg" />
+              <img src="https://i.pinimg.com/564x/e7/65/04/e7650458fe434cd647eafb289a569fe2.jpg" />
+              <img src="https://i.pinimg.com/564x/45/20/dd/4520ddfc56208707045c56232e946f7f.jpg" />
+              <img src="https://i.pinimg.com/564x/a5/89/c8/a589c8077c7e4735b767a9ffc7ef6c23.jpg" />
+              <img src="https://i.pinimg.com/564x/ad/78/5a/ad785a9fb1587a496092b3d2f4e912b8.jpg" />
+              <img src="https://i.pinimg.com/564x/17/09/b8/1709b8e482eec0862ee62804e42766fa.jpg" />
+              <img src="https://i.pinimg.com/564x/89/1a/f2/891af2adbdcdf549c672c58add333977.jpg" />
+              <img src="https://i.pinimg.com/564x/e7/65/04/e7650458fe434cd647eafb289a569fe2.jpg" />
+              
+            </div>
+      
+            <div class="logos-slide">
+              <img src="https://i.pinimg.com/564x/45/20/dd/4520ddfc56208707045c56232e946f7f.jpg" />
+              <img src="https://i.pinimg.com/564x/a5/89/c8/a589c8077c7e4735b767a9ffc7ef6c23.jpg" />
+              <img src="https://i.pinimg.com/564x/ad/78/5a/ad785a9fb1587a496092b3d2f4e912b8.jpg" />
+              <img src="https://i.pinimg.com/564x/17/09/b8/1709b8e482eec0862ee62804e42766fa.jpg" />
+              <img src="https://i.pinimg.com/564x/89/1a/f2/891af2adbdcdf549c672c58add333977.jpg" />
+              <img src="https://i.pinimg.com/564x/e7/65/04/e7650458fe434cd647eafb289a569fe2.jpg" />
+              <img src="https://i.pinimg.com/564x/45/20/dd/4520ddfc56208707045c56232e946f7f.jpg" />
+              <img src="https://i.pinimg.com/564x/a5/89/c8/a589c8077c7e4735b767a9ffc7ef6c23.jpg" />
+              <img src="https://i.pinimg.com/564x/ad/78/5a/ad785a9fb1587a496092b3d2f4e912b8.jpg" />
+              <img src="https://i.pinimg.com/564x/17/09/b8/1709b8e482eec0862ee62804e42766fa.jpg" />
+              <img src="https://i.pinimg.com/564x/89/1a/f2/891af2adbdcdf549c672c58add333977.jpg" />
+              <img src="https://i.pinimg.com/564x/e7/65/04/e7650458fe434cd647eafb289a569fe2.jpg" />
+              
+            </div>
+          </div>
+    </section>
+
+{% endblock %}
