@@ -2,6 +2,8 @@
 
 ¡Bienvenido a al proyecto Tenvagos! Esta es una aplicación para reservas de hotel desarrollada con Flask. Esta aplicación permite a los usuarios registrarse para servicios, hacer reserva de habitaciones y más! Apunta a proporcionar una experiencia de usuario completa y funcional, los detalles del proyecto se describen a continuación.
 
+- Se encuentra disponible un informe final de este trabajo grupal en un archivo PFD en este repositorio.
+
 ## Características
 
 - Registro y autenticación de usuarios
